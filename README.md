@@ -700,10 +700,11 @@ The next immediate tasks are:
 - GPU: NVIDIA GeForce RTX 3060
 - NVIDIA driver: 580.173.02
 - CUDA: 13.0
-- Isaac Sim: 2.3.2
+- Isaac Sim: 5.1
+- Isaac Lab version: 2.3.2
 - Isaac Lab branch: main
-- Isaac Lab commit: b4c3210247
-- Python: 3.10.12
+- Isaac Lab commit: training-checkpoints-develop-16-gb4c3210247
+- Host Python: 3.10.12
 - ORCA description commit: b9b349a21ee0238c62b6cf92ae7597027867adf8
 
 
