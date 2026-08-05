@@ -1,0 +1,33 @@
+# External repositories
+external/orcahand_description/
+
+# Generated USD assets
+assets/usd/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Isaac / Omniverse caches
+.cache/
+.omniverse/
+kit/cache/
+isaac-sim/cache/
+
+# Logs and experimental data
+logs/
+outputs/
+*.csv
+*.npy
+*.npz
+*.bag
+*.mp4
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
