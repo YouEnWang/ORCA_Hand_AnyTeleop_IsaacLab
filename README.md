@@ -694,18 +694,17 @@ The next immediate tasks are:
 
 另外，你可以在 README 最前面或最後面加入一段目前實際使用版本，等你確認後再填入：
 
-```markdown
 ## Development Environment
 
-- Operating system: Ubuntu XX.XX
-- GPU: TBD
-- NVIDIA driver: TBD
-- CUDA: TBD
-- Isaac Sim: TBD
-- Isaac Lab branch: TBD
-- Isaac Lab commit: TBD
-- Python: TBD
-- ORCA description commit: TBD
+- Operating system: Ubuntu 22.04.5 LTS
+- GPU: NVIDIA GeForce RTX 3060
+- NVIDIA driver: 580.173.02
+- CUDA: 13.0
+- Isaac Sim: 2.3.2
+- Isaac Lab branch: main
+- Isaac Lab commit: b4c3210247
+- Python: 3.10.12
+- ORCA description commit: b9b349a21ee0238c62b6cf92ae7597027867adf8
 
 
 這些內容之後應與 `THIRD_PARTY_VERSIONS.md` 保持一致。
