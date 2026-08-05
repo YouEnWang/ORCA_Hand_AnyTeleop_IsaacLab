@@ -1,11 +1,3 @@
-下面這份內容適合你目前剛建立 `orca_isaaclab_import` 專案、準備將 **ORCA Hand v2 Right URDF 匯入 Isaac Sim／Isaac Lab** 的階段。
-
-請將以下內容貼到：
-
-```text
-~/Projects/orca_isaaclab_import/README.md
-```
-
 # ORCA Hand v2 Vision-Based Teleoperation in Isaac Lab
 
 本專案旨在建立一套以 **AnyTeleop** 為概念參考的 ORCA Hand v2 裸手視覺即時遙操作系統。
