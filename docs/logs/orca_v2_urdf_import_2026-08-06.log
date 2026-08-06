@@ -1,0 +1,104 @@
+[9.704s] app ready
+[12.303s] Simulation App Startup Complete
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Input URDF file: /home/lab606/Projects/orca_isaaclab_import/assets/urdf_work/isaac_package/orcahand_description/v2/models/urdf/orcahand_right.urdf
+URDF importer config:
+    asset_path: /home/lab606/Projects/orca_isaaclab_import/assets/urdf_work/isaac_package/orcahand_description/v2/models/urdf/orcahand_right.urdf
+    usd_dir: /home/lab606/Projects/orca_isaaclab_import/assets/usd/orca_v2_right_sanitized
+    usd_file_name: orcahand_right.usd
+    force_usd_conversion: True
+    make_instanceable: True
+    fix_base: True
+    root_link_name: None
+    link_density: 0.0
+    merge_fixed_joints: False
+    convert_mimic_joints_to_normal_joints: False
+    joint_drive: 
+        drive_type: force
+        target_type: none
+        gains: 
+            stiffness: 0.0
+            damping: 0.0
+    collider_type: convex_hull
+    self_collision: False
+    replace_cylinders_with_capsules: False
+    collision_from_visuals: False
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path ForeArmStructure-Model_e18f2368 is not a valid usd path, modifying to ForeArmStructure_Model_e18f2368
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path TopTower-Model_4a80d30e is not a valid usd path, modifying to TopTower_Model_4a80d30e
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-AP_f5e42b61 is not a valid usd path, modifying to P_AP_f5e42b61
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-PP_1d411b9b is not a valid usd path, modifying to P_PP_1d411b9b
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-FingerTipAssembly_cd219176 is not a valid usd path, modifying to P_FingerTipAssembly_cd219176
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_6ec59111 is not a valid usd path, modifying to M_AP_6ec59111
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_8660a1eb is not a valid usd path, modifying to M_PP_8660a1eb
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_424a8e75 is not a valid usd path, modifying to M_FingerTipAssembly_424a8e75
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_e04a96f2 is not a valid usd path, modifying to M_AP_e04a96f2
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_08efa608 is not a valid usd path, modifying to M_PP_08efa608
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_34afb748 is not a valid usd path, modifying to M_FingerTipAssembly_34afb748
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path I-AP-R_d95d02d1 is not a valid usd path, modifying to I_AP_R_d95d02d1
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path I-PP_bacbd481 is not a valid usd path, modifying to I_PP_bacbd481
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path I-FingerTipAssembly_ec49c16c is not a valid usd path, modifying to I_FingerTipAssembly_ec49c16c
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path T-TP-R_1c2b802d is not a valid usd path, modifying to T_TP_R_1c2b802d
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-T-AP_a9723101 is not a valid usd path, modifying to R_T_AP_a9723101
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path T-PP_68395e98 is not a valid usd path, modifying to T_PP_68395e98
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path T-DP_b7429e50 is not a valid usd path, modifying to T_DP_b7429e50
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path TopTower-Model_4a80d30e_to_ForeArmStructure-Model_e18f2368 is not a valid usd path, modifying to TopTower_Model_4a80d30e_to_ForeArmStructure_Model_e18f2368
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path ForeArmStructure-Model_e18f2368 is not a valid usd path, modifying to ForeArmStructure_Model_e18f2368
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path TopTower-Model_4a80d30e is not a valid usd path, modifying to TopTower_Model_4a80d30e
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e is not a valid usd path, modifying to R_Carpals_8d1f1041_to_TopTower_Model_4a80d30e
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path TopTower-Model_4a80d30e is not a valid usd path, modifying to TopTower_Model_4a80d30e
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-AP_f5e42b61_to_R-Carpals_8d1f1041 is not a valid usd path, modifying to P_AP_f5e42b61_to_R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-AP_f5e42b61 is not a valid usd path, modifying to P_AP_f5e42b61
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-PP_1d411b9b_to_P-AP_f5e42b61 is not a valid usd path, modifying to P_PP_1d411b9b_to_P_AP_f5e42b61
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-AP_f5e42b61 is not a valid usd path, modifying to P_AP_f5e42b61
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-PP_1d411b9b is not a valid usd path, modifying to P_PP_1d411b9b
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b is not a valid usd path, modifying to P_FingerTipAssembly_cd219176_to_P_PP_1d411b9b
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-PP_1d411b9b is not a valid usd path, modifying to P_PP_1d411b9b
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path P-FingerTipAssembly_cd219176 is not a valid usd path, modifying to P_FingerTipAssembly_cd219176
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_6ec59111_to_R-Carpals_8d1f1041 is not a valid usd path, modifying to M_AP_6ec59111_to_R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_6ec59111 is not a valid usd path, modifying to M_AP_6ec59111
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_8660a1eb_to_M-AP_6ec59111 is not a valid usd path, modifying to M_PP_8660a1eb_to_M_AP_6ec59111
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_6ec59111 is not a valid usd path, modifying to M_AP_6ec59111
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_8660a1eb is not a valid usd path, modifying to M_PP_8660a1eb
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb is not a valid usd path, modifying to M_FingerTipAssembly_424a8e75_to_M_PP_8660a1eb
+2026-08-06T06:52:03Z [12,288ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_8660a1eb is not a valid usd path, modifying to M_PP_8660a1eb
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_424a8e75 is not a valid usd path, modifying to M_FingerTipAssembly_424a8e75
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_e04a96f2_to_R-Carpals_8d1f1041 is not a valid usd path, modifying to M_AP_e04a96f2_to_R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_e04a96f2 is not a valid usd path, modifying to M_AP_e04a96f2
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_08efa608_to_M-AP_e04a96f2 is not a valid usd path, modifying to M_PP_08efa608_to_M_AP_e04a96f2
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-AP_e04a96f2 is not a valid usd path, modifying to M_AP_e04a96f2
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_08efa608 is not a valid usd path, modifying to M_PP_08efa608
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_34afb748_to_M-PP_08efa608 is not a valid usd path, modifying to M_FingerTipAssembly_34afb748_to_M_PP_08efa608
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-PP_08efa608 is not a valid usd path, modifying to M_PP_08efa608
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path M-FingerTipAssembly_34afb748 is not a valid usd path, modifying to M_FingerTipAssembly_34afb748
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-AP-R_d95d02d1_to_R-Carpals_8d1f1041 is not a valid usd path, modifying to I_AP_R_d95d02d1_to_R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-AP-R_d95d02d1 is not a valid usd path, modifying to I_AP_R_d95d02d1
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-PP_bacbd481_to_I-AP-R_d95d02d1 is not a valid usd path, modifying to I_PP_bacbd481_to_I_AP_R_d95d02d1
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-AP-R_d95d02d1 is not a valid usd path, modifying to I_AP_R_d95d02d1
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-PP_bacbd481 is not a valid usd path, modifying to I_PP_bacbd481
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481 is not a valid usd path, modifying to I_FingerTipAssembly_ec49c16c_to_I_PP_bacbd481
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-PP_bacbd481 is not a valid usd path, modifying to I_PP_bacbd481
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path I-FingerTipAssembly_ec49c16c is not a valid usd path, modifying to I_FingerTipAssembly_ec49c16c
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-TP-R_1c2b802d_to_R-Carpals_8d1f1041 is not a valid usd path, modifying to T_TP_R_1c2b802d_to_R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-Carpals_8d1f1041 is not a valid usd path, modifying to R_Carpals_8d1f1041
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-TP-R_1c2b802d is not a valid usd path, modifying to T_TP_R_1c2b802d
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-T-AP_a9723101_to_T-TP-R_1c2b802d is not a valid usd path, modifying to R_T_AP_a9723101_to_T_TP_R_1c2b802d
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-TP-R_1c2b802d is not a valid usd path, modifying to T_TP_R_1c2b802d
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-T-AP_a9723101 is not a valid usd path, modifying to R_T_AP_a9723101
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-PP_68395e98_to_R-T-AP_a9723101 is not a valid usd path, modifying to T_PP_68395e98_to_R_T_AP_a9723101
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path R-T-AP_a9723101 is not a valid usd path, modifying to R_T_AP_a9723101
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-PP_68395e98 is not a valid usd path, modifying to T_PP_68395e98
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-DP_b7429e50_to_T-PP_68395e98 is not a valid usd path, modifying to T_DP_b7429e50_to_T_PP_68395e98
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-PP_68395e98 is not a valid usd path, modifying to T_PP_68395e98
+2026-08-06T06:52:03Z [12,289ms] [Warning] [isaacsim.asset.importer.urdf] The path T-DP_b7429e50 is not a valid usd path, modifying to T_DP_b7429e50
+2026-08-06T06:52:04Z [13,143ms] [Warning] [isaacsim.asset.importer.urdf] R_T_AP_a9723101_to_T_TP_R_1c2b802d: Joint Axis is not body aligned with X, Y or Z primary axis. Adjusting PhysX joint alignment to Axis X and reorienting bodies.
+URDF importer output:
+Generated USD file: /home/lab606/Projects/orca_isaaclab_import/assets/usd/orca_v2_right_sanitized/orcahand_right.usd

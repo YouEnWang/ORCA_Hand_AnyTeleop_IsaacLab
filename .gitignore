@@ -1,6 +1,9 @@
 # External repositories
 external/orcahand_description/
 
+# Generated Isaac-compatible package
+assets/urdf_work/isaac_package/
+
 # Generated USD assets
 assets/usd/
 
