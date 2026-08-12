@@ -21,3 +21,31 @@
 - Commit: `b4c3210247`
 - Isaac Lab version: 2.3.2
 - Isaac Sim runtime: 5.1.0
+
+## dex-retargeting
+
+- Repository: https://github.com/dexsuite/dex-retargeting
+- Commit: 3f56141bc8bd2760d5e452e382937269554ebb21
+- Branch: main
+- Origin: AnyTeleop
+- Purpose: Human-to-robot dexterous hand retargeting
+
+## sim-web-visualizer
+
+- Repository: https://github.com/NVlabs/sim-web-visualizer
+- Commit: 20b02f3380b7872bf262ac26859879d1c1385671
+- Branch: main
+- Origin: AnyTeleop
+- Purpose: Web-based visualizer for simulation environments
+
+## AnyTeleop Retargeting Container
+
+- Base image: `python:3.10-slim`
+- Docker image: `orca-anyteleop-retarget:c9de8bddf3f0`
+- PyTorch: CPU-only
+- MediaPipe: `0.10.21`
+- dex-retargeting:
+  `3f56141bc8bd2760d5e452e382937269554ebb21`
+
+The retargeting environment is intentionally isolated from the
+Isaac Lab Python environment.

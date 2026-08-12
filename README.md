@@ -436,21 +436,40 @@ The values should be filled only after inspecting the URDF, Isaac articulation a
 
 ## 10. First Validation Milestone
 
-The first milestone is complete only when all of the following conditions are satisfied:
+### Completed
 
-* [ ] ORCA Hand v2 Right URDF can be parsed
-* [ ] All required mesh files can be resolved
-* [ ] The URDF can be converted to USD
-* [ ] The ORCA Hand model appears correctly in Isaac Sim
-* [ ] The base is fixed correctly
-* [ ] All expected controllable joints are present
-* [ ] Joint limits are available
-* [ ] Each joint can be moved individually
-* [ ] The positive and negative joint directions are recorded
-* [ ] The Isaac joint names and indices are exported
-* [ ] A preliminary semantic joint mapping is completed
+- [x] Import ORCA Hand v2 Right URDF into Isaac Sim
+- [x] Resolve invalid USD mesh-name import issue
+- [x] Verify ORCA Hand v2 17-DoF articulation
+- [x] Build containerized dex-retargeting environment
+- [x] Pin AnyTeleop-derived dex-retargeting implementation
+- [x] Resolve PyTorch dependency
+- [x] Resolve MediaPipe compatibility
+- [x] Access RealSense camera from the Docker container
+- [x] Create ORCA-specific VectorOptimizer configuration
+- [x] Create AnyTeleop-style UDP retargeting server
+- [x] Create Isaac Lab ORCA teleoperation client
+- [x] Complete 17-joint dex-retargeting-to-Isaac name mapping
+- [x] Deliver the first retargeted ORCA command to Isaac Sim
+- [x] Resolve Isaac viewport navigation issue
 
-At this stage, MediaPipe and real-time teleoperation should remain disabled.
+### In Progress
+
+- [ ] Verify continuous MediaPipe hand tracking
+- [ ] Verify continuous UDP command transmission
+- [ ] Debug initial ORCA hand contraction
+- [ ] Define ORCA open-hand optimizer initialization
+- [ ] Calibrate VectorOptimizer scaling
+- [ ] Verify all retargeted finger motions
+- [ ] Add full pipeline logging
+- [ ] Evaluate retargeting latency and jitter
+
+### Future
+
+- [ ] Integrate sim-web-visualizer
+- [ ] Integrate the physical ORCA Hand v2
+- [ ] Compare simulation and physical joint responses
+- [ ] Add robustness and jitter-suppression methods
 
 ---
 
