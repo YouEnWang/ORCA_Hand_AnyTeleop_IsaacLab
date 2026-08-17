@@ -104,15 +104,15 @@ retargeting:
     # Fingertips
     - T-DP_b7429e50
     - I-FingerTipAssembly_ec49c16c
-    - M-FingerTipAssembly_424a8e75
-    - M-FingerTipAssembly_34afb748
+    - M-FingerTipAssembly_34afb748      # - M-FingerTipAssembly_424a8e75
+    - M-FingerTipAssembly_424a8e75      # - M-FingerTipAssembly_34afb748
     - P-FingerTipAssembly_cd219176
 
     # Intermediate links
     - T-PP_68395e98
     - I-PP_bacbd481
-    - M-PP_8660a1eb
-    - M-PP_08efa608
+    - M-PP_08efa608                     # - M-PP_8660a1eb
+    - M-PP_8660a1eb                     # - M-PP_08efa608
     - P-PP_1d411b9b
 
   # ------------------------------------------------------------

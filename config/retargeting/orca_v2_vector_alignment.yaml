@@ -1,0 +1,54 @@
+method: non_thumb_orthogonal_procrustes
+human_open_window_seconds:
+  start: 2.0
+  end: 5.0
+  frames_used: 3
+selected_vector_indices:
+- 1
+- 2
+- 3
+- 4
+- 6
+- 7
+- 8
+- 9
+selected_vector_names:
+- index_tip
+- middle_tip
+- ring_tip
+- pinky_tip
+- index_intermediate
+- middle_intermediate
+- ring_intermediate
+- pinky_intermediate
+human_to_orca_rotation:
+- - 0.11063968147758514
+  - -0.9934214530289194
+  - -0.029541116167971233
+- - 0.24106925838074086
+  - -0.002011230502385473
+  - 0.9705058307993962
+- - -0.9641807265996859
+  - -0.11449791095813606
+  - 0.23926085103903721
+scale: 0.752138016751035
+convention:
+  column_vector: v_orca = scale * R @ v_human
+  row_vector_numpy: V_orca = scale * V_human @ R.T
+diagnostics:
+  det_rotation: 1.0000000000000002
+  selected_rmse_m: 0.01288440034148747
+  selected_rmse_mm: 12.884400341487469
+  all_vector_rmse_m: 0.03427620129919956
+  all_vector_rmse_mm: 34.27620129919956
+  per_vector_residual_mm:
+    thumb_tip: 92.72022224716704
+    index_tip: 8.877860097986957
+    middle_tip: 10.553969478192588
+    ring_tip: 16.085939473738367
+    pinky_tip: 11.446941380959354
+    thumb_intermediate: 42.7022009291168
+    index_intermediate: 14.496900048714366
+    middle_intermediate: 16.858874713236844
+    ring_intermediate: 8.08967651974938
+    pinky_intermediate: 13.72023892163034
