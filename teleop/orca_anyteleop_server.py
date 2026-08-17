@@ -184,6 +184,63 @@ def main():
     joint_names = list(
         retargeting.joint_names
     )
+    
+    # ============================================================
+    # ORCA retargeting initialization
+    # ============================================================
+
+    robot = optimizer.robot
+
+    joint_limits = np.asarray(
+        robot.joint_limits,
+        dtype=np.float32,
+    )
+
+    # Start from zero whenever zero is inside the joint range.
+    # If zero is outside a joint range, clamp to the nearest valid value.
+    initial_qpos = np.zeros(
+        robot.dof,
+        dtype=np.float32,
+    )
+
+    initial_qpos = np.clip(
+        initial_qpos,
+        joint_limits[:, 0],
+        joint_limits[:, 1],
+    )
+
+    # Keep ORCA wrist fixed.
+    wrist_index = joint_names.index(
+        EXPECTED_WRIST_JOINT
+    )
+
+    initial_qpos[wrist_index] = np.clip(
+        args.wrist_position,
+        joint_limits[wrist_index, 0],
+        joint_limits[wrist_index, 1],
+    )
+
+    # Override SeqRetargeting's default joint-limit-midpoint initialization.
+    retargeting.set_qpos(
+        initial_qpos
+    )
+
+    print()
+    print("=" * 80)
+    print("ORCA retargeting initial pose")
+    print("=" * 80)
+
+    for i, name in enumerate(
+        joint_names
+    ):
+        print(
+            f"[{i:02d}] "
+            f"{name:<65} "
+            f"q0={initial_qpos[i]:+.4f} "
+            f"range="
+            f"[{joint_limits[i, 0]:+.4f}, "
+            f"{joint_limits[i, 1]:+.4f}]"
+        )
 
     fixed_joint_names = (
         optimizer.fixed_joint_names
@@ -298,11 +355,35 @@ def main():
             f"  [{i:02d}] {name}"
         )
 
+    # ==============================================================
+    # Runtime diagnostics
+    # ==============================================================
+
     seq = 0
 
-    frame_count = 0
+    # Camera / MediaPipe statistics
+    captured_count = 0                  # 成功從 D435i 讀到幾張 frame
+    read_failure_count = 0              # camera read 失敗幾次
+    valid_detection_count = 0           # MediaPipe 成功抓到指定手
+    invalid_detection_count = 0         # MediaPipe 沒抓到手
 
-    fps_timer = time.monotonic()
+    # Retargeting / network statistics
+    retarget_success_count = 0          # VectorOptimizer 成功產生 qpos
+    retarget_failure_count = 0          # optimizer 產生 NaN/Inf
+    sent_valid_count = 0                # 發出有效 robot command
+    sent_invalid_count = 0              # 發出 tracking_valid=False
+
+    # Latest retargeting diagnostics
+    previous_qpos = None
+    latest_qpos = None
+
+    latest_q_delta_max = 0.0            # 相鄰兩個 qpos 最大關節變化
+    latest_retarget_ms = 0.0            # 最近一幀 optimizer 計算時間
+
+    status_timer = time.monotonic()
+    
+    # Overall runtime timer for experiment alignment.
+    run_start_time = time.monotonic()
 
     try:
 
@@ -311,7 +392,9 @@ def main():
             ok, frame = cap.read()
 
             if not ok:
-
+                
+                read_failure_count += 1
+                
                 print(
                     "[WARNING] "
                     "Failed to read camera frame."
@@ -320,7 +403,10 @@ def main():
                 time.sleep(0.01)
 
                 continue
-
+            
+            # 成功取得一張 camera frame
+            captured_count += 1
+            
             # OpenCV BGR -> MediaPipe RGB
             rgb = cv2.cvtColor(
                 frame,
@@ -337,7 +423,9 @@ def main():
             )
 
             if num_box == 0:
-
+                
+                invalid_detection_count += 1
+                
                 send_invalid_tracking_packet(
                     sock,
                     args.host,
@@ -345,6 +433,8 @@ def main():
                     seq,
                 )
 
+                sent_invalid_count += 1
+                
                 seq += 1
 
                 if args.show:
@@ -369,9 +459,52 @@ def main():
                         & 0xFF
                     ) == ord("q"):
                         break
+                
+                # ----------------------------------------------------------
+                # Even when tracking is invalid, print diagnostics
+                # once per second.
+                # ----------------------------------------------------------
 
+                now = time.monotonic()
+
+                if now - status_timer >= 1.0:
+
+                    valid_ratio = (
+                        100.0
+                        * valid_detection_count
+                        / max(captured_count, 1)
+                    )
+
+                    print(
+                        f"[SERVER] "
+                        f"camera={captured_count:3d}/s  "
+                        f"read_fail={read_failure_count:3d}  "
+                        f"valid={valid_detection_count:3d}  "
+                        f"invalid={invalid_detection_count:3d}  "
+                        f"ratio={valid_ratio:6.2f}%  "
+                        f"retarget_ok={retarget_success_count:3d}  "
+                        f"retarget_fail={retarget_failure_count:3d}  "
+                        f"sent_valid={sent_valid_count:3d}  "
+                        f"sent_invalid={sent_invalid_count:3d}"
+                    )
+
+                    captured_count = 0
+                    read_failure_count = 0
+                    valid_detection_count = 0
+                    invalid_detection_count = 0
+
+                    retarget_success_count = 0
+                    retarget_failure_count = 0
+                    sent_valid_count = 0
+                    sent_invalid_count = 0
+
+                    status_timer = now
+                
                 continue
-
+            
+            # 到這裡代表 hand detection 成功
+            valid_detection_count += 1
+            
             # ------------------------------------------------------
             # This follows the official dex-retargeting
             # vector-retargeting example:
@@ -409,11 +542,21 @@ def main():
                 )
                 * 1000.0
             )
+            
+            latest_retarget_ms = float(
+                retarget_ms
+            )
+            
+            # --------------------------------------------------------------
+            # Validate optimizer output
+            # --------------------------------------------------------------
 
             if not np.all(
                 np.isfinite(qpos)
             ):
 
+                retarget_failure_count += 1
+                
                 print(
                     "[WARNING] "
                     "Retargeting returned "
@@ -427,10 +570,40 @@ def main():
                     seq,
                 )
 
+                sent_invalid_count += 1
+                
                 seq += 1
 
                 continue
+            
+            # Retargeting output is valid
+            retarget_success_count += 1
 
+            latest_qpos = qpos.copy()
+            
+            # --------------------------------------------------------------
+            # Measure frame-to-frame joint-target change
+            # --------------------------------------------------------------
+
+            if previous_qpos is None:
+
+                latest_q_delta_max = 0.0
+
+            else:
+
+                latest_q_delta_max = float(
+                    np.max(
+                        np.abs(
+                            qpos
+                            -
+                            previous_qpos
+                        )
+                    )
+                )
+
+
+            previous_qpos = qpos.copy()
+            
             # ------------------------------------------------------
             # Network packet
             # ------------------------------------------------------
@@ -459,35 +632,176 @@ def main():
                     args.port,
                 ),
             )
+            
+            sent_valid_count += 1
 
             seq += 1
-            frame_count += 1
-
-            # ------------------------------------------------------
-            # Console FPS
-            # ------------------------------------------------------
+            
+            # ==============================================================
+            # Print server status once per second
+            # ==============================================================
 
             now = time.monotonic()
 
-            elapsed = (
-                now - fps_timer
-            )
+            if now - status_timer >= 1.0:
 
-            if elapsed >= 1.0:
-
-                measured_fps = (
-                    frame_count
-                    / elapsed
+                valid_ratio = (
+                    100.0
+                    * valid_detection_count
+                    / max(captured_count, 1)
                 )
+
+                if latest_qpos is not None:
+
+                    q_min = float(
+                        np.min(latest_qpos)
+                    )
+
+                    q_max = float(
+                        np.max(latest_qpos)
+                    )
+
+                    q_text = (
+                        f"[{q_min:+.3f}, "
+                        f"{q_max:+.3f}]"
+                    )
+
+                else:
+
+                    q_text = "N/A"
 
                 print(
-                    f"[RUN] FPS={measured_fps:5.1f}  "
-                    f"retarget={retarget_ms:6.2f} ms  "
+                    f"[SERVER] "
+                    f"camera={captured_count:3d}/s  "
+                    f"read_fail={read_failure_count:3d}  "
+                    f"valid={valid_detection_count:3d}  "
+                    f"invalid={invalid_detection_count:3d}  "
+                    f"ratio={valid_ratio:6.2f}%  "
+                    f"retarget_ok={retarget_success_count:3d}  "
+                    f"retarget_fail={retarget_failure_count:3d}  "
+                    f"sent={sent_valid_count:3d}  "
+                    f"retarget={latest_retarget_ms:6.2f}ms  "
+                    f"q={q_text}  "
+                    f"dq_max={latest_q_delta_max:.4f}  "
                     f"seq={seq}"
                 )
+                
+                # ==============================================================
+                # Per-joint qpos diagnostics
+                # 方便分析到底是哪根手指，哪個 joint，撞哪個 limit
+                # ==============================================================
 
-                frame_count = 0
-                fps_timer = now
+                if latest_qpos is not None:
+
+                    elapsed_time = (
+                        time.monotonic()
+                        - run_start_time
+                    )
+
+                    print(
+                        f"[QPOS] t={elapsed_time:6.2f}s"
+                    )
+
+                    # dex-retargeting expands optimizer bounds by a very
+                    # small epsilon, so use a small tolerance when checking
+                    # whether a joint is effectively at a limit.
+                    limit_tolerance = 0.003
+
+                    for joint_index, (
+                        joint_name,
+                        joint_value,
+                    ) in enumerate(
+                        zip(
+                            joint_names,
+                            latest_qpos,
+                        )
+                    ):
+
+                        value = float(
+                            joint_value
+                        )
+
+                        lower = float(
+                            joint_limits[
+                                joint_index,
+                                0
+                            ]
+                        )
+
+                        upper = float(
+                            joint_limits[
+                                joint_index,
+                                1
+                            ]
+                        )
+
+                        joint_range = (
+                            upper - lower
+                        )
+
+                        # Normalized location inside joint range.
+                        #
+                        # 0.0 -> lower limit
+                        # 0.5 -> center
+                        # 1.0 -> upper limit
+                        if joint_range > 1e-8:
+
+                            normalized = (
+                                (value - lower)
+                                / joint_range
+                            )
+
+                        else:
+
+                            normalized = 0.0
+
+                        # Detect saturation.
+                        if (
+                            value
+                            <= lower + limit_tolerance
+                        ):
+
+                            limit_state = (
+                                "<<< LOWER_LIMIT"
+                            )
+
+                        elif (
+                            value
+                            >= upper - limit_tolerance
+                        ):
+
+                            limit_state = (
+                                "<<< UPPER_LIMIT"
+                            )
+
+                        else:
+
+                            limit_state = ""
+
+                        print(
+                            f"  [{joint_index:02d}] "
+                            f"{joint_name:<65} "
+                            f"q={value:+.4f}  "
+                            f"norm={normalized:6.3f}  "
+                            f"range="
+                            f"[{lower:+.4f}, "
+                            f"{upper:+.4f}]  "
+                            f"{limit_state}"
+                        )
+
+                # Reset only the one-second counters.
+                # Do NOT reset previous_qpos/latest_qpos.
+                captured_count = 0
+                read_failure_count = 0
+                valid_detection_count = 0
+                invalid_detection_count = 0
+
+                retarget_success_count = 0
+                retarget_failure_count = 0
+                sent_valid_count = 0
+                sent_invalid_count = 0
+
+                status_timer = now
 
             # ------------------------------------------------------
             # Optional display

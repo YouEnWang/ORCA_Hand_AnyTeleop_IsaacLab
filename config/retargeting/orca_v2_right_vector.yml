@@ -130,4 +130,6 @@ retargeting:
 
   # Same mechanism provided by dex-retargeting.
   # 0.2 is only the initial value and may be changed later.
-  low_pass_alpha: 0.2
+  # low_pass_alpha: 0.2
+  # Disable filtering during initial debugging.
+  low_pass_alpha: -1.0
