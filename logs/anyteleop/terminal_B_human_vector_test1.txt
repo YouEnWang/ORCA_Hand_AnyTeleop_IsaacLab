@@ -1,0 +1,1061 @@
+
+================================================================================
+ORCA retargeting initial pose
+================================================================================
+[00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q0=+0.0000 range=[-1.1345, +0.6109]
+[01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q0=+0.0000 range=[-0.4363, +0.5236]
+[02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q0=+0.0000 range=[-0.4363, +1.7453]
+[03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q0=+0.0000 range=[-0.2618, +1.8675]
+[04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.4712, +0.4712]
+[05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q0=+0.0000 range=[-0.2618, +1.8675]
+[07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.4712, +0.4712]
+[08] M-PP_08efa608_to_M-AP_e04a96f2                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q0=+0.0000 range=[-0.2618, +1.8675]
+[10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.5236, +0.5236]
+[11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q0=+0.0000 range=[-0.2618, +1.8675]
+[13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q0=+0.0000 range=[-0.7854, +0.5760]
+[14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q0=+0.0000 range=[-0.3142, +0.9599]
+[15] T-PP_68395e98_to_R-T-AP_a9723101                                  q0=+0.0000 range=[-0.4363, +1.7453]
+[16] T-DP_b7429e50_to_T-PP_68395e98                                    q0=+0.0000 range=[-0.2618, +1.8675]
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1786959089.187355     449 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1786959089.201170     449 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+
+================================================================================
+Human reference-vector mapping
+================================================================================
+[HV00] MP00 wrist        -> MP04 thumb_tip
+[HV01] MP00 wrist        -> MP08 index_tip
+[HV02] MP00 wrist        -> MP12 middle_tip
+[HV03] MP00 wrist        -> MP16 ring_tip
+[HV04] MP00 wrist        -> MP20 pinky_tip
+[HV05] MP00 wrist        -> MP02 thumb_mcp
+[HV06] MP00 wrist        -> MP06 index_pip
+[HV07] MP00 wrist        -> MP10 middle_pip
+[HV08] MP00 wrist        -> MP14 ring_pip
+[HV09] MP00 wrist        -> MP18 pinky_pip
+
+================================================================================
+AnyTeleop ORCA Hand Server
+================================================================================
+Camera            : /dev/video4
+Hand type         : Right
+Selfie            : False
+Retargeting       : VECTOR
+Robot DOF         : 17
+Optimized DOF     : 16
+Fixed joints      : ['R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e']
+UDP destination   : 127.0.0.1:5006
+
+ORCA robot joint order:
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041
+  [08] M-PP_08efa608_to_M-AP_e04a96f2
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d
+  [15] T-PP_68395e98_to_R-T-AP_a9723101
+  [16] T-DP_b7429e50_to_T-PP_68395e98
+W0000 00:00:1786959089.771066     452 landmark_projection_calculator.cc:186] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+[SERVER] camera= 17/s  read_fail=  0  valid= 17  invalid=  0  ratio=100.00%  retarget_ok= 17  retarget_fail=  0  sent= 17  retarget=  1.44ms  q=[-0.525, +1.321]  dq_max=0.0016  seq=17
+[HVEC] t=  1.03s
+  [HV00]      wrist -> thumb_tip    v=[-0.00095, +0.09092, +0.09456]  L=0.13118  dL=+0.000637  dV=0.001503
+  [HV01]      wrist -> index_tip    v=[+0.04135, +0.04280, +0.15977]  L=0.17050  dL=+0.000090  dV=0.000204
+  [HV02]      wrist -> middle_tip   v=[+0.05087, +0.00457, +0.17604]  L=0.18330  dL=-0.000146  dV=0.001279
+  [HV03]      wrist -> ring_tip     v=[+0.05949, -0.02690, +0.15990]  L=0.17272  dL=-0.000135  dV=0.000656
+  [HV04]      wrist -> pinky_tip    v=[+0.04433, -0.05499, +0.13084]  L=0.14869  dL=-0.000246  dV=0.000727
+  [HV05]      wrist -> thumb_mcp    v=[+0.01077, +0.05444, +0.04861]  L=0.07378  dL=+0.000298  dV=0.000384
+  [HV06]      wrist -> index_pip    v=[+0.00748, +0.03250, +0.12478]  L=0.12916  dL=-0.000039  dV=0.000230
+  [HV07]      wrist -> middle_pip   v=[+0.00793, +0.00027, +0.13665]  L=0.13688  dL=-0.000006  dV=0.000422
+  [HV08]      wrist -> ring_pip     v=[+0.02148, -0.02729, +0.12267]  L=0.12750  dL=-0.000043  dV=0.000429
+  [HV09]      wrist -> pinky_pip    v=[+0.01903, -0.04692, +0.09706]  L=0.10948  dL=-0.000004  dV=0.000288
+[QPOS] t=  1.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.3210  norm= 0.806  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.40ms  q=[-0.525, +1.362]  dq_max=0.0012  seq=47
+[HVEC] t=  2.03s
+  [HV00]      wrist -> thumb_tip    v=[-0.00051, +0.09107, +0.09416]  L=0.13099  dL=+0.000004  dV=0.000362
+  [HV01]      wrist -> index_tip    v=[+0.04165, +0.04310, +0.16015]  L=0.17100  dL=+0.000288  dV=0.000435
+  [HV02]      wrist -> middle_tip   v=[+0.05066, +0.00482, +0.17738]  L=0.18453  dL=+0.000507  dV=0.000922
+  [HV03]      wrist -> ring_tip     v=[+0.05891, -0.02623, +0.16109]  L=0.17352  dL=+0.000421  dV=0.000940
+  [HV04]      wrist -> pinky_tip    v=[+0.04413, -0.05490, +0.13219]  L=0.14978  dL=+0.000336  dV=0.000671
+  [HV05]      wrist -> thumb_mcp    v=[+0.01141, +0.05495, +0.04873]  L=0.07433  dL=+0.000302  dV=0.000501
+  [HV06]      wrist -> index_pip    v=[+0.00766, +0.03257, +0.12511]  L=0.12951  dL=+0.000241  dV=0.000313
+  [HV07]      wrist -> middle_pip   v=[+0.00738, +0.00027, +0.13714]  L=0.13734  dL=+0.000184  dV=0.000754
+  [HV08]      wrist -> ring_pip     v=[+0.02075, -0.02704, +0.12361]  L=0.12823  dL=+0.000424  dV=0.000829
+  [HV09]      wrist -> pinky_pip    v=[+0.01878, -0.04707, +0.09803]  L=0.11036  dL=+0.000149  dV=0.000681
+[QPOS] t=  2.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.3622  norm= 0.824  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.70ms  q=[-0.525, +1.394]  dq_max=0.0009  seq=77
+[HVEC] t=  3.03s
+  [HV00]      wrist -> thumb_tip    v=[-0.00127, +0.09160, +0.09535]  L=0.13223  dL=+0.000496  dV=0.000969
+  [HV01]      wrist -> index_tip    v=[+0.04088, +0.04287, +0.16006]  L=0.17067  dL=+0.000140  dV=0.000229
+  [HV02]      wrist -> middle_tip   v=[+0.05175, +0.00548, +0.17660]  L=0.18411  dL=+0.000293  dV=0.000330
+  [HV03]      wrist -> ring_tip     v=[+0.06056, -0.02560, +0.16022]  L=0.17319  dL=+0.000790  dV=0.001055
+  [HV04]      wrist -> pinky_tip    v=[+0.04502, -0.05497, +0.13105]  L=0.14907  dL=+0.000301  dV=0.000671
+  [HV05]      wrist -> thumb_mcp    v=[+0.01106, +0.05500, +0.04905]  L=0.07452  dL=+0.000273  dV=0.000424
+  [HV06]      wrist -> index_pip    v=[+0.00741, +0.03228, +0.12533]  L=0.12964  dL=+0.000322  dV=0.000329
+  [HV07]      wrist -> middle_pip   v=[+0.00791, +0.00034, +0.13707]  L=0.13730  dL=+0.000414  dV=0.000436
+  [HV08]      wrist -> ring_pip     v=[+0.02133, -0.02688, +0.12341]  L=0.12809  dL=+0.000415  dV=0.000455
+  [HV09]      wrist -> pinky_pip    v=[+0.01923, -0.04681, +0.09773]  L=0.11006  dL=+0.000194  dV=0.000286
+[QPOS] t=  3.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.3941  norm= 0.839  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.50ms  q=[-0.525, +1.420]  dq_max=0.0008  seq=107
+[HVEC] t=  4.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.00163, +0.09071, +0.09513]  L=0.13145  dL=+0.000258  dV=0.000573
+  [HV01]      wrist -> index_tip    v=[+0.04016, +0.04314, +0.16063]  L=0.17111  dL=+0.000123  dV=0.000677
+  [HV02]      wrist -> middle_tip   v=[+0.04968, +0.00586, +0.17808]  L=0.18497  dL=+0.000198  dV=0.001072
+  [HV03]      wrist -> ring_tip     v=[+0.05937, -0.02536, +0.16102]  L=0.17348  dL=+0.000182  dV=0.000709
+  [HV04]      wrist -> pinky_tip    v=[+0.04417, -0.05479, +0.13182]  L=0.14943  dL=+0.000133  dV=0.000424
+  [HV05]      wrist -> thumb_mcp    v=[+0.01186, +0.05507, +0.04876]  L=0.07451  dL=+0.000015  dV=0.000317
+  [HV06]      wrist -> index_pip    v=[+0.00752, +0.03235, +0.12537]  L=0.12970  dL=+0.000175  dV=0.000385
+  [HV07]      wrist -> middle_pip   v=[+0.00696, +0.00030, +0.13750]  L=0.13767  dL=+0.000245  dV=0.000266
+  [HV08]      wrist -> ring_pip     v=[+0.02081, -0.02703, +0.12379]  L=0.12841  dL=+0.000107  dV=0.000138
+  [HV09]      wrist -> pinky_pip    v=[+0.01868, -0.04680, +0.09801]  L=0.11021  dL=+0.000217  dV=0.000325
+[QPOS] t=  4.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4200  norm= 0.851  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.442]  dq_max=0.0007  seq=137
+[HVEC] t=  5.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.00109, +0.09007, +0.09534]  L=0.13117  dL=-0.000518  dV=0.000782
+  [HV01]      wrist -> index_tip    v=[+0.03982, +0.04386, +0.16034]  L=0.17093  dL=-0.000231  dV=0.000637
+  [HV02]      wrist -> middle_tip   v=[+0.05008, +0.00740, +0.17752]  L=0.18460  dL=-0.000061  dV=0.000366
+  [HV03]      wrist -> ring_tip     v=[+0.05952, -0.02386, +0.16072]  L=0.17304  dL=+0.000140  dV=0.000598
+  [HV04]      wrist -> pinky_tip    v=[+0.04443, -0.05390, +0.13143]  L=0.14884  dL=+0.000123  dV=0.000374
+  [HV05]      wrist -> thumb_mcp    v=[+0.01154, +0.05527, +0.04877]  L=0.07461  dL=-0.000065  dV=0.000274
+  [HV06]      wrist -> index_pip    v=[+0.00702, +0.03265, +0.12523]  L=0.12961  dL=-0.000344  dV=0.000389
+  [HV07]      wrist -> middle_pip   v=[+0.00751, +0.00054, +0.13715]  L=0.13736  dL=-0.000202  dV=0.000366
+  [HV08]      wrist -> ring_pip     v=[+0.02124, -0.02639, +0.12353]  L=0.12810  dL=-0.000095  dV=0.000111
+  [HV09]      wrist -> pinky_pip    v=[+0.01916, -0.04643, +0.09767]  L=0.10983  dL=-0.000021  dV=0.000208
+[QPOS] t=  5.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4420  norm= 0.861  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.460]  dq_max=0.0005  seq=167
+[HVEC] t=  6.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.00075, +0.08988, +0.09498]  L=0.13077  dL=-0.000694  dV=0.000816
+  [HV01]      wrist -> index_tip    v=[+0.04064, +0.04366, +0.15954]  L=0.17033  dL=-0.000214  dV=0.000835
+  [HV02]      wrist -> middle_tip   v=[+0.05101, +0.00706, +0.17631]  L=0.18367  dL=-0.000566  dV=0.000940
+  [HV03]      wrist -> ring_tip     v=[+0.06020, -0.02402, +0.15939]  L=0.17207  dL=-0.000565  dV=0.000639
+  [HV04]      wrist -> pinky_tip    v=[+0.04496, -0.05386, +0.13055]  L=0.14821  dL=-0.000301  dV=0.000376
+  [HV05]      wrist -> thumb_mcp    v=[+0.01152, +0.05505, +0.04847]  L=0.07425  dL=-0.000145  dV=0.000298
+  [HV06]      wrist -> index_pip    v=[+0.00754, +0.03255, +0.12490]  L=0.12929  dL=-0.000195  dV=0.000382
+  [HV07]      wrist -> middle_pip   v=[+0.00793, +0.00058, +0.13676]  L=0.13699  dL=-0.000212  dV=0.000478
+  [HV08]      wrist -> ring_pip     v=[+0.02146, -0.02627, +0.12307]  L=0.12766  dL=-0.000259  dV=0.000323
+  [HV09]      wrist -> pinky_pip    v=[+0.01926, -0.04619, +0.09740]  L=0.10951  dL=-0.000046  dV=0.000166
+[QPOS] t=  6.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4598  norm= 0.869  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.40ms  q=[-0.525, +1.473]  dq_max=0.0005  seq=197
+[HVEC] t=  7.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.00411, +0.08960, +0.09376]  L=0.12975  dL=-0.000289  dV=0.001348
+  [HV01]      wrist -> index_tip    v=[+0.04014, +0.04376, +0.16068]  L=0.17130  dL=+0.000197  dV=0.000297
+  [HV02]      wrist -> middle_tip   v=[+0.04828, +0.00275, +0.17801]  L=0.18446  dL=+0.000208  dV=0.000762
+  [HV03]      wrist -> ring_tip     v=[+0.05760, -0.02894, +0.16123]  L=0.17364  dL=+0.000335  dV=0.000974
+  [HV04]      wrist -> pinky_tip    v=[+0.04317, -0.05579, +0.13143]  L=0.14917  dL=+0.000162  dV=0.000823
+  [HV05]      wrist -> thumb_mcp    v=[+0.01212, +0.05450, +0.04804]  L=0.07365  dL=-0.000107  dV=0.000456
+  [HV06]      wrist -> index_pip    v=[+0.00698, +0.03272, +0.12463]  L=0.12904  dL=+0.000098  dV=0.000152
+  [HV07]      wrist -> middle_pip   v=[+0.00641, -0.00060, +0.13635]  L=0.13651  dL=-0.000135  dV=0.000190
+  [HV08]      wrist -> ring_pip     v=[+0.02029, -0.02765, +0.12317]  L=0.12785  dL=+0.000023  dV=0.000400
+  [HV09]      wrist -> pinky_pip    v=[+0.01829, -0.04655, +0.09743]  L=0.10952  dL=+0.000037  dV=0.000259
+[QPOS] t=  7.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4727  norm= 0.875  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.492]  dq_max=0.0009  seq=227
+[HVEC] t=  8.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.01467, +0.08507, +0.10016]  L=0.13223  dL=+0.001166  dV=0.003967
+  [HV01]      wrist -> index_tip    v=[+0.03525, +0.04587, +0.16374]  L=0.17366  dL=+0.000290  dV=0.001357
+  [HV02]      wrist -> middle_tip   v=[+0.04950, +0.00269, +0.17694]  L=0.18375  dL=+0.000290  dV=0.000873
+  [HV03]      wrist -> ring_tip     v=[+0.05901, -0.02855, +0.16080]  L=0.17365  dL=-0.000054  dV=0.000775
+  [HV04]      wrist -> pinky_tip    v=[+0.04364, -0.05802, +0.13437]  L=0.15273  dL=-0.000218  dV=0.000254
+  [HV05]      wrist -> thumb_mcp    v=[+0.01377, +0.05299, +0.05057]  L=0.07453  dL=+0.000682  dV=0.000981
+  [HV06]      wrist -> index_pip    v=[+0.00611, +0.03373, +0.12707]  L=0.13161  dL=+0.000301  dV=0.000400
+  [HV07]      wrist -> middle_pip   v=[+0.00750, -0.00165, +0.13659]  L=0.13680  dL=+0.000001  dV=0.000490
+  [HV08]      wrist -> ring_pip     v=[+0.02162, -0.02906, +0.12374]  L=0.12893  dL=+0.000042  dV=0.000355
+  [HV09]      wrist -> pinky_pip    v=[+0.01971, -0.04824, +0.09765]  L=0.11069  dL=-0.000252  dV=0.000368
+[QPOS] t=  8.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4917  norm= 0.884  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.522]  dq_max=0.0011  seq=257
+[HVEC] t=  9.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.02506, +0.07987, +0.10856]  L=0.13709  dL=+0.000490  dV=0.001086
+  [HV01]      wrist -> index_tip    v=[+0.03419, +0.04500, +0.16471]  L=0.17414  dL=+0.000214  dV=0.000644
+  [HV02]      wrist -> middle_tip   v=[+0.05456, +0.00891, +0.17419]  L=0.18275  dL=+0.000339  dV=0.000588
+  [HV03]      wrist -> ring_tip     v=[+0.06078, -0.02050, +0.15882]  L=0.17128  dL=+0.000399  dV=0.000745
+  [HV04]      wrist -> pinky_tip    v=[+0.04658, -0.05205, +0.13440]  L=0.15147  dL=+0.000311  dV=0.000577
+  [HV05]      wrist -> thumb_mcp    v=[+0.01530, +0.05121, +0.05457]  L=0.07639  dL=-0.000284  dV=0.000406
+  [HV06]      wrist -> index_pip    v=[+0.00425, +0.03396, +0.12929]  L=0.13374  dL=+0.000641  dV=0.000645
+  [HV07]      wrist -> middle_pip   v=[+0.00872, -0.00063, +0.13803]  L=0.13831  dL=+0.000679  dV=0.000733
+  [HV08]      wrist -> ring_pip     v=[+0.02274, -0.02635, +0.12484]  L=0.12960  dL=+0.000697  dV=0.000789
+  [HV09]      wrist -> pinky_pip    v=[+0.02166, -0.04585, +0.09861]  L=0.11088  dL=+0.000549  dV=0.000670
+[QPOS] t=  9.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5216  norm= 0.897  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.45ms  q=[-0.525, +1.566]  dq_max=0.0019  seq=287
+[HVEC] t= 10.03s
+  [HV00]      wrist -> thumb_tip    v=[+0.03656, +0.06146, +0.11740]  L=0.13747  dL=+0.000253  dV=0.001827
+  [HV01]      wrist -> index_tip    v=[+0.04138, +0.04256, +0.15845]  L=0.16920  dL=-0.000859  dV=0.001203
+  [HV02]      wrist -> middle_tip   v=[+0.04666, +0.00844, +0.16445]  L=0.17115  dL=-0.000943  dV=0.001132
+  [HV03]      wrist -> ring_tip     v=[+0.06386, -0.00999, +0.15145]  L=0.16467  dL=-0.000692  dV=0.001644
+  [HV04]      wrist -> pinky_tip    v=[+0.05391, -0.03623, +0.12943]  L=0.14481  dL=-0.000299  dV=0.001032
+  [HV05]      wrist -> thumb_mcp    v=[+0.01965, +0.04741, +0.05754]  L=0.07711  dL=-0.000254  dV=0.000496
+  [HV06]      wrist -> index_pip    v=[+0.00119, +0.03000, +0.13126]  L=0.13465  dL=-0.000444  dV=0.000475
+  [HV07]      wrist -> middle_pip   v=[-0.00063, -0.00693, +0.14206]  L=0.14223  dL=-0.000120  dV=0.001091
+  [HV08]      wrist -> ring_pip     v=[+0.01725, -0.02646, +0.12960]  L=0.13339  dL=+0.000223  dV=0.000522
+  [HV09]      wrist -> pinky_pip    v=[+0.02085, -0.04254, +0.10044]  L=0.11105  dL=-0.000167  dV=0.000350
+[QPOS] t= 10.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5661  norm= 0.918  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.46ms  q=[-0.525, +1.694]  dq_max=0.0016  seq=317
+[HVEC] t= 11.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.04798, +0.04834, +0.11336]  L=0.13224  dL=-0.000806  dV=0.001410
+  [HV01]      wrist -> index_tip    v=[+0.05452, +0.04500, +0.13893]  L=0.15588  dL=-0.001108  dV=0.002119
+  [HV02]      wrist -> middle_tip   v=[+0.05445, +0.01298, +0.14096]  L=0.15167  dL=-0.001293  dV=0.001698
+  [HV03]      wrist -> ring_tip     v=[+0.06575, -0.00092, +0.12969]  L=0.14541  dL=-0.001367  dV=0.001512
+  [HV04]      wrist -> pinky_tip    v=[+0.05744, -0.03015, +0.12085]  L=0.13716  dL=-0.000833  dV=0.000858
+  [HV05]      wrist -> thumb_mcp    v=[+0.02358, +0.04286, +0.05711]  L=0.07520  dL=-0.000236  dV=0.000514
+  [HV06]      wrist -> index_pip    v=[+0.00275, +0.02764, +0.13040]  L=0.13332  dL=-0.000639  dV=0.000977
+  [HV07]      wrist -> middle_pip   v=[+0.00290, -0.00508, +0.14193]  L=0.14205  dL=-0.000628  dV=0.000996
+  [HV08]      wrist -> ring_pip     v=[+0.01765, -0.02166, +0.12836]  L=0.13137  dL=-0.000061  dV=0.000219
+  [HV09]      wrist -> pinky_pip    v=[+0.02185, -0.04033, +0.09984]  L=0.10987  dL=+0.000180  dV=0.000688
+[QPOS] t= 11.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6940  norm= 0.976  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.41ms  q=[-0.525, +1.745]  dq_max=0.0016  seq=347
+[HVEC] t= 12.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.04983, +0.03992, +0.11557]  L=0.13204  dL=+0.000016  dV=0.000514
+  [HV01]      wrist -> index_tip    v=[+0.04324, +0.03933, +0.12659]  L=0.13944  dL=+0.000771  dV=0.000916
+  [HV02]      wrist -> middle_tip   v=[+0.04872, +0.01449, +0.12019]  L=0.13050  dL=-0.000104  dV=0.000654
+  [HV03]      wrist -> ring_tip     v=[+0.05696, +0.00532, +0.11183]  L=0.12561  dL=-0.000141  dV=0.001282
+  [HV04]      wrist -> pinky_tip    v=[+0.04911, -0.02041, +0.10262]  L=0.11558  dL=-0.000429  dV=0.000764
+  [HV05]      wrist -> thumb_mcp    v=[+0.02423, +0.04304, +0.05889]  L=0.07686  dL=+0.000527  dV=0.000697
+  [HV06]      wrist -> index_pip    v=[+0.00463, +0.02897, +0.12869]  L=0.13199  dL=-0.000060  dV=0.000500
+  [HV07]      wrist -> middle_pip   v=[+0.01037, -0.00222, +0.13940]  L=0.13981  dL=-0.000300  dV=0.000353
+  [HV08]      wrist -> ring_pip     v=[+0.02149, -0.02113, +0.12671]  L=0.13024  dL=-0.000154  dV=0.000180
+  [HV09]      wrist -> pinky_pip    v=[+0.02141, -0.03934, +0.10112]  L=0.11060  dL=-0.000192  dV=0.000586
+[QPOS] t= 12.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7455  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=377
+[HVEC] t= 13.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05480, +0.03308, +0.11482]  L=0.13146  dL=+0.000710  dV=0.001409
+  [HV01]      wrist -> index_tip    v=[+0.04692, +0.04244, +0.10314]  L=0.12100  dL=-0.000337  dV=0.000778
+  [HV02]      wrist -> middle_tip   v=[+0.03843, +0.01746, +0.09829]  L=0.10697  dL=+0.001727  dV=0.001773
+  [HV03]      wrist -> ring_tip     v=[+0.03754, +0.00531, +0.08502]  L=0.09309  dL=+0.001258  dV=0.001414
+  [HV04]      wrist -> pinky_tip    v=[+0.04863, -0.00973, +0.07708]  L=0.09166  dL=+0.000007  dV=0.000412
+  [HV05]      wrist -> thumb_mcp    v=[+0.02515, +0.04743, +0.05619]  L=0.07771  dL=+0.000463  dV=0.000503
+  [HV06]      wrist -> index_pip    v=[+0.01536, +0.03711, +0.12715]  L=0.13335  dL=+0.000131  dV=0.000185
+  [HV07]      wrist -> middle_pip   v=[+0.02741, +0.01307, +0.13475]  L=0.13813  dL=+0.000246  dV=0.000406
+  [HV08]      wrist -> ring_pip     v=[+0.03609, -0.00777, +0.11830]  L=0.12393  dL=+0.000197  dV=0.000653
+  [HV09]      wrist -> pinky_pip    v=[+0.03569, -0.02852, +0.10013]  L=0.11006  dL=-0.000070  dV=0.001195
+[QPOS] t= 13.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.36ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=407
+[HVEC] t= 14.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05647, +0.02059, +0.10940]  L=0.12483  dL=+0.000643  dV=0.001162
+  [HV01]      wrist -> index_tip    v=[+0.02904, +0.03102, +0.08705]  L=0.09687  dL=+0.000058  dV=0.000739
+  [HV02]      wrist -> middle_tip   v=[+0.02016, +0.00864, +0.08813]  L=0.09082  dL=+0.001165  dV=0.001241
+  [HV03]      wrist -> ring_tip     v=[+0.02234, -0.00224, +0.07281]  L=0.07619  dL=+0.001150  dV=0.001640
+  [HV04]      wrist -> pinky_tip    v=[+0.03532, -0.02138, +0.06710]  L=0.07878  dL=+0.000896  dV=0.001708
+  [HV05]      wrist -> thumb_mcp    v=[+0.02560, +0.04017, +0.05342]  L=0.07158  dL=+0.000398  dV=0.000423
+  [HV06]      wrist -> index_pip    v=[+0.02229, +0.03516, +0.11742]  L=0.12459  dL=+0.000506  dV=0.000660
+  [HV07]      wrist -> middle_pip   v=[+0.03406, +0.01275, +0.12258]  L=0.12786  dL=+0.000591  dV=0.000603
+  [HV08]      wrist -> ring_pip     v=[+0.04292, -0.00831, +0.10250]  L=0.11143  dL=+0.000033  dV=0.000043
+  [HV09]      wrist -> pinky_pip    v=[+0.04215, -0.02840, +0.08866]  L=0.10220  dL=+0.000219  dV=0.000554
+[QPOS] t= 14.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.32ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=437
+[HVEC] t= 15.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05717, -0.00947, +0.09986]  L=0.11545  dL=-0.000123  dV=0.000458
+  [HV01]      wrist -> index_tip    v=[+0.02672, +0.02587, +0.08535]  L=0.09310  dL=-0.000137  dV=0.000755
+  [HV02]      wrist -> middle_tip   v=[+0.02375, +0.00665, +0.08787]  L=0.09126  dL=+0.000312  dV=0.000981
+  [HV03]      wrist -> ring_tip     v=[+0.02137, -0.00447, +0.07210]  L=0.07533  dL=-0.000444  dV=0.000505
+  [HV04]      wrist -> pinky_tip    v=[+0.03165, -0.02592, +0.06395]  L=0.07592  dL=-0.000313  dV=0.000462
+  [HV05]      wrist -> thumb_mcp    v=[+0.02873, +0.03641, +0.05397]  L=0.07116  dL=-0.000384  dV=0.000737
+  [HV06]      wrist -> index_pip    v=[+0.02824, +0.03354, +0.11491]  L=0.12299  dL=+0.000309  dV=0.000387
+  [HV07]      wrist -> middle_pip   v=[+0.03546, +0.01138, +0.11950]  L=0.12517  dL=+0.000597  dV=0.000888
+  [HV08]      wrist -> ring_pip     v=[+0.04207, -0.01103, +0.09730]  L=0.10658  dL=-0.000168  dV=0.000695
+  [HV09]      wrist -> pinky_pip    v=[+0.04117, -0.02906, +0.08286]  L=0.09698  dL=-0.000100  dV=0.000664
+[QPOS] t= 15.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.36ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=467
+[HVEC] t= 16.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05508, -0.01158, +0.09985]  L=0.11462  dL=+0.000303  dV=0.000552
+  [HV01]      wrist -> index_tip    v=[+0.02762, +0.02607, +0.08617]  L=0.09417  dL=-0.000023  dV=0.000124
+  [HV02]      wrist -> middle_tip   v=[+0.02498, +0.00777, +0.08751]  L=0.09134  dL=-0.000087  dV=0.000731
+  [HV03]      wrist -> ring_tip     v=[+0.02233, -0.00398, +0.07227]  L=0.07574  dL=-0.000282  dV=0.000381
+  [HV04]      wrist -> pinky_tip    v=[+0.03209, -0.02623, +0.06303]  L=0.07544  dL=-0.000264  dV=0.000372
+  [HV05]      wrist -> thumb_mcp    v=[+0.02815, +0.03596, +0.05594]  L=0.07222  dL=+0.000215  dV=0.000457
+  [HV06]      wrist -> index_pip    v=[+0.02766, +0.03294, +0.11569]  L=0.12343  dL=-0.000016  dV=0.000168
+  [HV07]      wrist -> middle_pip   v=[+0.03483, +0.01070, +0.11969]  L=0.12511  dL=-0.000221  dV=0.000272
+  [HV08]      wrist -> ring_pip     v=[+0.04113, -0.01204, +0.09753]  L=0.10653  dL=-0.000232  dV=0.000442
+  [HV09]      wrist -> pinky_pip    v=[+0.04017, -0.03016, +0.08218]  L=0.09632  dL=+0.000077  dV=0.000100
+[QPOS] t= 16.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.35ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=497
+[HVEC] t= 17.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05418, -0.01046, +0.09726]  L=0.11182  dL=-0.000851  dV=0.000962
+  [HV01]      wrist -> index_tip    v=[+0.02615, +0.02646, +0.08476]  L=0.09257  dL=-0.000424  dV=0.000856
+  [HV02]      wrist -> middle_tip   v=[+0.02304, +0.00702, +0.08695]  L=0.09023  dL=-0.000012  dV=0.000272
+  [HV03]      wrist -> ring_tip     v=[+0.02174, -0.00421, +0.07205]  L=0.07538  dL=+0.000462  dV=0.000492
+  [HV04]      wrist -> pinky_tip    v=[+0.03086, -0.02717, +0.06299]  L=0.07522  dL=+0.000499  dV=0.000723
+  [HV05]      wrist -> thumb_mcp    v=[+0.02783, +0.03697, +0.05479]  L=0.07172  dL=-0.000005  dV=0.000243
+  [HV06]      wrist -> index_pip    v=[+0.02764, +0.03405, +0.11408]  L=0.12222  dL=-0.000568  dV=0.000592
+  [HV07]      wrist -> middle_pip   v=[+0.03629, +0.01109, +0.11842]  L=0.12435  dL=+0.000124  dV=0.000326
+  [HV08]      wrist -> ring_pip     v=[+0.04178, -0.01150, +0.09620]  L=0.10551  dL=-0.000292  dV=0.000302
+  [HV09]      wrist -> pinky_pip    v=[+0.03993, -0.03018, +0.08124]  L=0.09542  dL=-0.000076  dV=0.000127
+[QPOS] t= 17.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.39ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=527
+[HVEC] t= 18.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05367, -0.00982, +0.09804]  L=0.11220  dL=-0.000387  dV=0.000990
+  [HV01]      wrist -> index_tip    v=[+0.02551, +0.02692, +0.08505]  L=0.09278  dL=-0.000228  dV=0.000517
+  [HV02]      wrist -> middle_tip   v=[+0.02252, +0.00689, +0.08754]  L=0.09066  dL=-0.000161  dV=0.000405
+  [HV03]      wrist -> ring_tip     v=[+0.02101, -0.00451, +0.07278]  L=0.07588  dL=-0.000270  dV=0.000362
+  [HV04]      wrist -> pinky_tip    v=[+0.03090, -0.02748, +0.06379]  L=0.07602  dL=+0.000236  dV=0.000508
+  [HV05]      wrist -> thumb_mcp    v=[+0.02745, +0.03756, +0.05495]  L=0.07200  dL=-0.000463  dV=0.000641
+  [HV06]      wrist -> index_pip    v=[+0.02737, +0.03420, +0.11419]  L=0.12230  dL=-0.000834  dV=0.001146
+  [HV07]      wrist -> middle_pip   v=[+0.03662, +0.01172, +0.11862]  L=0.12469  dL=-0.000290  dV=0.000589
+  [HV08]      wrist -> ring_pip     v=[+0.04186, -0.01089, +0.09627]  L=0.10554  dL=-0.000419  dV=0.000887
+  [HV09]      wrist -> pinky_pip    v=[+0.04026, -0.02941, +0.08137]  L=0.09543  dL=-0.000284  dV=0.000685
+[QPOS] t= 18.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.53ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=557
+[HVEC] t= 19.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05453, -0.00896, +0.09857]  L=0.11300  dL=+0.000521  dV=0.000630
+  [HV01]      wrist -> index_tip    v=[+0.02722, +0.02738, +0.08523]  L=0.09356  dL=+0.000862  dV=0.001594
+  [HV02]      wrist -> middle_tip   v=[+0.02352, +0.00756, +0.08813]  L=0.09153  dL=+0.000762  dV=0.000877
+  [HV03]      wrist -> ring_tip     v=[+0.02176, -0.00424, +0.07262]  L=0.07593  dL=+0.000340  dV=0.000721
+  [HV04]      wrist -> pinky_tip    v=[+0.03119, -0.02749, +0.06325]  L=0.07569  dL=+0.000540  dV=0.001163
+  [HV05]      wrist -> thumb_mcp    v=[+0.02817, +0.03756, +0.05486]  L=0.07221  dL=+0.000156  dV=0.000838
+  [HV06]      wrist -> index_pip    v=[+0.02737, +0.03471, +0.11462]  L=0.12284  dL=+0.000274  dV=0.001027
+  [HV07]      wrist -> middle_pip   v=[+0.03644, +0.01165, +0.11887]  L=0.12487  dL=+0.000419  dV=0.001450
+  [HV08]      wrist -> ring_pip     v=[+0.04193, -0.01061, +0.09657]  L=0.10581  dL=+0.000535  dV=0.000999
+  [HV09]      wrist -> pinky_pip    v=[+0.04005, -0.02922, +0.08152]  L=0.09541  dL=+0.000282  dV=0.000526
+[QPOS] t= 19.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.45ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=587
+[HVEC] t= 20.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.05317, -0.00861, +0.09856]  L=0.11232  dL=+0.000172  dV=0.000993
+  [HV01]      wrist -> index_tip    v=[+0.02608, +0.02721, +0.08480]  L=0.09280  dL=+0.000093  dV=0.000757
+  [HV02]      wrist -> middle_tip   v=[+0.02313, +0.00750, +0.08808]  L=0.09137  dL=-0.000021  dV=0.001104
+  [HV03]      wrist -> ring_tip     v=[+0.02178, -0.00456, +0.07280]  L=0.07613  dL=+0.000316  dV=0.000532
+  [HV04]      wrist -> pinky_tip    v=[+0.03081, -0.02781, +0.06410]  L=0.07637  dL=+0.000818  dV=0.000846
+  [HV05]      wrist -> thumb_mcp    v=[+0.02743, +0.03806, +0.05459]  L=0.07198  dL=-0.000222  dV=0.000312
+  [HV06]      wrist -> index_pip    v=[+0.02755, +0.03509, +0.11437]  L=0.12276  dL=+0.000716  dV=0.000881
+  [HV07]      wrist -> middle_pip   v=[+0.03700, +0.01213, +0.11874]  L=0.12496  dL=+0.000492  dV=0.000810
+  [HV08]      wrist -> ring_pip     v=[+0.04202, -0.01009, +0.09673]  L=0.10594  dL=+0.000695  dV=0.001083
+  [HV09]      wrist -> pinky_pip    v=[+0.04005, -0.02889, +0.08204]  L=0.09575  dL=+0.001035  dV=0.001373
+[QPOS] t= 20.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.40ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=617
+[HVEC] t= 21.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.04650, +0.01449, +0.10870]  L=0.11911  dL=+0.000136  dV=0.001334
+  [HV01]      wrist -> index_tip    v=[+0.04463, +0.02970, +0.10880]  L=0.12129  dL=+0.000165  dV=0.000953
+  [HV02]      wrist -> middle_tip   v=[+0.04187, +0.00963, +0.10760]  L=0.11586  dL=+0.000548  dV=0.001088
+  [HV03]      wrist -> ring_tip     v=[+0.04383, -0.00063, +0.09583]  L=0.10538  dL=+0.000959  dV=0.001229
+  [HV04]      wrist -> pinky_tip    v=[+0.05027, -0.01716, +0.08546]  L=0.10062  dL=+0.000858  dV=0.001101
+  [HV05]      wrist -> thumb_mcp    v=[+0.01963, +0.04584, +0.05949]  L=0.07762  dL=+0.000090  dV=0.000636
+  [HV06]      wrist -> index_pip    v=[+0.01426, +0.03092, +0.13140]  L=0.13574  dL=+0.000414  dV=0.000672
+  [HV07]      wrist -> middle_pip   v=[+0.02055, +0.00296, +0.13942]  L=0.14096  dL=+0.000123  dV=0.000997
+  [HV08]      wrist -> ring_pip     v=[+0.02742, -0.01754, +0.12619]  L=0.13032  dL=+0.000359  dV=0.001138
+  [HV09]      wrist -> pinky_pip    v=[+0.02900, -0.03557, +0.10184]  L=0.11170  dL=+0.000454  dV=0.000832
+[QPOS] t= 21.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.52ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=647
+[HVEC] t= 22.04s
+  [HV00]      wrist -> thumb_tip    v=[+0.04463, +0.02033, +0.10550]  L=0.11635  dL=+0.000753  dV=0.002043
+  [HV01]      wrist -> index_tip    v=[+0.04729, +0.02638, +0.12122]  L=0.13276  dL=+0.001339  dV=0.001819
+  [HV02]      wrist -> middle_tip   v=[+0.04731, +0.00134, +0.12601]  L=0.13461  dL=+0.000929  dV=0.001610
+  [HV03]      wrist -> ring_tip     v=[+0.05453, -0.00766, +0.11632]  L=0.12870  dL=+0.001483  dV=0.002193
+  [HV04]      wrist -> pinky_tip    v=[+0.04633, -0.02853, +0.10454]  L=0.11785  dL=+0.001467  dV=0.001927
+  [HV05]      wrist -> thumb_mcp    v=[+0.01845, +0.04464, +0.05672]  L=0.07450  dL=+0.000119  dV=0.000920
+  [HV06]      wrist -> index_pip    v=[+0.00443, +0.02566, +0.12926]  L=0.13185  dL=+0.001007  dV=0.001126
+  [HV07]      wrist -> middle_pip   v=[+0.00534, -0.00662, +0.14084]  L=0.14109  dL=+0.000986  dV=0.001117
+  [HV08]      wrist -> ring_pip     v=[+0.01593, -0.02706, +0.12903]  L=0.13280  dL=+0.000631  dV=0.000909
+  [HV09]      wrist -> pinky_pip    v=[+0.01876, -0.04305, +0.10275]  L=0.11297  dL=+0.000367  dV=0.000899
+[QPOS] t= 22.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.36ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=677
+[HVEC] t= 23.05s
+  [HV00]      wrist -> thumb_tip    v=[+0.04910, +0.02462, +0.10518]  L=0.11866  dL=+0.000167  dV=0.002089
+  [HV01]      wrist -> index_tip    v=[+0.04819, +0.02532, +0.14368]  L=0.15365  dL=-0.000974  dV=0.002102
+  [HV02]      wrist -> middle_tip   v=[+0.04778, -0.00189, +0.14838]  L=0.15589  dL=-0.000180  dV=0.001508
+  [HV03]      wrist -> ring_tip     v=[+0.05630, -0.02066, +0.14378]  L=0.15579  dL=+0.001027  dV=0.002551
+  [HV04]      wrist -> pinky_tip    v=[+0.04741, -0.04623, +0.13270]  L=0.14830  dL=+0.002348  dV=0.003121
+  [HV05]      wrist -> thumb_mcp    v=[+0.01909, +0.04591, +0.05474]  L=0.07396  dL=+0.000255  dV=0.001277
+  [HV06]      wrist -> index_pip    v=[+0.00048, +0.02497, +0.13041]  L=0.13278  dL=+0.000212  dV=0.000470
+  [HV07]      wrist -> middle_pip   v=[-0.00166, -0.00644, +0.14120]  L=0.14136  dL=+0.000444  dV=0.000469
+  [HV08]      wrist -> ring_pip     v=[+0.01171, -0.02691, +0.12958]  L=0.13286  dL=+0.000199  dV=0.001040
+  [HV09]      wrist -> pinky_pip    v=[+0.01548, -0.04468, +0.10145]  L=0.11193  dL=-0.000141  dV=0.000660
+[QPOS] t= 23.05s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.35ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=708
+[HVEC] t= 24.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.04051, +0.02989, +0.10528]  L=0.11670  dL=+0.000521  dV=0.001102
+  [HV01]      wrist -> index_tip    v=[+0.04333, +0.03080, +0.15599]  L=0.16480  dL=-0.000227  dV=0.001060
+  [HV02]      wrist -> middle_tip   v=[+0.04886, -0.00304, +0.16691]  L=0.17394  dL=-0.000606  dV=0.001241
+  [HV03]      wrist -> ring_tip     v=[+0.05405, -0.02476, +0.15961]  L=0.17032  dL=+0.000115  dV=0.001026
+  [HV04]      wrist -> pinky_tip    v=[+0.03761, -0.06191, +0.13998]  L=0.15762  dL=+0.000078  dV=0.000774
+  [HV05]      wrist -> thumb_mcp    v=[+0.01425, +0.04915, +0.05457]  L=0.07481  dL=+0.000165  dV=0.000431
+  [HV06]      wrist -> index_pip    v=[+0.00203, +0.02673, +0.12996]  L=0.13270  dL=+0.000359  dV=0.000675
+  [HV07]      wrist -> middle_pip   v=[+0.00205, -0.00660, +0.14024]  L=0.14041  dL=+0.000416  dV=0.000701
+  [HV08]      wrist -> ring_pip     v=[+0.01642, -0.02959, +0.12643]  L=0.13088  dL=+0.000177  dV=0.000328
+  [HV09]      wrist -> pinky_pip    v=[+0.01664, -0.04853, +0.10109]  L=0.11337  dL=+0.000147  dV=0.000250
+[QPOS] t= 24.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=738
+[HVEC] t= 25.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.04241, +0.04755, +0.10624]  L=0.12388  dL=+0.000090  dV=0.001133
+  [HV01]      wrist -> index_tip    v=[+0.03818, +0.03686, +0.16516]  L=0.17348  dL=-0.000092  dV=0.000691
+  [HV02]      wrist -> middle_tip   v=[+0.04684, +0.00100, +0.17824]  L=0.18429  dL=-0.000505  dV=0.001325
+  [HV03]      wrist -> ring_tip     v=[+0.04918, -0.02578, +0.17015]  L=0.17898  dL=-0.000012  dV=0.001240
+  [HV04]      wrist -> pinky_tip    v=[+0.03257, -0.06453, +0.14336]  L=0.16055  dL=-0.000065  dV=0.001660
+  [HV05]      wrist -> thumb_mcp    v=[+0.01609, +0.05387, +0.05408]  L=0.07801  dL=-0.000412  dV=0.001046
+  [HV06]      wrist -> index_pip    v=[+0.00267, +0.03050, +0.13132]  L=0.13485  dL=+0.000141  dV=0.000477
+  [HV07]      wrist -> middle_pip   v=[+0.00290, -0.00302, +0.14076]  L=0.14082  dL=+0.000017  dV=0.000223
+  [HV08]      wrist -> ring_pip     v=[+0.01482, -0.02844, +0.12953]  L=0.13344  dL=+0.000140  dV=0.000377
+  [HV09]      wrist -> pinky_pip    v=[+0.01440, -0.05037, +0.10253]  L=0.11514  dL=-0.000029  dV=0.000971
+[QPOS] t= 25.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.39ms  q=[-0.525, +1.746]  dq_max=0.0001  seq=768
+[HVEC] t= 26.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.04034, +0.06396, +0.10435]  L=0.12887  dL=+0.001242  dV=0.001567
+  [HV01]      wrist -> index_tip    v=[+0.03315, +0.03863, +0.17003]  L=0.17749  dL=+0.000979  dV=0.001249
+  [HV02]      wrist -> middle_tip   v=[+0.04200, +0.00017, +0.18262]  L=0.18738  dL=+0.001076  dV=0.001247
+  [HV03]      wrist -> ring_tip     v=[+0.04442, -0.02842, +0.17205]  L=0.17996  dL=+0.000858  dV=0.001187
+  [HV04]      wrist -> pinky_tip    v=[+0.03317, -0.06479, +0.14095]  L=0.15863  dL=+0.000226  dV=0.000662
+  [HV05]      wrist -> thumb_mcp    v=[+0.01735, +0.05515, +0.05117]  L=0.07721  dL=+0.000555  dV=0.000599
+  [HV06]      wrist -> index_pip    v=[+0.00361, +0.03055, +0.13058]  L=0.13416  dL=+0.000529  dV=0.000544
+  [HV07]      wrist -> middle_pip   v=[+0.00331, -0.00277, +0.14018]  L=0.14025  dL=+0.000546  dV=0.000598
+  [HV08]      wrist -> ring_pip     v=[+0.01501, -0.02793, +0.12796]  L=0.13183  dL=+0.000390  dV=0.000443
+  [HV09]      wrist -> pinky_pip    v=[+0.01562, -0.04973, +0.10050]  L=0.11321  dL=+0.000239  dV=0.000260
+[QPOS] t= 26.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7457  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.45ms  q=[-0.525, +1.727]  dq_max=0.0011  seq=798
+[HVEC] t= 27.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.01710, +0.08482, +0.09307]  L=0.12708  dL=+0.001403  dV=0.001862
+  [HV01]      wrist -> index_tip    v=[+0.03498, +0.04076, +0.16663]  L=0.17508  dL=+0.000849  dV=0.002819
+  [HV02]      wrist -> middle_tip   v=[+0.04548, +0.00090, +0.18009]  L=0.18574  dL=+0.000670  dV=0.002390
+  [HV03]      wrist -> ring_tip     v=[+0.05300, -0.02614, +0.16704]  L=0.17719  dL=+0.000562  dV=0.001732
+  [HV04]      wrist -> pinky_tip    v=[+0.03922, -0.05955, +0.13626]  L=0.15379  dL=-0.000027  dV=0.001155
+  [HV05]      wrist -> thumb_mcp    v=[+0.01339, +0.05405, +0.04720]  L=0.07300  dL=+0.000539  dV=0.000620
+  [HV06]      wrist -> index_pip    v=[+0.00543, +0.03119, +0.12686]  L=0.13075  dL=+0.000228  dV=0.000949
+  [HV07]      wrist -> middle_pip   v=[+0.00563, -0.00182, +0.13733]  L=0.13745  dL=+0.000147  dV=0.000799
+  [HV08]      wrist -> ring_pip     v=[+0.01808, -0.02693, +0.12472]  L=0.12887  dL=+0.000180  dV=0.000651
+  [HV09]      wrist -> pinky_pip    v=[+0.01728, -0.04757, +0.09870]  L=0.11092  dL=+0.000005  dV=0.000108
+[QPOS] t= 27.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7269  norm= 0.992  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.689]  dq_max=0.0013  seq=828
+[HVEC] t= 28.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.00640, +0.08893, +0.09196]  L=0.12809  dL=+0.000644  dV=0.001293
+  [HV01]      wrist -> index_tip    v=[+0.04023, +0.03954, +0.16312]  L=0.17260  dL=+0.000402  dV=0.000886
+  [HV02]      wrist -> middle_tip   v=[+0.04862, -0.00025, +0.17938]  L=0.18585  dL=+0.000709  dV=0.001279
+  [HV03]      wrist -> ring_tip     v=[+0.05401, -0.02660, +0.16493]  L=0.17557  dL=+0.000690  dV=0.001299
+  [HV04]      wrist -> pinky_tip    v=[+0.04051, -0.05707, +0.13407]  L=0.15124  dL=+0.000459  dV=0.001183
+  [HV05]      wrist -> thumb_mcp    v=[+0.01228, +0.05456, +0.04784]  L=0.07360  dL=+0.000347  dV=0.000560
+  [HV06]      wrist -> index_pip    v=[+0.00739, +0.03153, +0.12531]  L=0.12943  dL=+0.000416  dV=0.000547
+  [HV07]      wrist -> middle_pip   v=[+0.00702, -0.00152, +0.13673]  L=0.13692  dL=+0.000489  dV=0.000782
+  [HV08]      wrist -> ring_pip     v=[+0.01858, -0.02602, +0.12403]  L=0.12808  dL=+0.000620  dV=0.001020
+  [HV09]      wrist -> pinky_pip    v=[+0.01722, -0.04712, +0.09798]  L=0.11008  dL=+0.000528  dV=0.000769
+[QPOS] t= 28.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6888  norm= 0.974  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.39ms  q=[-0.525, +1.651]  dq_max=0.0013  seq=858
+[HVEC] t= 29.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.00177, +0.09251, +0.09078]  L=0.12962  dL=+0.000410  dV=0.000694
+  [HV01]      wrist -> index_tip    v=[+0.03891, +0.04342, +0.16031]  L=0.17058  dL=+0.000196  dV=0.000490
+  [HV02]      wrist -> middle_tip   v=[+0.04486, +0.00225, +0.17952]  L=0.18506  dL=+0.000178  dV=0.000740
+  [HV03]      wrist -> ring_tip     v=[+0.05595, -0.02638, +0.16216]  L=0.17355  dL=+0.000372  dV=0.000803
+  [HV04]      wrist -> pinky_tip    v=[+0.04173, -0.05612, +0.13148]  L=0.14892  dL=+0.000291  dV=0.000538
+  [HV05]      wrist -> thumb_mcp    v=[+0.01153, +0.05495, +0.04760]  L=0.07361  dL=+0.000198  dV=0.000200
+  [HV06]      wrist -> index_pip    v=[+0.00684, +0.03288, +0.12378]  L=0.12826  dL=+0.000383  dV=0.000455
+  [HV07]      wrist -> middle_pip   v=[+0.00595, -0.00045, +0.13687]  L=0.13700  dL=+0.000173  dV=0.000380
+  [HV08]      wrist -> ring_pip     v=[+0.02036, -0.02640, +0.12269]  L=0.12714  dL=+0.000242  dV=0.000504
+  [HV09]      wrist -> pinky_pip    v=[+0.01775, -0.04615, +0.09714]  L=0.10900  dL=-0.000083  dV=0.000235
+[QPOS] t= 29.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6510  norm= 0.957  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.45ms  q=[-0.525, +1.618]  dq_max=0.0010  seq=888
+[HVEC] t= 30.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.00137, +0.09200, +0.09143]  L=0.12971  dL=-0.000356  dV=0.000774
+  [HV01]      wrist -> index_tip    v=[+0.03833, +0.04475, +0.15990]  L=0.17041  dL=-0.000511  dV=0.001460
+  [HV02]      wrist -> middle_tip   v=[+0.04540, +0.00303, +0.17861]  L=0.18432  dL=-0.000402  dV=0.000993
+  [HV03]      wrist -> ring_tip     v=[+0.05547, -0.02776, +0.16134]  L=0.17286  dL=-0.000318  dV=0.001142
+  [HV04]      wrist -> pinky_tip    v=[+0.04093, -0.05690, +0.13029]  L=0.14795  dL=-0.000322  dV=0.000732
+  [HV05]      wrist -> thumb_mcp    v=[+0.01137, +0.05481, +0.04809]  L=0.07380  dL=+0.000091  dV=0.000336
+  [HV06]      wrist -> index_pip    v=[+0.00684, +0.03308, +0.12382]  L=0.12834  dL=-0.000479  dV=0.000653
+  [HV07]      wrist -> middle_pip   v=[+0.00600, -0.00026, +0.13607]  L=0.13620  dL=-0.000345  dV=0.000392
+  [HV08]      wrist -> ring_pip     v=[+0.02020, -0.02693, +0.12208]  L=0.12663  dL=-0.000293  dV=0.000608
+  [HV09]      wrist -> pinky_pip    v=[+0.01741, -0.04645, +0.09639]  L=0.10841  dL=-0.000314  dV=0.000350
+[QPOS] t= 30.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6177  norm= 0.942  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.43ms  q=[-0.525, +1.593]  dq_max=0.0007  seq=918
+[HVEC] t= 31.08s
+  [HV00]      wrist -> thumb_tip    v=[+0.00115, +0.09127, +0.09122]  L=0.12905  dL=-0.000687  dV=0.000933
+  [HV01]      wrist -> index_tip    v=[+0.03694, +0.04541, +0.16020]  L=0.17056  dL=-0.000727  dV=0.001341
+  [HV02]      wrist -> middle_tip   v=[+0.04384, +0.00318, +0.17920]  L=0.18451  dL=-0.000774  dV=0.001123
+  [HV03]      wrist -> ring_tip     v=[+0.05521, -0.02832, +0.16137]  L=0.17289  dL=-0.000632  dV=0.000771
+  [HV04]      wrist -> pinky_tip    v=[+0.04067, -0.05676, +0.13067]  L=0.14816  dL=-0.000261  dV=0.000369
+  [HV05]      wrist -> thumb_mcp    v=[+0.01144, +0.05426, +0.04763]  L=0.07310  dL=-0.000525  dV=0.000597
+  [HV06]      wrist -> index_pip    v=[+0.00665, +0.03326, +0.12394]  L=0.12850  dL=-0.000627  dV=0.000662
+  [HV07]      wrist -> middle_pip   v=[+0.00589, +0.00009, +0.13640]  L=0.13653  dL=-0.000631  dV=0.000792
+  [HV08]      wrist -> ring_pip     v=[+0.02051, -0.02695, +0.12210]  L=0.12671  dL=-0.000510  dV=0.000646
+  [HV09]      wrist -> pinky_pip    v=[+0.01745, -0.04624, +0.09674]  L=0.10863  dL=-0.000288  dV=0.000303
+[QPOS] t= 31.08s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5934  norm= 0.930  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.44ms  q=[-0.525, +1.575]  dq_max=0.0005  seq=948
+[HVEC] t= 32.09s
+  [HV00]      wrist -> thumb_tip    v=[+0.00114, +0.08991, +0.09323]  L=0.12952  dL=-0.000065  dV=0.000642
+  [HV01]      wrist -> index_tip    v=[+0.03779, +0.04558, +0.15983]  L=0.17044  dL=+0.000031  dV=0.000628
+  [HV02]      wrist -> middle_tip   v=[+0.04534, +0.00360, +0.17885]  L=0.18454  dL=+0.000052  dV=0.000275
+  [HV03]      wrist -> ring_tip     v=[+0.05674, -0.02855, +0.16049]  L=0.17261  dL=+0.000154  dV=0.000262
+  [HV04]      wrist -> pinky_tip    v=[+0.04174, -0.05620, +0.12990]  L=0.14756  dL=+0.000100  dV=0.000103
+  [HV05]      wrist -> thumb_mcp    v=[+0.01152, +0.05434, +0.04784]  L=0.07331  dL=-0.000009  dV=0.000123
+  [HV06]      wrist -> index_pip    v=[+0.00692, +0.03335, +0.12383]  L=0.12842  dL=+0.000106  dV=0.000248
+  [HV07]      wrist -> middle_pip   v=[+0.00539, +0.00005, +0.13609]  L=0.13620  dL=-0.000038  dV=0.000205
+  [HV08]      wrist -> ring_pip     v=[+0.02031, -0.02700, +0.12218]  L=0.12677  dL=+0.000079  dV=0.000193
+  [HV09]      wrist -> pinky_pip    v=[+0.01757, -0.04616, +0.09655]  L=0.10845  dL=-0.000031  dV=0.000037
+[QPOS] t= 32.09s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5752  norm= 0.922  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.48ms  q=[-0.525, +1.564]  dq_max=0.0003  seq=979
+[HVEC] t= 33.12s
+  [HV00]      wrist -> thumb_tip    v=[+0.00341, +0.08935, +0.09317]  L=0.12914  dL=-0.000174  dV=0.001684
+  [HV01]      wrist -> index_tip    v=[+0.03741, +0.04549, +0.16046]  L=0.17093  dL=-0.000097  dV=0.000671
+  [HV02]      wrist -> middle_tip   v=[+0.04420, +0.00328, +0.17943]  L=0.18482  dL=-0.000105  dV=0.000426
+  [HV03]      wrist -> ring_tip     v=[+0.05530, -0.02898, +0.16105]  L=0.17272  dL=-0.000434  dV=0.000458
+  [HV04]      wrist -> pinky_tip    v=[+0.04079, -0.05740, +0.12970]  L=0.14759  dL=-0.000254  dV=0.000461
+  [HV05]      wrist -> thumb_mcp    v=[+0.01190, +0.05427, +0.04798]  L=0.07341  dL=-0.000230  dV=0.000373
+  [HV06]      wrist -> index_pip    v=[+0.00697, +0.03334, +0.12408]  L=0.12867  dL=+0.000112  dV=0.000306
+  [HV07]      wrist -> middle_pip   v=[+0.00549, -0.00014, +0.13621]  L=0.13632  dL=+0.000058  dV=0.000521
+  [HV08]      wrist -> ring_pip     v=[+0.02013, -0.02734, +0.12204]  L=0.12667  dL=-0.000117  dV=0.000224
+  [HV09]      wrist -> pinky_pip    v=[+0.01755, -0.04680, +0.09609]  L=0.10831  dL=-0.000069  dV=0.000335
+[QPOS] t= 33.12s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5638  norm= 0.917  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  

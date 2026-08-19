@@ -1,0 +1,664 @@
+
+================================================================================
+ORCA retargeting initial pose
+================================================================================
+[00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q0=+0.0000 range=[-1.1345, +0.6109]
+[01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q0=+0.0000 range=[-0.4363, +0.5236]
+[02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q0=+0.0000 range=[-0.4363, +1.7453]
+[03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q0=+0.0000 range=[-0.2618, +1.8675]
+[04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.4712, +0.4712]
+[05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q0=+0.0000 range=[-0.2618, +1.8675]
+[07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.4712, +0.4712]
+[08] M-PP_08efa608_to_M-AP_e04a96f2                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q0=+0.0000 range=[-0.2618, +1.8675]
+[10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q0=+0.0000 range=[-0.5236, +0.5236]
+[11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q0=+0.0000 range=[-0.4363, +1.7453]
+[12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q0=+0.0000 range=[-0.2618, +1.8675]
+[13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q0=+0.0000 range=[-0.7854, +0.5760]
+[14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q0=+0.0000 range=[-0.3142, +0.9599]
+[15] T-PP_68395e98_to_R-T-AP_a9723101                                  q0=+0.0000 range=[-0.4363, +1.7453]
+[16] T-DP_b7429e50_to_T-PP_68395e98                                    q0=+0.0000 range=[-0.2618, +1.8675]
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1786953486.458337     244 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1786953486.475174     244 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+================================================================================
+AnyTeleop ORCA Hand Server
+================================================================================
+Camera            : /dev/video4
+Hand type         : Right
+Selfie            : False
+Retargeting       : VECTOR
+Robot DOF         : 17
+Optimized DOF     : 16
+Fixed joints      : ['R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e']
+UDP destination   : 127.0.0.1:5006
+
+ORCA robot joint order:
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041
+  [08] M-PP_08efa608_to_M-AP_e04a96f2
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d
+  [15] T-PP_68395e98_to_R-T-AP_a9723101
+  [16] T-DP_b7429e50_to_T-PP_68395e98
+W0000 00:00:1786953487.045168     251 landmark_projection_calculator.cc:186] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+[SERVER] camera= 17/s  read_fail=  0  valid= 17  invalid=  0  ratio=100.00%  retarget_ok= 17  retarget_fail=  0  sent= 17  retarget=  1.76ms  q=[-0.525, +1.431]  dq_max=0.0013  seq=17
+[QPOS] t=  1.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4309  norm= 0.856  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.85ms  q=[-0.525, +1.463]  dq_max=0.0009  seq=47
+[QPOS] t=  2.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4627  norm= 0.870  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.66ms  q=[-0.525, +1.487]  dq_max=0.0007  seq=77
+[QPOS] t=  3.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.4867  norm= 0.881  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.71ms  q=[-0.525, +1.503]  dq_max=0.0005  seq=107
+[QPOS] t=  4.03s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5032  norm= 0.889  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.74ms  q=[-0.525, +1.517]  dq_max=0.0004  seq=137
+[QPOS] t=  5.04s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5167  norm= 0.895  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.80ms  q=[-0.525, +1.528]  dq_max=0.0003  seq=168
+[QPOS] t=  6.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5279  norm= 0.900  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.73ms  q=[-0.525, +1.538]  dq_max=0.0003  seq=198
+[QPOS] t=  7.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5375  norm= 0.905  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.72ms  q=[-0.525, +1.545]  dq_max=0.0002  seq=228
+[QPOS] t=  8.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5451  norm= 0.908  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.71ms  q=[-0.525, +1.552]  dq_max=0.0002  seq=258
+[QPOS] t=  9.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5518  norm= 0.911  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.69ms  q=[-0.525, +1.558]  dq_max=0.0002  seq=288
+[QPOS] t= 10.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5584  norm= 0.914  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.72ms  q=[-0.525, +1.564]  dq_max=0.0002  seq=318
+[QPOS] t= 11.07s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5637  norm= 0.917  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.70ms  q=[-0.525, +1.572]  dq_max=0.0004  seq=349
+[QPOS] t= 12.10s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5725  norm= 0.921  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.64ms  q=[-0.525, +1.585]  dq_max=0.0004  seq=379
+[QPOS] t= 13.10s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5846  norm= 0.926  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.64ms  q=[-0.525, +1.596]  dq_max=0.0006  seq=409
+[QPOS] t= 14.11s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5964  norm= 0.932  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  4.93ms  q=[-0.525, +1.716]  dq_max=0.0835  seq=439
+[QPOS] t= 15.11s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7161  norm= 0.987  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.52ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=470
+[QPOS] t= 16.14s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.59ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=501
+[QPOS] t= 17.18s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.63ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=532
+[QPOS] t= 18.21s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.82ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=562
+[QPOS] t= 19.21s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.68ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=592
+[QPOS] t= 20.21s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.58ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=622
+[QPOS] t= 21.21s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.60ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=652
+[QPOS] t= 22.21s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.66ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=682
+[QPOS] t= 23.22s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.64ms  q=[-0.525, +1.746]  dq_max=0.0000  seq=712
+[QPOS] t= 24.22s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7463  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.65ms  q=[-0.525, +1.745]  dq_max=0.0001  seq=742
+[QPOS] t= 25.22s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7453  norm= 1.000  range=[-0.4363, +1.7453]  <<< UPPER_LIMIT
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.66ms  q=[-0.525, +1.729]  dq_max=0.0007  seq=773
+[QPOS] t= 26.25s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.7288  norm= 0.992  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.61ms  q=[-0.525, +1.692]  dq_max=0.0015  seq=804
+[QPOS] t= 27.28s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6923  norm= 0.976  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.63ms  q=[-0.525, +1.648]  dq_max=0.0012  seq=835
+[QPOS] t= 28.32s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6478  norm= 0.955  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.69ms  q=[-0.525, +1.614]  dq_max=0.0009  seq=865
+[QPOS] t= 29.32s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.6141  norm= 0.940  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.66ms  q=[-0.525, +1.589]  dq_max=0.0007  seq=895
+[QPOS] t= 30.32s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5895  norm= 0.929  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 30/s  read_fail=  0  valid= 30  invalid=  0  ratio=100.00%  retarget_ok= 30  retarget_fail=  0  sent= 30  retarget=  1.74ms  q=[-0.525, +1.573]  dq_max=0.0004  seq=925
+[QPOS] t= 31.32s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5730  norm= 0.921  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+[SERVER] camera= 31/s  read_fail=  0  valid= 31  invalid=  0  ratio=100.00%  retarget_ok= 31  retarget_fail=  0  sent= 31  retarget=  1.84ms  q=[-0.525, +1.564]  dq_max=0.0001  seq=956
+[QPOS] t= 32.35s
+  [00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e                     q=+0.0000  norm= 0.650  range=[-1.1345, +0.6109]  
+  [01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041                             q=-0.4373  norm=-0.001  range=[-0.4363, +0.5236]  <<< LOWER_LIMIT
+  [02] I-PP_bacbd481_to_I-AP-R_d95d02d1                                  q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [04] M-AP_6ec59111_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [05] M-PP_8660a1eb_to_M-AP_6ec59111                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [07] M-AP_e04a96f2_to_R-Carpals_8d1f1041                               q=-0.4722  norm=-0.001  range=[-0.4712, +0.4712]  <<< LOWER_LIMIT
+  [08] M-PP_08efa608_to_M-AP_e04a96f2                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [10] P-AP_f5e42b61_to_R-Carpals_8d1f1041                               q=-0.5246  norm=-0.001  range=[-0.5236, +0.5236]  <<< LOWER_LIMIT
+  [11] P-PP_1d411b9b_to_P-AP_f5e42b61                                    q=-0.4373  norm=-0.000  range=[-0.4363, +1.7453]  <<< LOWER_LIMIT
+  [12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b                     q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  
+  [13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041                             q=+0.5770  norm= 1.001  range=[-0.7854, +0.5760]  <<< UPPER_LIMIT
+  [14] R-T-AP_a9723101_to_T-TP-R_1c2b802d                                q=+0.9609  norm= 1.001  range=[-0.3142, +0.9599]  <<< UPPER_LIMIT
+  [15] T-PP_68395e98_to_R-T-AP_a9723101                                  q=+1.5643  norm= 0.917  range=[-0.4363, +1.7453]  
+  [16] T-DP_b7429e50_to_T-PP_68395e98                                    q=+0.0000  norm= 0.123  range=[-0.2618, +1.8675]  

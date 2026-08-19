@@ -296,6 +296,17 @@ def main():
     last_valid_receive_time = None
     last_seq = -1
 
+    # ==============================================================
+    # UDP / Isaac diagnostics
+    # ==============================================================
+
+    received_count = 0
+    valid_received_count = 0
+    invalid_received_count = 0
+    json_error_count = 0
+
+    status_timer = time.monotonic()
+    
     max_step = (
         args_cli.max_joint_speed
         * sim_dt
@@ -316,6 +327,7 @@ def main():
             # ------------------------------------------------------
             # Drain UDP queue.
             # Only use the newest packet to minimize latency.
+            # Client 會把 UDP queue 裡舊的 packet 全部讀掉，但只真正執行最新的一個。
             # ------------------------------------------------------
 
             while True:
@@ -326,17 +338,42 @@ def main():
                         65535
                     )
 
-                    latest_packet = json.loads(
+                    packet = json.loads(
                         data.decode("utf-8")
                     )
 
+                    # Count every packet received from the UDP socket.
+                    received_count += 1
+
+                    if bool(
+                        packet.get(
+                            "tracking_valid",
+                            False,
+                        )
+                    ):
+
+                        valid_received_count += 1
+
+                    else:
+
+                        invalid_received_count += 1
+
+                    # We intentionally keep only the newest packet
+                    # for low-latency teleoperation.
+                    latest_packet = packet
+
+
                 except BlockingIOError:
+
                     break
+
 
                 except (
                     UnicodeDecodeError,
                     json.JSONDecodeError,
                 ) as exc:
+
+                    json_error_count += 1
 
                     print(
                         "[WARNING] Invalid UDP packet:",
@@ -524,6 +561,67 @@ def main():
             robot.update(
                 sim_dt
             )
+            
+            # ==============================================================
+            # Print client / Isaac status once per second
+            # ==============================================================
+
+            now = time.monotonic()
+
+            if now - status_timer >= 1.0:
+
+                actual = (
+                    robot.data.joint_pos[0]
+                )                           # PhysX 中真正的 ORCA joint position
+
+                command_target = (
+                    target[0]
+                )                           # 經過現在 client 的 max_joint_speed slew-rate limiter 後，真正送給 Isaac actuator 的 target
+
+                desired = (
+                    desired_target[0]
+                )                           # AnyTeleop / dex-retargeting 真正想要的姿勢
+
+                tracking_error = (
+                    command_target
+                    -
+                    actual
+                )
+
+                command_lag = (
+                    desired
+                    -
+                    command_target
+                )
+
+                print(
+                    f"[CLIENT] "
+                    f"recv={received_count:3d}/s  "
+                    f"valid={valid_received_count:3d}  "
+                    f"invalid={invalid_received_count:3d}  "
+                    f"json_err={json_error_count:2d}  "
+                    f"last_seq={last_seq:6d}  "
+                    f"desired="
+                    f"[{float(desired.min()):+.3f}, "
+                    f"{float(desired.max()):+.3f}]  "
+                    f"applied="
+                    f"[{float(command_target.min()):+.3f}, "
+                    f"{float(command_target.max()):+.3f}]  "
+                    f"actual="
+                    f"[{float(actual.min()):+.3f}, "
+                    f"{float(actual.max()):+.3f}]  "
+                    f"ctrl_err_max="
+                    f"{float(torch.abs(tracking_error).max()):.4f}  "
+                    f"slew_remaining="
+                    f"{float(torch.abs(command_lag).max()):.4f}"
+                )
+
+                received_count = 0
+                valid_received_count = 0
+                invalid_received_count = 0
+                json_error_count = 0
+
+                status_timer = now
 
     except KeyboardInterrupt:
 

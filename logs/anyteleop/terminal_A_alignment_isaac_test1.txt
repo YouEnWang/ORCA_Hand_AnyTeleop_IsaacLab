@@ -1,0 +1,494 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /home/lab606/IsaacLab/_isaac_sim/python.sh
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /home/lab606/IsaacLab/apps/isaaclab.python.kit
+Loading user config located at: '/home/lab606/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /home/lab606/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20260817_221602.log
+[0.059s] [ext: omni.kit.async_engine-0.0.3] startup
+[0.339s] [ext: omni.metrics.core-0.0.3] startup
+[0.339s] [ext: omni.client.lib-1.1.0] startup
+[0.352s] [ext: omni.blobkey-1.1.2] startup
+[0.353s] [ext: omni.stats-1.0.1] startup
+[0.353s] [ext: omni.datastore-0.0.0] startup
+[0.358s] [ext: omni.client-1.3.0] startup
+[0.361s] [ext: omni.ujitso.default-1.0.0] startup
+[0.363s] [ext: omni.hsscclient-1.1.2] startup
+[0.366s] [ext: omni.gpu_foundation.shadercache.vulkan-1.0.0] startup
+[0.368s] [ext: omni.assets.plugins-0.0.0] startup
+[0.369s] [ext: omni.gpu_foundation-0.0.0] startup
+[0.376s] [ext: carb.windowing.plugins-1.0.0] startup
+[0.382s] [ext: omni.kit.renderer.init-0.0.0] startup
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.173.02    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 3060          | Yes: 0 |     | 12534   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2504      | 416e908d.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-136-generic
+| XServer Vendor: The X.Org Foundation, XServer Version: 12101004 (1.21.1.4)
+| Processor: Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz
+| Cores: 8 | Logical Cores: 16
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 48087 | Free Memory: 29835
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 2047
+|---------------------------------------------------------------------------------------------|
+2026-08-17T14:16:03Z [949ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+[1.096s] [ext: omni.kit.pipapi-0.0.0] startup
+[1.098s] [ext: omni.kit.pip_archive-0.0.0] startup
+[1.098s] [ext: omni.pip.compute-1.6.3] startup
+[1.098s] [ext: omni.pip.cloud-1.4.3] startup
+[1.103s] [ext: omni.isaac.core_archive-3.0.0] startup
+[1.104s] [ext: omni.materialx.libs-1.0.7] startup
+[1.111s] [ext: omni.kit.loop-isaac-1.3.7] startup
+[1.112s] [ext: omni.kit.test-2.0.1] startup
+[1.166s] [ext: omni.kit.telemetry-0.5.2] startup
+[1.187s] [ext: omni.isaac.ml_archive-3.0.4] startup
+[1.188s] [ext: omni.usd.config-1.0.6] startup
+[1.191s] [ext: omni.gpucompute.plugins-0.0.0] startup
+[1.192s] [ext: omni.usd.libs-1.0.1] startup
+[1.279s] [ext: omni.mdl-56.0.3] startup
+[1.390s] [ext: omni.iray.libs-0.0.0] startup
+[1.395s] [ext: omni.mdl.neuraylib-0.2.12] startup
+[1.397s] [ext: omni.kit.usd.mdl-1.1.5] startup
+[1.496s] [ext: omni.appwindow-1.1.10] startup
+[1.811s] [ext: omni.kit.renderer.core-1.1.0] startup
+[3.665s] [ext: omni.kit.renderer.capture-0.0.0] startup
+[3.668s] [ext: omni.kit.renderer.imgui-2.0.5] startup
+[3.726s] [ext: omni.ui-2.27.1] startup
+[3.736s] [ext: omni.kit.mainwindow-1.0.3] startup
+[3.737s] [ext: carb.audio-0.1.0] startup
+[3.740s] [ext: omni.uiaudio-1.0.0] startup
+[3.741s] [ext: omni.kit.uiapp-0.0.0] startup
+[3.741s] [ext: omni.usd.schema.metrics.assembler-107.3.1] startup
+[3.744s] [ext: omni.usd.schema.anim-0.0.0] startup
+[3.765s] [ext: omni.usd.schema.physx-107.3.26] startup
+[3.800s] [ext: omni.usd.schema.geospatial-0.0.0] startup
+[3.803s] [ext: omni.usd.schema.omniscripting-1.0.0] startup
+[3.807s] [ext: omni.usd.schema.audio-0.0.0] startup
+[3.810s] [ext: omni.usd.schema.semantics-0.0.0] startup
+[3.812s] [ext: omni.usd_resolver-1.0.0] startup
+[3.816s] [ext: usdrt.scenegraph-7.6.1] startup
+[3.855s] [ext: omni.kit.actions.core-1.0.0] startup
+[3.857s] [ext: omni.timeline-1.0.14] startup
+[3.859s] [ext: omni.usd.core-1.5.3] startup
+[3.861s] [ext: omni.resourcemonitor-107.0.1] startup
+[3.863s] [ext: omni.activity.core-1.0.3] startup
+[3.864s] [ext: omni.kit.audiodeviceenum-1.0.2] startup
+[3.866s] [ext: omni.hydra.usdrt_delegate-7.5.1] startup
+[3.873s] [ext: omni.graph.exec-0.9.6] startup
+[3.873s] [ext: omni.kit.window.popup_dialog-2.0.24] startup
+[3.877s] [ext: omni.kit.exec.core-0.13.4] startup
+[3.878s] [ext: omni.kit.widget.nucleus_connector-2.0.1] startup
+[3.880s] [ext: omni.kit.usd_undo-0.1.8] startup
+[3.881s] [ext: omni.kit.commands-1.4.10] startup
+[3.886s] [ext: omni.hydra.scene_delegate-0.3.4] startup
+[3.890s] [ext: omni.usd-1.13.10] startup
+[3.933s] [ext: omni.kit.asset_converter-5.0.17] startup
+[3.946s] [ext: omni.usd.schema.omni_lens_distortion-0.0.0] startup
+[3.947s] [ext: omni.usd.schema.omni_sensors-0.0.0] startup
+[3.948s] [ext: omni.usd.schema.render_settings.rtx-0.0.0] startup
+[3.949s] [ext: omni.usd.schema.omnigraph-1.0.0] startup
+[3.956s] [ext: isaacsim.robot.schema-3.6.0] startup
+[3.964s] [ext: omni.kit.property.adapter.core-1.0.2] startup
+[3.966s] [ext: omni.kit.menu.core-1.1.2] startup
+[3.967s] [ext: omni.kit.property.adapter.fabric-1.0.3] startup
+[3.968s] [ext: omni.kit.usd.layers-2.2.11] startup
+[3.976s] [ext: omni.kit.clipboard-1.0.5] startup
+[3.977s] [ext: omni.kit.widget.context_menu-1.2.5] startup
+[3.978s] [ext: omni.kit.hotkeys.core-1.3.10] startup
+[3.982s] [ext: omni.kit.widget.path_field-2.0.11] startup
+[3.983s] [ext: omni.kit.context_menu-1.8.6] startup
+[3.985s] [ext: omni.index.libs-380600.8087.0] startup
+[3.985s] [ext: omni.kit.widget.browser_bar-2.0.10] startup
+[3.985s] [ext: omni.kit.widget.options_menu-1.1.6] startup
+[3.989s] [ext: omni.kit.helper.file_utils-0.1.9] startup
+[3.990s] [ext: omni.index-1.0.1] startup
+[3.991s] [ext: omni.hydra.rtx.shadercache.vulkan-1.0.0] startup
+[3.992s] [ext: omni.kit.widget.options_button-1.0.3] startup
+[3.993s] [ext: omni.kit.widget.filebrowser-2.12.3] startup
+[3.999s] [ext: omni.volume-0.5.2] startup
+[4.001s] [ext: omni.ujitso.client-0.0.0] startup
+[4.002s] [ext: omni.kit.notification_manager-1.0.10] startup
+[4.004s] [ext: omni.hydra.rtx-1.0.0] startup
+2026-08-17T14:16:06Z [4,003ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+[4.035s] [ext: omni.ui.scene-1.11.5] startup
+[4.040s] [ext: omni.kit.widget.searchable_combobox-1.0.6] startup
+[4.041s] [ext: omni.kit.window.filepicker-2.13.4] startup
+[4.056s] [ext: omni.kit.widget.searchfield-1.1.8] startup
+[4.057s] [ext: omni.kit.widget.settings-1.2.6] startup
+[4.059s] [ext: omni.kit.menu.utils-2.0.5] startup
+[4.064s] [ext: omni.kit.window.file_exporter-1.0.33] startup
+[4.066s] [ext: omni.kit.widget.filter-1.1.4] startup
+[4.066s] [ext: omni.hydra.engine.stats-1.0.3] startup
+[4.069s] [ext: omni.kit.window.preferences-1.8.0] startup
+[4.073s] [ext: omni.kit.widget.stage-3.1.4] startup
+[4.084s] [ext: omni.kit.window.file_importer-1.1.18] startup
+[4.085s] [ext: omni.kit.raycast.query-1.1.0] startup
+[4.092s] [ext: omni.kit.viewport.registry-104.0.6] startup
+[4.092s] [ext: omni.kit.viewport.legacy_gizmos-1.0.19] startup
+[4.096s] [ext: omni.kit.material.library-2.0.7] startup
+[4.106s] [ext: omni.kit.property.adapter.usd-1.0.2] startup
+[4.107s] [ext: omni.kit.viewport.scene_camera_model-1.0.6] startup
+[4.113s] [ext: omni.kit.hydra_texture-1.4.6] startup
+[4.117s] [ext: omni.kit.window.drop_support-1.0.5] startup
+[4.117s] [ext: omni.kit.widget.viewport-107.1.3] startup
+[4.121s] [ext: omni.kit.primitive.mesh-1.0.17] startup
+[4.125s] [ext: omni.kit.viewport.window-107.2.0] startup
+[4.142s] [ext: omni.kit.manipulator.transform-107.0.0] startup
+[4.147s] [ext: omni.kit.stage_template.core-1.1.22] startup
+[4.147s] [ext: omni.kit.widget.toolbar-2.0.1] startup
+[4.155s] [ext: omni.kit.viewport.utility-1.1.2] startup
+[4.155s] [ext: omni.kit.window.content_browser_registry-0.0.6] startup
+[4.156s] [ext: omni.kit.widget.highlight_label-1.0.3] startup
+[4.157s] [ext: omni.kit.window.file-2.0.5] startup
+[4.160s] [ext: omni.kit.manipulator.tool.snap-1.5.13] startup
+[4.164s] [ext: omni.kit.manipulator.selector-1.1.3] startup
+[4.166s] [ext: omni.kit.window.property-1.12.1] startup
+[4.168s] [ext: omni.kit.window.content_browser-3.1.3] startup
+[4.182s] [ext: omni.kit.viewport.manipulator.transform-107.0.4] startup
+[4.184s] [ext: omni.kit.manipulator.viewport-107.0.1] startup
+[4.185s] [ext: omni.kit.property.usd-4.5.12] startup
+[4.196s] [ext: omni.kit.manipulator.selection-106.0.1] startup
+[4.197s] [ext: omni.fabric.commands-1.1.6] startup
+[4.200s] [ext: omni.kvdb-107.3.26] startup
+[4.202s] [ext: omni.kit.manipulator.prim.core-107.0.8] startup
+[4.209s] [ext: omni.convexdecomposition-107.3.26] startup
+[4.212s] [ext: omni.physx.foundation-107.3.26] startup
+[4.214s] [ext: omni.localcache-107.3.26] startup
+[4.215s] [ext: omni.kit.manipulator.prim.fabric-107.0.4] startup
+[4.217s] [ext: omni.kit.viewport.menubar.core-107.2.1] startup
+[4.232s] [ext: omni.kit.viewport.actions-107.0.2] startup
+[4.238s] [ext: omni.usdphysics-107.3.26] startup
+[4.240s] [ext: omni.kit.widget.prompt-1.0.7] startup
+[4.241s] [ext: omni.kit.manipulator.prim.usd-107.0.3] startup
+[4.242s] [ext: omni.kit.viewport.menubar.display-107.0.3] startup
+[4.243s] [ext: omni.physx.cooking-107.3.26] startup
+[4.247s] [ext: omni.inspect-1.0.2] startup
+[4.248s] [ext: omni.kit.widget.layers-1.8.6] startup
+[4.261s] [ext: omni.kit.manipulator.prim-107.0.0] startup
+[4.261s] [ext: omni.debugdraw-0.1.4] startup
+[4.264s] [ext: omni.physx-107.3.26] startup
+[4.274s] [ext: omni.physics-107.3.26] startup
+[4.278s] [ext: omni.graph.core-2.184.5] startup
+[4.280s] [ext: omni.usdphysics.ui-107.3.26] startup
+[4.306s] [ext: omni.physx.commands-107.3.26] startup
+[4.311s] [ext: omni.physics.stageupdate-107.3.26] startup
+[4.314s] [ext: isaacsim.core.deprecation_manager-0.2.7] startup
+[4.314s] [ext: omni.physx.ui-107.3.26] startup
+[4.347s] [ext: isaacsim.core.version-2.0.6] startup
+[4.348s] [ext: omni.physics.physx-107.3.26] startup
+2026-08-17T14:16:07Z [4,332ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+[4.350s] [ext: isaacsim.storage.native-1.5.1] startup
+[4.351s] [ext: omni.usd.metrics.assembler-107.3.1] startup
+[4.356s] [ext: omni.kit.numpy.common-0.1.3] startup
+[4.358s] [ext: omni.physics.tensors-107.3.26] startup
+[4.363s] [ext: omni.warp.core-1.8.2] startup
+[4.637s] [ext: omni.usd.metrics.assembler.physics-107.3.26] startup
+[4.639s] [ext: omni.isaac.dynamic_control-2.0.7] startup
+2026-08-17T14:16:07Z [4,627ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+[4.646s] [ext: omni.physx.tensors-107.3.26] startup
+[4.650s] [ext: isaacsim.core.utils-3.5.1] startup
+[4.653s] [ext: isaacsim.core.simulation_manager-1.4.4] startup
+[6.813s] [ext: omni.kit.widget.stage_icons-1.0.8] startup
+[6.814s] [ext: omni.kit.stagerecorder.core-107.0.3] startup
+[6.817s] [ext: omni.kit.window.stage-2.6.1] startup
+[6.821s] [ext: omni.kit.menu.create-2.0.1] startup
+[6.823s] [ext: omni.kit.widget.zoombar-1.0.6] startup
+[6.823s] [ext: omni.kit.scripting-107.3.2] startup
+[6.827s] [ext: omni.kit.browser.core-2.3.13] startup
+[6.832s] [ext: isaacsim.replicator.behavior-1.1.16] startup
+[6.832s] [ext: omni.kit.browser.folder.core-1.10.9] startup
+[6.838s] [ext: omni.kit.usd.collect-2.4.5] startup
+[6.841s] [ext: omni.graph.tools-1.79.2] startup
+[6.867s] [ext: omni.kit.usdz_export-1.0.9] startup
+[6.869s] [ext: omni.graph.action_core-1.1.7] startup
+[6.870s] [ext: omni.graph-1.141.2] startup
+[6.921s] [ext: omni.kit.tool.asset_importer-4.3.2] startup
+[6.925s] [ext: omni.graph.action_nodes-1.50.4] startup
+[6.930s] [ext: omni.kit.widget.text_editor-1.1.1] startup
+[6.934s] [ext: omni.ui_query-1.1.8] startup
+[6.935s] [ext: omni.graph.action-1.130.0] startup
+[6.936s] [ext: omni.kit.window.extensions-1.4.27] startup
+[6.949s] [ext: omni.kit.ui_test-1.3.7] startup
+[6.951s] [ext: omni.graph.visualization.nodes-2.1.3] startup
+[6.984s] [ext: omni.kit.tool.collect-2.2.18] startup
+[6.990s] [ext: omni.kit.menu.stage-1.2.7] startup
+[6.992s] [ext: isaacsim.gui.components-1.2.1] startup
+[7.000s] [ext: isaacsim.examples.browser-0.2.1] startup
+[7.007s] [ext: isaacsim.asset.importer.urdf-2.4.31] startup
+[7.071s] [ext: isaacsim.core.cloner-1.4.10] startup
+[7.075s] [ext: omni.kit.stagerecorder.ui-107.0.1] startup
+[7.091s] [ext: isaacsim.asset.browser-1.3.23] startup
+[7.168s] [ext: semantics.schema.editor-2.0.2] startup
+2026-08-17T14:16:09Z [7,155ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+[7.175s] [ext: omni.kit.stagerecorder.bundle-105.0.2] startup
+[7.176s] [ext: omni.kit.window.status_bar-0.1.9] startup
+[7.180s] [ext: omni.kit.widget.graph-2.0.0] startup
+[7.187s] [ext: omni.kit.stage_templates-2.0.0] startup
+[7.190s] [ext: omni.graph.image.core-0.6.1] startup
+[7.191s] [ext: omni.kit.graph.delegate.default-1.2.3] startup
+[7.192s] [ext: isaacsim.core.experimental.utils-0.3.0] startup
+[7.193s] [ext: omni.graph.image.nodes-1.3.1] startup
+[7.195s] [ext: omni.kit.graph.editor.core-1.5.3] startup
+[7.198s] [ext: omni.kit.graph.usd.commands-1.3.1] startup
+[7.199s] [ext: omni.graph.nodes-1.170.10] startup
+[7.210s] [ext: omni.graph.ui_nodes-1.50.5] startup
+[7.214s] [ext: omni.kit.widget.material_preview-1.0.16] startup
+[7.218s] [ext: omni.syntheticdata-0.6.13] startup
+[7.254s] [ext: omni.videoencoding-0.1.2] startup
+[7.260s] [ext: omni.warp-1.8.2] startup
+[7.276s] [ext: omni.kit.window.material_graph-1.9.1] startup
+[7.305s] [ext: omni.graph.scriptnode-1.50.0] startup
+[7.308s] [ext: isaacsim.core.prims-0.6.1] startup
+[7.359s] [ext: isaacsim.test.docstring-1.1.0] startup
+[7.374s] [ext: omni.replicator.core-1.12.27] startup
+2026-08-17T14:16:10Z [7,528ms] [Warning] [omni.graph.core.plugin] Found duplicate of category 'Replicator' - was 'Annotators', adding 'Fabric Reader'
+2026-08-17T14:16:10Z [7,528ms] [Warning] [omni.graph.core.plugin] Category 'Replicator' not accepted on node type 'omni.replicator.core.FabricReader' in extension 'omni.replicator.core'
+2026-08-17T14:16:10Z [7,528ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+[7.550s] [ext: isaacsim.core.api-4.8.0] startup
+[7.575s] [ext: isaacsim.core.experimental.prims-0.8.1] startup
+[7.645s] [ext: isaacsim.core.nodes-3.4.3] startup
+[7.666s] [ext: isaacsim.robot.surface_gripper-3.3.1] startup
+[7.675s] [ext: isaacsim.util.debug_draw-3.1.0] startup
+[7.684s] [ext: omni.sensors.nv.common-3.0.0] startup
+[7.705s] [ext: isaacsim.robot.manipulators-3.3.6] startup
+[7.737s] [ext: isaacsim.sensors.physx-2.3.2] startup
+[7.784s] [ext: omni.sensors.nv.materials-2.0.0] startup
+[7.795s] [ext: omni.sensors.net-1.0.0] startup
+[7.801s] [ext: isaacsim.app.about-2.0.11] startup
+[7.813s] [ext: isaacsim.simulation_app-2.12.2] startup
+[7.821s] [ext: omni.sensors.nv.ids-2.0.0] startup
+[7.844s] [ext: omni.sensors.nv.lidar-3.0.0] startup
+[7.864s] [ext: omni.kit.property.audio-1.0.16] startup
+[7.883s] [ext: omni.kit.property.camera-1.0.10] startup
+[7.938s] [ext: omni.kit.property.geometry-2.0.4] startup
+[7.965s] [ext: omni.hydra.scene_api-0.1.2] startup
+[7.979s] [ext: omni.kit.property.light-1.0.12] startup
+[8.057s] [ext: omni.sensors.nv.wpm-3.0.0] startup
+[8.061s] [ext: omni.kit.selection-0.1.6] startup
+[8.070s] [ext: omni.kit.property.material-1.11.9] startup
+[8.136s] [ext: omni.kit.property.transform-1.5.13] startup
+[8.156s] [ext: omni.kit.property.render-1.2.1] startup
+[8.167s] [ext: omni.sensors.nv.radar-3.0.0] startup
+[8.181s] [ext: isaacsim.gui.menu-2.4.4] startup
+[8.348s] [ext: omni.kit.manipulator.camera-106.0.4] startup
+[8.398s] [ext: isaacsim.gui.property-1.1.3] startup
+[8.409s] [ext: omni.kit.property.bundle-1.4.1] startup
+[8.413s] [ext: isaacsim.sensors.rtx-15.8.4] startup
+[8.427s] [ext: isaacsim.sensors.physics-0.4.3] startup
+[8.448s] [ext: omni.kit.viewport.menubar.camera-107.0.6] startup
+[8.465s] [ext: omni.kit.viewport.menubar.lighting-107.3.1] startup
+[8.477s] [ext: omni.kit.viewport.menubar.settings-107.0.3] startup
+[8.488s] [ext: omni.kit.viewport.menubar.render-107.0.10] startup
+[8.494s] [ext: isaacsim.robot.policy.examples-4.1.11] startup
+[8.497s] [ext: isaacsim.asset.importer.mjcf-2.5.13] startup
+[8.512s] [ext: omni.kit.window.console-1.1.4] startup
+[8.525s] [ext: omni.rtx.window.settings-0.6.19] startup
+[8.546s] [ext: omni.ocio-0.1.1] startup
+[8.550s] [ext: omni.physx.demos-107.3.26] startup
+[8.608s] [ext: omni.kit.property.physx-107.3.26] startup
+[8.636s] [ext: omni.replicator.replicator_yaml-2.0.11] startup
+[8.655s] [ext: omni.asset_validator.core-1.1.6] startup
+[8.722s] [ext: omni.rtx.settings.core-0.6.5] startup
+[8.727s] [ext: omni.physx.vehicle-107.3.26] startup
+[8.749s] [ext: omni.usd.metrics.assembler.ui-107.3.1] startup
+[8.761s] [ext: omni.kit.window.script_editor-2.0.1] startup
+[8.765s] [ext: isaacsim.robot.wheeled_robots-4.0.24] startup
+[8.771s] [ext: omni.physx.asset_validator-107.3.26] startup
+[8.784s] [ext: omni.kit.window.toolbar-2.0.0] startup
+[8.789s] [ext: omni.physx.camera-107.3.26] startup
+[8.810s] [ext: omni.anim.curve.core-1.3.1] startup
+[8.830s] [ext: omni.physx.cct-107.3.26] startup
+[8.844s] [ext: omni.physx.graph-107.3.26] startup
+[8.864s] [ext: omni.physx.supportui-107.3.26] startup
+[8.885s] [ext: omni.physx.telemetry-107.3.26] startup
+[8.888s] [ext: isaaclab-0.54.4] startup
+[9.128s] [ext: isaaclab_contrib-0.0.2] startup
+[9.129s] [ext: isaacsim.core.throttling-2.2.2] startup
+[9.131s] [ext: omni.kit.ui.actions-1.0.5] startup
+[9.134s] [ext: semantics.schema.property-2.0.1] startup
+[9.136s] [ext: omni.physx.bundle-107.3.26] startup
+[9.138s] [ext: isaacsim.sensors.camera-1.3.6] startup
+[9.143s] [ext: isaaclab_assets-0.2.4] startup
+[9.506s] [ext: isaaclab_tasks-0.11.16] startup
+[9.732s] [ext: omni.kit.menu.common-2.0.1] startup
+[9.733s] [ext: isaaclab_rl-0.5.2] startup
+[9.735s] [ext: isaaclab_mimic-1.0.16] startup
+[9.735s] [ext: isaaclab.python-2.3.2] startup
+[9.737s] Simulation App Starting
+2026-08-17T14:16:12Z [10,082ms] [Warning] [omni.fabric.plugin] Warning: attribute viewportHandle not found for bucket id 9
+
+[10.238s] app ready
+[13.494s] Simulation App Startup Complete
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-08-17_22-16-16.log[0m
+[36m======================================================================================[0m
+
+[13.530s] [ext: omni.physx.fabric-107.3.26] startup
+[33m22:16:16 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+2026-08-17T14:16:16Z [14,267ms] [Warning] [omni.fabric.plugin] getAttributeCount called on non-existent path /World/ORCAHand/TopTower_Model_4a80d30e/visuals/TopTower_Model/node_STL_BINARY_
+2026-08-17T14:16:16Z [14,267ms] [Warning] [omni.fabric.plugin] getTypes called on non-existent path /World/ORCAHand/TopTower_Model_4a80d30e/visuals/TopTower_Model/node_STL_BINARY_
+
+================================================================================
+ORCA AnyTeleop Isaac Client
+================================================================================
+Device        : cuda:0
+Joint count   : 17
+Fixed base    : True
+
+Isaac runtime joint order:
+  [00] R_Carpals_8d1f1041_to_TopTower_Model_4a80d30e
+  [01] I_AP_R_d95d02d1_to_R_Carpals_8d1f1041
+  [02] M_AP_6ec59111_to_R_Carpals_8d1f1041
+  [03] M_AP_e04a96f2_to_R_Carpals_8d1f1041
+  [04] P_AP_f5e42b61_to_R_Carpals_8d1f1041
+  [05] T_TP_R_1c2b802d_to_R_Carpals_8d1f1041
+  [06] I_PP_bacbd481_to_I_AP_R_d95d02d1
+  [07] M_PP_8660a1eb_to_M_AP_6ec59111
+  [08] M_PP_08efa608_to_M_AP_e04a96f2
+  [09] P_PP_1d411b9b_to_P_AP_f5e42b61
+  [10] R_T_AP_a9723101_to_T_TP_R_1c2b802d
+  [11] I_FingerTipAssembly_ec49c16c_to_I_PP_bacbd481
+  [12] M_FingerTipAssembly_424a8e75_to_M_PP_8660a1eb
+  [13] M_FingerTipAssembly_34afb748_to_M_PP_08efa608
+  [14] P_FingerTipAssembly_cd219176_to_P_PP_1d411b9b
+  [15] T_PP_68395e98_to_R_T_AP_a9723101
+  [16] T_DP_b7429e50_to_T_PP_68395e98
+
+Listening: udp://0.0.0.0:5006
+
+Soft joint limits:
+  R_Carpals_8d1f1041_to_TopTower_Model_4a80d30e                     [-1.0908, +0.5672]
+  I_AP_R_d95d02d1_to_R_Carpals_8d1f1041                             [-0.4123, +0.4996]
+  M_AP_6ec59111_to_R_Carpals_8d1f1041                               [-0.4477, +0.4477]
+  M_AP_e04a96f2_to_R_Carpals_8d1f1041                               [-0.4477, +0.4477]
+  P_AP_f5e42b61_to_R_Carpals_8d1f1041                               [-0.4974, +0.4974]
+  T_TP_R_1c2b802d_to_R_Carpals_8d1f1041                             [-0.7514, +0.5419]
+  I_PP_bacbd481_to_I_AP_R_d95d02d1                                  [-0.3818, +1.6908]
+  M_PP_8660a1eb_to_M_AP_6ec59111                                    [-0.3818, +1.6908]
+  M_PP_08efa608_to_M_AP_e04a96f2                                    [-0.3818, +1.6908]
+  P_PP_1d411b9b_to_P_AP_f5e42b61                                    [-0.3818, +1.6908]
+  R_T_AP_a9723101_to_T_TP_R_1c2b802d                                [-0.2823, +0.9281]
+  I_FingerTipAssembly_ec49c16c_to_I_PP_bacbd481                     [-0.2086, +1.8143]
+  M_FingerTipAssembly_424a8e75_to_M_PP_8660a1eb                     [-0.2086, +1.8143]
+  M_FingerTipAssembly_34afb748_to_M_PP_08efa608                     [-0.2086, +1.8143]
+  P_FingerTipAssembly_cd219176_to_P_PP_1d411b9b                     [-0.2086, +1.8143]
+  T_PP_68395e98_to_R_T_AP_a9723101                                  [-0.3818, +1.6908]
+  T_DP_b7429e50_to_T_PP_68395e98                                    [-0.2086, +1.8143]
+
+Waiting for AnyTeleop retargeting packets...
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=    -1  desired=[+0.000, +0.000]  applied=[+0.000, +0.000]  actual=[+0.000, +0.000]  ctrl_err_max=0.0000  slew_remaining=0.0000
+
+[PASS] Packet-to-Isaac joint mapping:
+  Isaac[00] R_Carpals_8d1f1041_to_TopTower_Model_4a80d30e
+      <- packet[00] R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+  Isaac[01] I_AP_R_d95d02d1_to_R_Carpals_8d1f1041
+      <- packet[01] I-AP-R_d95d02d1_to_R-Carpals_8d1f1041
+  Isaac[02] M_AP_6ec59111_to_R_Carpals_8d1f1041
+      <- packet[04] M-AP_6ec59111_to_R-Carpals_8d1f1041
+  Isaac[03] M_AP_e04a96f2_to_R_Carpals_8d1f1041
+      <- packet[07] M-AP_e04a96f2_to_R-Carpals_8d1f1041
+  Isaac[04] P_AP_f5e42b61_to_R_Carpals_8d1f1041
+      <- packet[10] P-AP_f5e42b61_to_R-Carpals_8d1f1041
+  Isaac[05] T_TP_R_1c2b802d_to_R_Carpals_8d1f1041
+      <- packet[13] T-TP-R_1c2b802d_to_R-Carpals_8d1f1041
+  Isaac[06] I_PP_bacbd481_to_I_AP_R_d95d02d1
+      <- packet[02] I-PP_bacbd481_to_I-AP-R_d95d02d1
+  Isaac[07] M_PP_8660a1eb_to_M_AP_6ec59111
+      <- packet[05] M-PP_8660a1eb_to_M-AP_6ec59111
+  Isaac[08] M_PP_08efa608_to_M_AP_e04a96f2
+      <- packet[08] M-PP_08efa608_to_M-AP_e04a96f2
+  Isaac[09] P_PP_1d411b9b_to_P_AP_f5e42b61
+      <- packet[11] P-PP_1d411b9b_to_P-AP_f5e42b61
+  Isaac[10] R_T_AP_a9723101_to_T_TP_R_1c2b802d
+      <- packet[14] R-T-AP_a9723101_to_T-TP-R_1c2b802d
+  Isaac[11] I_FingerTipAssembly_ec49c16c_to_I_PP_bacbd481
+      <- packet[03] I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
+  Isaac[12] M_FingerTipAssembly_424a8e75_to_M_PP_8660a1eb
+      <- packet[06] M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
+  Isaac[13] M_FingerTipAssembly_34afb748_to_M_PP_08efa608
+      <- packet[09] M-FingerTipAssembly_34afb748_to_M-PP_08efa608
+  Isaac[14] P_FingerTipAssembly_cd219176_to_P_PP_1d411b9b
+      <- packet[12] P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b
+  Isaac[15] T_PP_68395e98_to_R_T_AP_a9723101
+      <- packet[15] T-PP_68395e98_to_R-T-AP_a9723101
+  Isaac[16] T_DP_b7429e50_to_T_PP_68395e98
+      <- packet[16] T-DP_b7429e50_to_T-PP_68395e98
+[CLIENT] recv=  8/s  valid=  3  invalid=  5  json_err= 0  last_seq=     7  desired=[-0.433, +0.928]  applied=[-0.067, +0.067]  actual=[-0.011, +0.013]  ctrl_err_max=0.0651  slew_remaining=0.8614
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=    37  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.760, +0.885]  ctrl_err_max=0.1093  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=    67  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.752, +0.925]  ctrl_err_max=0.1355  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=    97  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.927]  ctrl_err_max=0.0292  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   128  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.930]  ctrl_err_max=0.0938  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   158  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0063  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   188  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.927]  ctrl_err_max=0.0663  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   219  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0233  slew_remaining=0.0492
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   249  desired=[-0.709, +0.928]  applied=[-0.709, +0.928]  actual=[-0.738, +0.927]  ctrl_err_max=0.0733  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   279  desired=[-0.129, +0.928]  applied=[-0.129, +0.928]  actual=[-0.214, +0.925]  ctrl_err_max=0.1072  slew_remaining=0.0273
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   309  desired=[-0.235, +1.057]  applied=[-0.235, +1.046]  actual=[-0.221, +0.974]  ctrl_err_max=0.0860  slew_remaining=0.0243
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   340  desired=[-0.229, +1.691]  applied=[-0.229, +1.691]  actual=[-0.211, +1.706]  ctrl_err_max=0.0675  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   370  desired=[-0.231, +1.691]  applied=[-0.231, +1.691]  actual=[-0.227, +1.742]  ctrl_err_max=0.1572  slew_remaining=0.0259
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   400  desired=[-0.371, +1.691]  applied=[-0.371, +1.691]  actual=[-0.348, +1.702]  ctrl_err_max=0.0711  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   430  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.413, +1.687]  ctrl_err_max=0.1065  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   460  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.412, +1.694]  ctrl_err_max=0.0067  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   491  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.412, +1.701]  ctrl_err_max=0.0684  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   521  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.412, +1.689]  ctrl_err_max=0.0249  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   552  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.412, +1.688]  ctrl_err_max=0.0382  slew_remaining=0.0000
+[CLIENT] recv= 29/s  valid= 29  invalid=  0  json_err= 0  last_seq=   581  desired=[-0.412, +1.691]  applied=[-0.412, +1.691]  actual=[-0.412, +1.694]  ctrl_err_max=0.0331  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   611  desired=[-0.379, +1.691]  applied=[-0.379, +1.691]  actual=[-0.387, +1.693]  ctrl_err_max=0.0357  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   642  desired=[-0.394, +1.556]  applied=[-0.394, +1.556]  actual=[-0.407, +1.651]  ctrl_err_max=0.1020  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   672  desired=[-0.371, +0.873]  applied=[-0.371, +0.896]  actual=[-0.372, +0.992]  ctrl_err_max=0.1107  slew_remaining=0.0653
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   702  desired=[-0.289, +0.928]  applied=[-0.204, +0.928]  actual=[-0.137, +0.931]  ctrl_err_max=0.1297  slew_remaining=0.1613
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   732  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.757, +0.924]  ctrl_err_max=0.1399  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   763  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.750, +0.930]  ctrl_err_max=0.0876  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   793  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.747, +0.928]  ctrl_err_max=0.0801  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   823  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.752, +0.928]  ctrl_err_max=0.0836  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   853  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.929]  ctrl_err_max=0.0361  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=   884  desired=[-0.710, +0.928]  applied=[-0.710, +0.928]  actual=[-0.717, +0.929]  ctrl_err_max=0.1039  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   914  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.930]  ctrl_err_max=0.0572  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   944  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.929]  ctrl_err_max=0.0351  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=   974  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.757, +0.919]  ctrl_err_max=0.1265  slew_remaining=0.0000
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=  1005  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.752, +0.932]  ctrl_err_max=0.1983  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1035  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.921]  ctrl_err_max=0.0952  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1065  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.748, +0.935]  ctrl_err_max=0.0588  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1095  desired=[-0.319, +0.928]  applied=[-0.319, +0.928]  actual=[-0.284, +0.936]  ctrl_err_max=0.0701  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1125  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.712, +0.912]  ctrl_err_max=0.1498  slew_remaining=0.0209
+[CLIENT] recv= 31/s  valid= 31  invalid=  0  json_err= 0  last_seq=  1156  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.927]  ctrl_err_max=0.0359  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1186  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.929]  ctrl_err_max=0.0283  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1216  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0233  slew_remaining=0.0000
+[CLIENT] recv= 30/s  valid= 30  invalid=  0  json_err= 0  last_seq=  1246  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0305  slew_remaining=0.0000
+[CLIENT] recv=  3/s  valid=  3  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0153  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0089  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0076  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0078  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0030  slew_remaining=0.0000
+[CLIENT] recv=  0/s  valid=  0  invalid=  0  json_err= 0  last_seq=  1249  desired=[-0.751, +0.928]  applied=[-0.751, +0.928]  actual=[-0.751, +0.928]  ctrl_err_max=0.0060  slew_remaining=0.0000

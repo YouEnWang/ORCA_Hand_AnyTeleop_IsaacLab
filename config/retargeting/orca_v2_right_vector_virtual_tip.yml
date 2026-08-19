@@ -1,0 +1,144 @@
+retargeting:
+  type: vector
+
+  # Official ORCA Hand v2 Right URDF mounted read-only into the container.
+  urdf_path: /workspace/project/assets/urdf_work/retarget/orcahand_right_retarget.urdf
+
+  # ------------------------------------------------------------
+  # Optimized ORCA joints
+  # ------------------------------------------------------------
+  #
+  # ORCA Hand v2 has 17 DoF.
+  #
+  # For the first AnyTeleop-style hand-only experiment:
+  #
+  #   - Optimize 16 finger joints
+  #   - Keep the ORCA wrist joint fixed
+  #
+  # Wrist:
+  # R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+  #
+  target_joint_names:
+
+    # Index
+    - I-AP-R_d95d02d1_to_R-Carpals_8d1f1041
+    - I-PP_bacbd481_to_I-AP-R_d95d02d1
+    - I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
+
+    # Middle
+    - M-AP_6ec59111_to_R-Carpals_8d1f1041
+    - M-PP_8660a1eb_to_M-AP_6ec59111
+    - M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
+
+    # Ring
+    - M-AP_e04a96f2_to_R-Carpals_8d1f1041
+    - M-PP_08efa608_to_M-AP_e04a96f2
+    - M-FingerTipAssembly_34afb748_to_M-PP_08efa608
+
+    # Pinky
+    - P-AP_f5e42b61_to_R-Carpals_8d1f1041
+    - P-PP_1d411b9b_to_P-AP_f5e42b61
+    - P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b
+
+    # Thumb
+    - T-TP-R_1c2b802d_to_R-Carpals_8d1f1041
+    - R-T-AP_a9723101_to_T-TP-R_1c2b802d
+    - T-PP_68395e98_to_R-T-AP_a9723101
+    - T-DP_b7429e50_to_T-PP_68395e98
+
+  # ------------------------------------------------------------
+  # Human hand vectors
+  # ------------------------------------------------------------
+  #
+  # MediaPipe:
+  #
+  #  0  : wrist
+  #
+  # Thumb:
+  #  2  : MCP
+  #  4  : fingertip
+  #
+  # Index:
+  #  6  : PIP
+  #  8  : fingertip
+  #
+  # Middle:
+  # 10  : PIP
+  # 12  : fingertip
+  #
+  # Ring:
+  # 14  : PIP
+  # 16  : fingertip
+  #
+  # Pinky:
+  # 18  : PIP
+  # 20  : fingertip
+  #
+  # We use 10 task-space vectors:
+  #
+  # wrist -> 5 fingertips
+  # wrist -> 5 intermediate finger points
+  #
+  target_link_human_indices:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [4, 8, 12, 16, 20, 2, 6, 10, 14, 18]
+
+  # ------------------------------------------------------------
+  # ORCA robot vectors
+  # ------------------------------------------------------------
+
+  target_origin_link_names:
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+    - R-Carpals_8d1f1041
+
+  target_task_link_names:
+
+    # ============================================================
+    # Human fingertip targets
+    # MP04, MP08, MP12, MP16, MP20
+    # ============================================================
+    - retarget_thumb_tip
+    - retarget_index_tip
+    - retarget_middle_tip
+    - retarget_ring_tip
+    - retarget_pinky_tip
+
+    # ============================================================
+    # Human intermediate joint targets
+    #
+    # Thumb:
+    #   MP02 = thumb MCP
+    #
+    # Non-thumb:
+    #   MP06 / MP10 / MP14 / MP18 = PIP joints
+    # ============================================================
+    - T-PP_68395e98                           # Thumb MCP
+    - I-FingerTipAssembly_ec49c16c            # Index PIP
+    - M-FingerTipAssembly_34afb748            # Middle PIP
+    - M-FingerTipAssembly_424a8e75            # Ring PIP
+    - P-FingerTipAssembly_cd219176            # Pinky PIP
+
+  # ------------------------------------------------------------
+  # Optimization parameters
+  # ------------------------------------------------------------
+
+  # Initial ORCA/human scale.
+  # This is NOT yet calibrated.
+  scaling_factor: 1.0
+
+  normal_delta: 0.004
+  huber_delta: 0.02
+
+  has_joint_limits: true
+
+  # Same mechanism provided by dex-retargeting.
+  # 0.2 is only the initial value and may be changed later.
+  low_pass_alpha: 0.2
