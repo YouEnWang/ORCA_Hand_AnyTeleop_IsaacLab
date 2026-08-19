@@ -1,0 +1,57 @@
+# ORCA Hand v2 Right
+#
+# canonical semantic names follow ORCA Core v2.
+#
+# IMPORTANT:
+# The two CAD-derived "M-*" chains were identified spatially
+# in Step 4:
+#
+#   M-AP_e04... / M-PP_08... / M-FingerTip...34...
+#       = middle finger
+#
+#   M-AP_6ec... / M-PP_866... / M-FingerTip...424...
+#       = ring finger
+#
+# This differs from the naive interpretation of the CAD names.
+
+joints:
+
+  wrist:
+    urdf: R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+
+  index_abd:
+    urdf: I-AP-R_d95d02d1_to_R-Carpals_8d1f1041
+  index_mcp:
+    urdf: I-PP_bacbd481_to_I-AP-R_d95d02d1
+  index_pip:
+    urdf: I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
+
+  middle_abd:
+    urdf: M-AP_e04a96f2_to_R-Carpals_8d1f1041
+  middle_mcp:
+    urdf: M-PP_08efa608_to_M-AP_e04a96f2
+  middle_pip:
+    urdf: M-FingerTipAssembly_34afb748_to_M-PP_08efa608
+
+  ring_abd:
+    urdf: M-AP_6ec59111_to_R-Carpals_8d1f1041
+  ring_mcp:
+    urdf: M-PP_8660a1eb_to_M-AP_6ec59111
+  ring_pip:
+    urdf: M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
+
+  pinky_abd:
+    urdf: P-AP_f5e42b61_to_R-Carpals_8d1f1041
+  pinky_mcp:
+    urdf: P-PP_1d411b9b_to_P-AP_f5e42b61
+  pinky_pip:
+    urdf: P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b
+
+  thumb_cmc:
+    urdf: T-TP-R_1c2b802d_to_R-Carpals_8d1f1041
+  thumb_abd:
+    urdf: R-T-AP_a9723101_to_T-TP-R_1c2b802d
+  thumb_mcp:
+    urdf: T-PP_68395e98_to_R-T-AP_a9723101
+  thumb_dip:
+    urdf: T-DP_b7429e50_to_T-PP_68395e98

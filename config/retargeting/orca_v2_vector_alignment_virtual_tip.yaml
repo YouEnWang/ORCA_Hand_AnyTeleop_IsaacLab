@@ -1,0 +1,66 @@
+method: non_thumb_uncentered_orthogonal_procrustes
+human_open_window_seconds:
+  start: 2.0
+  end: 5.0
+  frames_used: 3
+selected_vector_indices:
+- 1
+- 2
+- 3
+- 4
+- 6
+- 7
+- 8
+- 9
+selected_vector_names:
+- index_tip
+- middle_tip
+- ring_tip
+- pinky_tip
+- index_intermediate
+- middle_intermediate
+- ring_intermediate
+- pinky_intermediate
+human_to_orca_rotation:
+- - 0.08587747116824639
+  - -0.9960650569928102
+  - -0.021896624937575302
+- - 0.21124568189396423
+  - -0.0032740017054740016
+  - 0.9774275128079762
+- - -0.9736530808388071
+  - -0.08856457051633246
+  - 0.2101332791881301
+scale: 1.0157815307080618
+convention:
+  column_vector: v_orca = scale * R @ v_human
+  row_vector_numpy: V_orca = scale * V_human @ R.T
+diagnostics:
+  det_rotation: 0.9999999999999998
+  orthogonality_error: 3.570577809435879e-16
+  selected_rmse_m: 0.013087704585060684
+  selected_rmse_mm: 13.087704585060685
+  all_vector_rmse_m: 0.04547677330220611
+  all_vector_rmse_mm: 45.47677330220611
+  per_vector_residual_mm:
+    thumb_tip: 130.49025981546347
+    index_tip: 6.622967730334267
+    middle_tip: 12.500456207470608
+    ring_tip: 19.13326590598317
+    pinky_tip: 8.936674551260827
+    thumb_intermediate: 47.7844860038146
+    index_intermediate: 14.020997458563684
+    middle_intermediate: 17.20657385116024
+    ring_intermediate: 6.09751601319988
+    pinky_intermediate: 13.942693867064852
+  per_vector_angle_error_deg:
+    thumb_tip: 60.250365940052184
+    index_tip: 2.1849802031691294
+    middle_tip: 3.5248913858567295
+    ring_tip: 6.221190650659997
+    pinky_tip: 2.910394914671295
+    thumb_intermediate: 38.28405696852466
+    index_intermediate: 6.10470376403374
+    middle_intermediate: 7.079728695309622
+    ring_intermediate: 2.4197511759621086
+    pinky_intermediate: 5.679880100016495

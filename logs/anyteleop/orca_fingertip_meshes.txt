@@ -1,0 +1,45 @@
+================================================================================
+ORCA fingertip mesh diagnostics
+================================================================================
+
+[INDEX]
+mesh   : /workspace/orcahand_description/v2/models/assets/right/I-FingerTipAssembly.stl
+min[m] : [-0.0130707 -0.0088346 -0.0079999]
+max[m] : [0.0096347 0.0088346 0.0452743]
+extent : [0.0227054 0.0176692 0.0532742]
+candidate tip: [-6.29256707e-03  1.35176185e-06  4.37804747e-02]
+distal vertices: 823
+
+[MIDDLE]
+mesh   : /workspace/orcahand_description/v2/models/assets/right/M-FingerTipAssembly.stl
+min[m] : [-0.0130707 -0.0088346 -0.0079999]
+max[m] : [0.0096347 0.0088346 0.0452743]
+extent : [0.0227054 0.0176692 0.0532742]
+candidate tip: [-6.29256707e-03  1.35176185e-06  4.37804747e-02]
+distal vertices: 823
+
+[RING]
+mesh   : /workspace/orcahand_description/v2/models/assets/right/M-FingerTipAssembly.stl
+min[m] : [-0.0130707 -0.0088346 -0.0079999]
+max[m] : [0.0096347 0.0088346 0.0452743]
+extent : [0.0227054 0.0176692 0.0532742]
+candidate tip: [-6.29256707e-03  1.35176185e-06  4.37804747e-02]
+distal vertices: 823
+
+[PINKY]
+mesh   : /workspace/orcahand_description/v2/models/assets/right/P-FingerTipAssembly.stl
+min[m] : [-0.013584  -0.0080215 -0.0075   ]
+max[m] : [0.0091332 0.0080215 0.0382751]
+extent : [0.0227172 0.016043  0.0457751]
+candidate tip: [-8.05394545e-03  2.87294625e-05  3.65643736e-02]
+distal vertices: 1507
+
+[THUMB]
+mesh   : /workspace/orcahand_description/v2/models/assets/right/T-DP.stl
+min[m] : [-0.008     -0.0101706 -0.0079991]
+max[m] : [0.0095846 0.0101706 0.0305   ]
+extent : [0.0175846 0.0203412 0.0384991]
+candidate tip: [ 0.00132872 -0.00028231  0.02899529]
+distal vertices: 1833
+
+Saved: /workspace/project/config/orca_v2_retarget_frames.yaml

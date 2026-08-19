@@ -1,0 +1,53 @@
+method: distal_positive_z_mesh_cap
+slab_mm: 3.0
+frames:
+  retarget_index_tip:
+    parent: I-FingerTipAssembly_ec49c16c
+    xyz:
+    - -0.006292567071688953
+    - 1.3517618469015677e-06
+    - 0.043780474726609994
+    rpy:
+    - 0.0
+    - 0.0
+    - 0.0
+  retarget_middle_tip:
+    parent: M-FingerTipAssembly_34afb748
+    xyz:
+    - -0.006292567071688953
+    - 1.3517618469015677e-06
+    - 0.043780474726609994
+    rpy:
+    - 0.0
+    - 0.0
+    - 0.0
+  retarget_ring_tip:
+    parent: M-FingerTipAssembly_424a8e75
+    xyz:
+    - -0.006292567071688953
+    - 1.3517618469015677e-06
+    - 0.043780474726609994
+    rpy:
+    - 0.0
+    - 0.0
+    - 0.0
+  retarget_pinky_tip:
+    parent: P-FingerTipAssembly_cd219176
+    xyz:
+    - -0.008053945454545453
+    - 2.8729462508294683e-05
+    - 0.03656437358991372
+    rpy:
+    - 0.0
+    - 0.0
+    - 0.0
+  retarget_thumb_tip:
+    parent: T-DP_b7429e50
+    xyz:
+    - 0.0013287230223677053
+    - -0.0002823140207310422
+    - 0.028995288434260795
+    rpy:
+    - 0.0
+    - 0.0
+    - 0.0
