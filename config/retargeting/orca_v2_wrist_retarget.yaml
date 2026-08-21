@@ -1,0 +1,37 @@
+# ORCA Hand v2 Right: standalone 1-DoF wrist retargeting
+#
+# This config is intentionally conservative for the FIRST Isaac test.
+# After direction/semantics are verified, the safe range can be widened.
+
+wrist_joint_name: R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e
+
+# Imported ORCA v2 wrist revolute joint axis.
+joint_axis_orca: [1.0, 0.0, 0.0]
+
+# 60 valid frames ≈ 2 s at 30 Hz.
+# Hold the human hand/wrist in the desired neutral pose during startup.
+neutral_frames: 60
+
+# If the robot wrist moves opposite to the desired human motion,
+# change ONLY this field from +1.0 to -1.0.
+sign: -1.0
+
+gain: 1.0
+offset_rad: 0.0
+
+# Small deadband to reduce MediaPipe wrist-frame jitter near neutral.
+deadband_rad: 0.015
+
+# EMA coefficient:
+# 1.0 = no filtering
+# smaller = smoother but more delay
+filter_alpha: 0.30
+
+# Server-side wrist command speed limit.
+max_speed_rad_s: 0.5
+
+# FIRST-TEST safety range: about +/-20 degrees.
+# ORCA's full URDF wrist range is wider; do not use the full range
+# until direction and stability have been verified.
+safe_lower_rad: -0.15
+safe_upper_rad: 0.15

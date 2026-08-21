@@ -63,6 +63,9 @@ if DEX_EXAMPLE_DIR not in sys.path:
 
 from single_hand_detector import SingleHandDetector
 
+from orca_wrist_retargeter import (
+    OrcaWristRetargeter,
+)
 
 EXPECTED_WRIST_JOINT = (
     "R-Carpals_8d1f1041_to_"
@@ -386,8 +389,50 @@ def main():
         default=0.0,
         help="Fixed ORCA wrist position in radians.",
     )
+    
+    parser.add_argument(
+        "--wrist-mode",
+        choices=[
+            "fixed",
+            "observe",          # 算 wrist，但 ORCA wrist 還是 0。 → 用來 debug mapping
+            "control",
+        ],
+        default="fixed",
+        help=(
+            "fixed: keep legacy fixed wrist; "
+            "observe: estimate human wrist but do not command it; "
+            "control: estimate and command ORCA wrist."
+        ),
+    )
+
+    parser.add_argument(
+        "--wrist-config",
+        type=Path,
+        default=None,
+        help=(
+            "Wrist retargeting YAML. "
+            "Required for observe/control mode."
+        ),
+    )
 
     args = parser.parse_args()
+    
+    # ==============================================================
+    # 加入 wrist mode validation
+    # ==============================================================
+    if args.wrist_mode != "fixed":
+
+        if args.wrist_config is None:
+            raise ValueError(
+                "--wrist-config is required "
+                "for observe/control mode."
+            )
+
+        if args.alignment_config is None:
+            raise ValueError(
+                "--alignment-config is required "
+                "for wrist observe/control mode."
+            )
     
     # ==============================================================
     # Human -> ORCA vector alignment
@@ -514,8 +559,25 @@ def main():
             f"{fixed_joint_names}"
         )
 
+    # ============================================================
+    # 讓 VectorOptimizer 永遠不要跟著 wrist 動
+    # ============================================================
+    if args.wrist_mode == "fixed":
+
+        optimizer_wrist_position = float(
+            args.wrist_position
+        )
+
+    else:
+
+        # IMPORTANT:
+        # VectorOptimizer always solves the
+        # finger problem with wrist = 0.
+        optimizer_wrist_position = 0.0
+
+
     fixed_qpos = np.asarray(
-        [args.wrist_position],
+        [optimizer_wrist_position],
         dtype=np.float32,
     )
 
@@ -527,6 +589,97 @@ def main():
         hand_type=args.hand_type,
         selfie=args.selfie,
     )
+    
+    wrist_retargeter = None
+
+    if args.wrist_mode != "fixed":
+
+        wrist_retargeter = (
+            OrcaWristRetargeter.from_yaml(
+                args.wrist_config,
+                human_to_orca_rotation=(
+                    alignment_rotation
+                ),
+            )
+        )
+
+        if (
+            wrist_retargeter.joint_name
+            != EXPECTED_WRIST_JOINT
+        ):
+            raise RuntimeError(
+                "Wrist config joint-name mismatch:\n"
+                f"config : "
+                f"{wrist_retargeter.joint_name}\n"
+                f"expect : "
+                f"{EXPECTED_WRIST_JOINT}"
+            )
+
+        wrist_lower = float(
+            joint_limits[
+                wrist_index,
+                0,
+            ]
+        )
+
+        wrist_upper = float(
+            joint_limits[
+                wrist_index,
+                1,
+            ]
+        )
+
+        if (
+            wrist_retargeter.safe_lower_rad
+            < wrist_lower
+            or
+            wrist_retargeter.safe_upper_rad
+            > wrist_upper
+        ):
+            raise RuntimeError(
+                "Wrist safe range exceeds "
+                "robot joint limits."
+            )
+            
+    print()
+    print("=" * 80)
+    print("ORCA wrist retargeting")
+    print("=" * 80)
+
+    print(
+        "Mode              :",
+        args.wrist_mode,
+    )
+
+    print(
+        "Wrist index       :",
+        wrist_index,
+    )
+
+    print(
+        "Wrist joint       :",
+        EXPECTED_WRIST_JOINT,
+    )
+
+    if wrist_retargeter is not None:
+
+        print(
+            "Wrist config      :",
+            args.wrist_config.resolve(),
+        )
+
+        print(
+            "Axis ORCA         :",
+            wrist_retargeter.joint_axis_orca,
+        )
+
+        print(
+            "Safe range        :",
+            f"[{wrist_retargeter.safe_lower_rad:+.4f}, "
+            f"{wrist_retargeter.safe_upper_rad:+.4f}]",
+        )
+
+    print()
 
     # --------------------------------------------------------------
     # Camera
@@ -727,6 +880,8 @@ def main():
 
     latest_q_delta_max = 0.0            # 相鄰兩個 qpos 最大關節變化
     latest_retarget_ms = 0.0            # 最近一幀 optimizer 計算時間
+    
+    latest_wrist_diag = None            # 每個有效 MediaPipe frame 計算 wrist
 
     # ==============================================================
     # Raw Human reference-vector diagnostics
@@ -894,7 +1049,18 @@ def main():
             # 到這裡代表 hand detection 成功
             valid_detection_count += 1
             
-                        # ==============================================================
+            # 啟動前 60 個有效 frame，要把手保持在希望的 Human wrist neutral pose 約兩秒。
+            # 完成之後：ready=True 才開始計算 relative wrist motion。
+            if wrist_retargeter is not None:
+                latest_wrist_diag = (
+                    wrist_retargeter.update(
+                        mediapipe_wrist_rot,
+                        detector.operator2mano,
+                        timestamp=time.monotonic(),
+                    )
+                )
+            
+            # ==============================================================
             # 1. RAW Human reference vectors
             #
             # Official dex-retargeting vector construction:
@@ -1090,11 +1256,19 @@ def main():
             start_retarget = (
                 time.perf_counter()
             )
-
-            qpos = retargeting.retarget(
-                reference_vectors_aligned,
-                fixed_qpos=fixed_qpos,
+            
+            # 為了不要直接修改 VectorOptimizer 內部可能持有的 qpos buffer
+            finger_qpos_internal = (
+                retargeting.retarget(
+                    reference_vectors_aligned,
+                    fixed_qpos=fixed_qpos,
+                )
             )
+            
+            qpos = np.asarray(
+                finger_qpos_internal,
+                dtype=np.float32,
+            ).copy()
 
             retarget_ms = (
                 (
@@ -1107,6 +1281,23 @@ def main():
             latest_retarget_ms = float(
                 retarget_ms
             )
+            
+            # 在 VectorOptimizer 完成後才合成 wrist
+            if (
+                args.wrist_mode == "control"
+                and latest_wrist_diag is not None
+                and latest_wrist_diag.ready
+            ):
+
+                qpos[wrist_index] = (
+                    latest_wrist_diag.command_rad
+                )
+
+            else:
+
+                qpos[wrist_index] = float(
+                    args.wrist_position
+                )
             
             # --------------------------------------------------------------
             # Validate optimizer output
@@ -1175,13 +1366,24 @@ def main():
                 "tracking_valid": True,
                 "joint_names": joint_names,
                 "positions_rad": (
-                    qpos.astype(float)
-                    .tolist()
+                    qpos.astype(float).tolist()
                 ),
-                "retarget_ms": (
-                    float(retarget_ms)
+                "retarget_ms": float(
+                    retarget_ms
                 ),
-                "source": "mediapipe_dex_retargeting",
+                "source": (
+                    "mediapipe_dex_retargeting"
+                ),
+
+                "wrist_mode": (
+                    args.wrist_mode
+                ),
+
+                "wrist": (
+                    None
+                    if latest_wrist_diag is None
+                    else latest_wrist_diag.as_dict()
+                ),
             }
 
             sock.sendto(
@@ -1537,6 +1739,26 @@ def main():
                             f"{limit_state}"
                         )
 
+                if latest_wrist_diag is not None:
+                    print(
+                        f"[WRIST] "
+                        f"mode={args.wrist_mode:<7}  "
+                        f"ready={latest_wrist_diag.ready}  "
+                        f"neutral="
+                        f"{latest_wrist_diag.neutral_count}/"
+                        f"{latest_wrist_diag.neutral_frames}  "
+                        f"raw="
+                        f"{latest_wrist_diag.raw_twist_rad:+.4f}  "
+                        f"mapped="
+                        f"{latest_wrist_diag.mapped_rad:+.4f}  "
+                        f"filtered="
+                        f"{latest_wrist_diag.filtered_rad:+.4f}  "
+                        f"cmd="
+                        f"{latest_wrist_diag.command_rad:+.4f}  "
+                        f"clamped="
+                        f"{latest_wrist_diag.clamped}"
+                    )
+                
                 # Reset only the one-second counters.
                 # Do NOT reset previous_qpos/latest_qpos.
                 captured_count = 0
@@ -1550,7 +1772,7 @@ def main():
                 sent_invalid_count = 0
 
                 status_timer = now
-
+            
             # ------------------------------------------------------
             # Optional display
             # ------------------------------------------------------
