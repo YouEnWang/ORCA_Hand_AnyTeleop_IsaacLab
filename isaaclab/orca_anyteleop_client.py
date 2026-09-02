@@ -36,6 +36,7 @@ import json
 import re
 import socket
 import time
+from pathlib import Path
 
 
 # ----------------------------------------------------------------------
@@ -77,6 +78,16 @@ parser.add_argument(
     type=float,
     default=2.0,
     help="Command slew-rate limit in rad/s.",
+)
+
+parser.add_argument(
+    "--record-path",
+    type=Path,
+    default=None,
+    help=(
+        "Optional JSONL path for research recording. "
+        "Each simulation step stores desired, applied, and actual joints."
+    ),
 )
 
 AppLauncher.add_app_launcher_args(parser)
@@ -295,6 +306,8 @@ def main():
 
     last_valid_receive_time = None
     last_seq = -1
+    last_packet_timestamp = 0.0
+    last_tracking_valid = False
 
     # ==============================================================
     # UDP / Isaac diagnostics
@@ -317,6 +330,21 @@ def main():
         "Waiting for AnyTeleop "
         "retargeting packets..."
     )
+
+    record_file = None
+    if args_cli.record_path is not None:
+        args_cli.record_path.expanduser().resolve().parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        record_file = args_cli.record_path.expanduser().open(
+            "w",
+            encoding="utf-8",
+        )
+        print()
+        print("Recording JSONL :", args_cli.record_path)
+
+    sim_time = 0.0
 
     try:
 
@@ -406,6 +434,8 @@ def main():
                         0.0,
                     )
                 )
+                last_packet_timestamp = timestamp
+                last_tracking_valid = tracking_valid
 
                 packet_age = (
                     time.time()
@@ -561,6 +591,31 @@ def main():
             robot.update(
                 sim_dt
             )
+
+            if record_file is not None:
+                actual = robot.data.joint_pos[0]
+                record = {
+                    "t_sim": sim_time,
+                    "timestamp": time.time(),
+                    "seq": last_seq,
+                    "packet_timestamp": last_packet_timestamp,
+                    "tracking_valid": last_tracking_valid,
+                    "joint_names": list(robot.joint_names),
+                    "q_desired": desired_target[0].detach().cpu().tolist(),
+                    "q_command": target[0].detach().cpu().tolist(),
+                    "q_actual": actual.detach().cpu().tolist(),
+                    "source": "isaaclab_orca_anyteleop_client",
+                }
+                record_file.write(
+                    json.dumps(
+                        record,
+                        ensure_ascii=True,
+                        sort_keys=True,
+                    )
+                )
+                record_file.write("\n")
+
+            sim_time += sim_dt
             
             # ==============================================================
             # Print client / Isaac status once per second
@@ -632,6 +687,9 @@ def main():
     finally:
 
         sock.close()
+
+        if record_file is not None:
+            record_file.close()
 
 
 if __name__ == "__main__":

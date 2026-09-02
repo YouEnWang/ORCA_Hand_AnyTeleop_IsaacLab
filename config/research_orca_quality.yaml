@@ -1,0 +1,37 @@
+# ORCA Hand v2 Right research defaults.
+#
+# These paths follow the current Linux project layout described in README.md.
+
+project_root: /home/lab606/Projects/orca_isaaclab_import
+isaaclab_root: /home/lab606/IsaacLab
+
+udp:
+  host: 127.0.0.1
+  port: 5006
+
+recording:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  results_dir: results
+  client_record_jsonl: data/raw/isaac_client_session.jsonl
+  server_record_jsonl: data/raw/teleop_server_session.jsonl
+
+analysis:
+  trajectory_key: q_command
+  high_frequency_cutoff_hz: 6.0
+
+purification:
+  method: butterworth
+  cutoff_hz: 6.0
+  order: 2
+  window: 9
+  polyorder: 3
+  z_threshold: 6.0
+  max_speed_rad_s: 2.0
+
+jitter_injection:
+  amplitude_rad: 0.015
+  frequency_hz: 12.0
+  gaussian_std_rad: 0.004
+  seed: 7
+

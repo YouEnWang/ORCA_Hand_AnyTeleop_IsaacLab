@@ -387,6 +387,16 @@ def main():
         help="Fixed ORCA wrist position in radians.",
     )
 
+    parser.add_argument(
+        "--record-path",
+        type=Path,
+        default=None,
+        help=(
+            "Optional JSONL path for research recording. "
+            "Stores MediaPipe validity, human vectors, aligned vectors, and qpos."
+        ),
+    )
+
     args = parser.parse_args()
     
     # ==============================================================
@@ -569,6 +579,18 @@ def main():
         socket.AF_INET,
         socket.SOCK_DGRAM,
     )
+
+    record_file = None
+    if args.record_path is not None:
+        args.record_path.expanduser().resolve().parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        record_file = args.record_path.expanduser().open(
+            "w",
+            encoding="utf-8",
+        )
+        print("Recording JSONL   :", args.record_path)
 
     # --------------------------------------------------------------
     # Retargeting human landmark indices
@@ -821,6 +843,22 @@ def main():
                     args.port,
                     seq,
                 )
+
+                if record_file is not None:
+                    record = {
+                        "seq": seq,
+                        "timestamp": time.time(),
+                        "tracking_valid": False,
+                        "source": "mediapipe_dex_retargeting",
+                    }
+                    record_file.write(
+                        json.dumps(
+                            record,
+                            ensure_ascii=True,
+                            sort_keys=True,
+                        )
+                    )
+                    record_file.write("\n")
 
                 sent_invalid_count += 1
                 
@@ -1183,6 +1221,29 @@ def main():
                 ),
                 "source": "mediapipe_dex_retargeting",
             }
+
+            if record_file is not None:
+                record = dict(packet)
+                record["reference_vectors_raw"] = (
+                    reference_vectors_raw.astype(float)
+                    .tolist()
+                )
+                record["reference_vectors_aligned"] = (
+                    reference_vectors_aligned.astype(float)
+                    .tolist()
+                )
+                record["reference_vector_lengths"] = (
+                    latest_reference_lengths.astype(float)
+                    .tolist()
+                )
+                record_file.write(
+                    json.dumps(
+                        record,
+                        ensure_ascii=True,
+                        sort_keys=True,
+                    )
+                )
+                record_file.write("\n")
 
             sock.sendto(
                 json.dumps(
@@ -1600,6 +1661,9 @@ def main():
         cap.release()
 
         sock.close()
+
+        if record_file is not None:
+            record_file.close()
 
         if args.show:
             cv2.destroyAllWindows()

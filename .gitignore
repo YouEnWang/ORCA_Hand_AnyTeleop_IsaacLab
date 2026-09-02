@@ -22,6 +22,8 @@ kit/cache/
 isaac-sim/cache/
 
 # Logs and experimental data
+data/
+results/
 logs/
 outputs/
 *.csv

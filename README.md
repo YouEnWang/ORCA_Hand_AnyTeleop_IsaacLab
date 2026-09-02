@@ -671,6 +671,32 @@ A possible English title is:
 
 > An AnyTeleop-Inspired Robust Vision-Based Teleoperation Pipeline for the ORCA Hand v2
 
+## 15.1 Demonstration Quality Research Framework
+
+A first-version research framework has been added for focused ORCA Hand v2
+Right teleoperation demonstration quality analysis and purification.
+
+It currently focuses on:
+
+```text
+AnyTeleop-style ORCA retargeting
+  -> IsaacLab ORCA v2 right recording
+  -> offline signal-quality analysis
+  -> jitter injection benchmark
+  -> baseline purification methods
+  -> raw vs purified comparison
+  -> UDP trajectory replay
+```
+
+This first version intentionally excludes MuJoCo comparison and across-hand
+transfer so that the initial experiments remain executable and measurable.
+
+See:
+
+```text
+docs/ORCA_RESEARCH_FRAMEWORK.md
+```
+
 ---
 
 ## 16. References
