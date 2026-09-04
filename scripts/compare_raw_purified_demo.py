@@ -31,15 +31,25 @@ def main() -> None:
     raw_dataset = load_dataset(args.raw)
     purified_dataset = load_dataset(args.purified)
     time_values = normalize_time(np.asarray(raw_dataset["time"], dtype=np.float64))
-    raw = require_trajectory(raw_dataset, args.trajectory_key)
-    purified = require_trajectory(purified_dataset, args.trajectory_key)
-    if raw.shape != purified.shape:
-        raise ValueError(f"Trajectory shape mismatch: {raw.shape} vs {purified.shape}")
+    raw = require_trajectory(raw_dataset, args.trajectory_key)                      # Raw noisy trajectory
+    purified = require_trajectory(purified_dataset, args.trajectory_key)            # Purified trajectory
+    clean = require_trajectory(raw_dataset, f"{args.trajectory_key}_clean")         # Ground-truth clean trajectory
+    if raw.shape != purified.shape or raw.shape != clean.shape:
+        raise ValueError(f"Trajectory shape mismatch: raw={raw.shape}, purified={purified.shape}, clean={clean.shape}")
 
     raw_metrics = compute_quality_metrics(time_values, raw)
     purified_metrics = compute_quality_metrics(time_values, purified)
+    
+    # axis=0: 對時間軸計算 RMSE，因此最後得到 17 個值，每個 ORCA joint 一個 RMSE
     delta = {
+        # Purified trajectory 距離 raw noisy trajectory 多遠
         "rmse_raw_minus_purified": np.sqrt(np.mean((raw - purified) ** 2, axis=0)),
+        
+        # Raw noisy trajectory 距離 clean ground truth 多遠
+        "rmse_raw_minus_clean": np.sqrt(np.mean((raw - clean) ** 2, axis=0)),
+        
+        # Purified trajectory 距離 clean ground truth 多遠
+        "rmse_purified_minus_clean": np.sqrt(np.mean((purified - clean) ** 2, axis=0)),
     }
     all_metrics = {}
     all_metrics.update(_prefix_metrics("raw", raw_metrics))
