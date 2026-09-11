@@ -32,6 +32,8 @@ def main() -> None:
             "butterworth",
             "outlier_then_butterworth",
             "velocity_clamp",
+            "tracking_interp",
+            "tracking_interp_then_butterworth",
         ],
     )
     parser.add_argument("--window", type=int, default=9)
@@ -46,6 +48,7 @@ def main() -> None:
     dataset = load_dataset(args.input)
     time_values = normalize_time(np.asarray(dataset["time"], dtype=np.float64))
     raw = require_trajectory(dataset, args.trajectory_key)
+    tracking_valid = dataset.get("tracking_valid",None)     # Tracking Dropout
     purified = apply_filter(
         raw,
         time_values,
@@ -56,10 +59,13 @@ def main() -> None:
         order=args.order,
         z_threshold=args.z_threshold,
         max_speed_rad_s=args.max_speed_rad_s,
+        tracking_valid=tracking_valid,
     )
     dataset[f"{args.trajectory_key}_raw"] = raw
     dataset[args.trajectory_key] = purified
     dataset["purification_method"] = np.asarray(args.method)
+    dataset["purification_used_tracking_valid"] = np.asarray(args.method in {"tracking_interp", "tracking_interp_then_butterworth"})     # Tracking Dropout
+
     save_npz(args.output, dataset)
 
     if args.figure is not None:

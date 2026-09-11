@@ -65,6 +65,118 @@ def butterworth_lowpass(values: np.ndarray, sample_rate_hz: float, cutoff_hz: fl
     b, a = butter(order, cutoff_hz / nyquist, btype="low")
     return filtfilt(b, a, values, axis=0)
 
+def repair_tracking_dropout_linear(
+    values: np.ndarray,
+    time_values: np.ndarray,
+    tracking_valid: np.ndarray,
+) -> np.ndarray:
+    """
+    Repair tracking-dropout frames using linear interpolation.
+
+    Only frames where tracking_valid == False are modified.
+    Valid frames are preserved exactly.
+
+    For every invalid timestamp t, the repaired value is linearly
+    interpolated between surrounding valid observations.
+
+    Important:
+        This is an OFFLINE demonstration-repair baseline because it can
+        use a future valid frame after the dropout interval.
+        It is not a causal realtime teleoperation method.
+    """
+
+    values = np.asarray(
+        values,
+        dtype=np.float64,
+    )
+
+    time_values = np.asarray(
+        time_values,
+        dtype=np.float64,
+    )
+
+    tracking_valid = np.asarray(
+        tracking_valid,
+        dtype=bool,
+    )
+
+    if values.ndim != 2:
+        raise ValueError(
+            "values must have shape (frames, joints), "
+            f"got {values.shape}"
+        )
+
+    if time_values.ndim != 1:
+        raise ValueError(
+            "time_values must be 1-D, "
+            f"got {time_values.shape}"
+        )
+
+    if tracking_valid.ndim != 1:
+        raise ValueError(
+            "tracking_valid must be 1-D, "
+            f"got {tracking_valid.shape}"
+        )
+
+    frame_count = values.shape[0]
+
+    if len(time_values) != frame_count:
+        raise ValueError(
+            "time_values length does not match values: "
+            f"{len(time_values)} vs {frame_count}"
+        )
+
+    if len(tracking_valid) != frame_count:
+        raise ValueError(
+            "tracking_valid length does not match values: "
+            f"{len(tracking_valid)} vs {frame_count}"
+        )
+
+    output = values.copy()
+
+    invalid = ~tracking_valid
+
+    # Nothing to repair.
+    if not np.any(invalid):
+        return output
+
+    valid_indices = np.flatnonzero(
+        tracking_valid
+    )
+
+    if valid_indices.size < 2:
+        raise ValueError(
+            "At least two valid frames are required "
+            "for linear interpolation."
+        )
+
+    valid_time = time_values[
+        valid_indices
+    ]
+
+    invalid_time = time_values[
+        invalid
+    ]
+
+    # Interpolate each ORCA joint independently.
+    for joint_index in range(
+        values.shape[1]
+    ):
+        valid_values = values[
+            valid_indices,
+            joint_index,
+        ]
+
+        output[
+            invalid,
+            joint_index,
+        ] = np.interp(
+            invalid_time,
+            valid_time,
+            valid_values,
+        )
+
+    return output
 
 def clamp_velocity(values: np.ndarray, time_values: np.ndarray, max_speed_rad_s: float) -> np.ndarray:
     values = np.asarray(values, dtype=np.float64)
@@ -96,7 +208,7 @@ def apply_filter(
     values: np.ndarray,
     time_values: np.ndarray,
     method: str,
-    **kwargs: float | int | str,
+    **kwargs: object,
 ) -> np.ndarray:
     method = method.lower().replace("-", "_")
     if method == "none":
@@ -126,5 +238,75 @@ def apply_filter(
         )
     if method == "velocity_clamp":
         return clamp_velocity(values, time_values, float(kwargs.get("max_speed_rad_s", 2.0)))
+    
+    if method == "tracking_interp":
+        tracking_valid = kwargs.get(
+            "tracking_valid",
+            None,
+        )
+
+        if tracking_valid is None:
+            raise ValueError(
+                "tracking_interp requires tracking_valid."
+            )
+
+        return repair_tracking_dropout_linear(
+            values,
+            time_values,
+            np.asarray(
+                tracking_valid,
+                dtype=bool,
+            ),
+        )
+
+    if method == "tracking_interp_then_butterworth":
+        tracking_valid = kwargs.get(
+            "tracking_valid",
+            None,
+        )
+
+        if tracking_valid is None:
+            raise ValueError(
+                "tracking_interp_then_butterworth "
+                "requires tracking_valid."
+            )
+
+        repaired = repair_tracking_dropout_linear(
+            values,
+            time_values,
+            np.asarray(
+                tracking_valid,
+                dtype=bool,
+            ),
+        )
+
+        sample_rate = (
+            1.0
+            / np.median(
+                np.diff(
+                    time_values
+                )
+            )
+        )
+
+        return butterworth_lowpass(
+            repaired,
+            sample_rate_hz=float(
+                sample_rate
+            ),
+            cutoff_hz=float(
+                kwargs.get(
+                    "cutoff_hz",
+                    6.0,
+                )
+            ),
+            order=int(
+                kwargs.get(
+                    "order",
+                    2,
+                )
+            ),
+        )
+    
     raise ValueError(f"Unknown purification method: {method}")
 
