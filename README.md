@@ -1,49 +1,426 @@
-# ORCA Hand v2 Vision-Based Teleoperation in Isaac Lab
+# ORCA Hand v2 AnyTeleop-Style Teleoperation Research
 
-本專案旨在建立一套以 **AnyTeleop** 為概念參考的 ORCA Hand v2 裸手視覺即時遙操作系統。
+本專案旨在建立一套以 **AnyTeleop hand-retargeting pipeline** 為基準的
+ORCA Hand v2 Right 裸手視覺即時遙操作系統，並在復現 baseline 的過程中
+分析其在低成本、tendon-driven 靈巧手與工業示教任務中的不穩定來源。
 
-目前的研究基礎為：
+目前專案的定位是：
 
-- 使用 Intel RealSense D435i 擷取人手影像
-- 使用 MediaPipe 偵測 21 個人手關鍵點
-- 根據人手骨架計算手指關節角度
-- 使用 joint-angle mapping 即時控制 Isaac Lab 中的 Shadow Hand
-- 記錄並分析 human joint angles、robot targets、Isaac applied targets 與 actual joint positions
-- 使用濾波與 Daubechies db4 小波分析關節抖動
+> 復現並移植 AnyTeleop 的 hand-only vision-based retargeting baseline 到
+> ORCA Hand v2，先在 Isaac Lab 中驗證，再延伸到實體 ORCA Hand，最後從
+> perception uncertainty、retargeting error、command jitter 與 robot response
+> mismatch 中收斂碩士論文研究問題。
 
-下一階段將把目前的 Shadow Hand pipeline 移植至實驗室的 **ORCA Hand v2 Right**，並逐步建立：
-
-1. ORCA Hand v2 在 Isaac Lab 中的模擬模型
-2. MediaPipe 至 ORCA Hand 的直接關節角映射
-3. AnyTeleop-inspired optimization-based retargeting
-4. 模擬與實體 ORCA Hand 的統一控制介面
-5. 視覺估測誤差、重定向誤差、延遲與關節抖動分析
+本專案 **不是完整重建 AnyTeleop 的 arm-hand system**。目前範圍聚焦於單一
+ORCA Hand v2 Right，不包含 robot arm motion generation、CuRobo、多相機融合、
+web visualizer 或多使用者遠端操作。
 
 ---
 
-## 1. Research Objective
+## 1. Research Direction
 
-本專案目前的研究目標為：
+建議的碩論方向為：
 
-> 建立一套適用於 ORCA Hand v2 的完整 vision-based dexterous hand teleoperation pipeline，並比較直接關節角映射與 optimization-based retargeting 在控制精度、指尖位置、關節抖動與系統延遲上的差異。
+> 面向 ORCA Hand v2 工業示教任務之不確定性感知重定向與示範資料品質提升
 
-目前研究範圍聚焦於單一靈巧手，不包含：
+可能的英文題目：
 
-- 機械手臂控制
-- CuRobo motion generation
-- 多相機融合
-- Web-based remote visualizer
-- 多操作者或多機器人協作
+> Uncertainty-Aware Retargeting and Demonstration Quality Enhancement for
+> Industrial Teaching with the ORCA Hand v2
 
-因此，本專案現階段定位為：
+研究主軸不是單純展示「ORCA Hand 可以被 MediaPipe 控制」，而是回答：
 
-> **AnyTeleop-inspired dexterous hand teleoperation for ORCA Hand v2**
+> 當 AnyTeleop-style vision-based retargeting 被移植到低成本 tendon-driven
+> ORCA Hand v2 時，哪些 perception、retargeting 與 robot-response 問題會影響
+> 工業示教品質？如何量化並改善這些問題？
 
-而不是完整重建 AnyTeleop 的 arm-hand teleoperation system。
+預期貢獻包含：
+
+1. 建立 ORCA Hand v2 的 AnyTeleop-style hand-only teleoperation baseline。
+2. 在 Isaac Lab 與實體 ORCA Hand 上記錄一致的 command / actual / perception 訊號。
+3. 分析 perception uncertainty、retargeting error、command jitter 與 joint response mismatch。
+4. 提出 uncertainty-aware retargeting 或 demonstration purification 方法。
+5. 以靜態手勢、動態手勢與工業類任務驗證 baseline 與 proposed method 的差異。
 
 ---
 
-## 2. Target System
+## 2. Current Status
+
+目前進度大約位於：
+
+> **Gate 2 — ORCA Isaac UDP validation and joint-response characterization 的前半段**
+
+已完成：
+
+- ORCA Hand v2 Right 官方 URDF 取得與 Isaac-compatible 工作副本建立。
+- 修正 CAD 匯出 mesh filename 造成的 USD prim path 問題。
+- ORCA Hand v2 Right 成功匯入 Isaac Sim / Isaac Lab。
+- 確認 ORCA articulation root 與 17 個 revolute joints。
+- 建立 containerized dex-retargeting environment。
+- pin AnyTeleop-derived `dex-retargeting` implementation。
+- 解決 PyTorch 與 MediaPipe compatibility 問題。
+- D435i camera device 可從 retargeting container 存取。
+- 建立 ORCA-specific VectorOptimizer configuration。
+- 建立 AnyTeleop-style UDP retargeting server。
+- 建立 Isaac Lab ORCA teleoperation client。
+- 完成 dex-retargeting joint names 到 Isaac Lab joint names 的 17-joint mapping。
+- 第一筆 retargeted ORCA command 已成功送達 Isaac 並驅動 ORCA model。
+- 建立 offline demonstration quality analysis / purification framework。
+
+目前主要未完成或待驗證：
+
+- continuous MediaPipe tracking 與 continuous UDP command transmission。
+- ORCA hand 初始快速收縮問題。
+- ORCA open-hand optimizer initialization。
+- VectorOptimizer scale / alignment calibration。
+- 全部手指 retargeted motion 的方向與幅度驗證。
+- Gate 2 後半段的 joint-response characterization。
+- 實體 ORCA Hand v2 的 safety bridge 與 `orca_core` integration。
+
+---
+
+## 3. Research Gates
+
+以下 gates 是目前建議的研究與開發路線。Gate 3 中明確加入
+「復現 AnyTeleop baseline」階段，讓後續研究問題來自 baseline reproduction
+時觀察到的實際限制。
+
+### Gate 0 — Research / Repo / Environment Freeze
+
+目標：固定研究問題、第三方版本、baseline、資料格式與實驗設定。
+
+輸出：
+
+- `THIRD_PARTY_VERSIONS.md`
+- environment and dependency versions
+- ORCA description commit
+- dex-retargeting commit
+- Isaac Sim / Isaac Lab versions
+- baseline methods:
+  - direct joint-angle mapping
+  - AnyTeleop-style VectorOptimizer
+  - raw trajectory replay
+  - baseline filtering / purification
+- unified logging schema:
+  - perception signals
+  - retargeted qpos
+  - q_desired
+  - q_command
+  - q_actual
+  - timestamps and packet intervals
+  - tracking validity
+
+### Gate 1 — Offline Uncertainty-Aware Framework Smoke Test
+
+目標：不用 Isaac 或相機也能驗證資料讀寫、品質分析、jitter injection 與
+purification pipeline。
+
+目前相關程式：
+
+- `scripts/generate_synthetic_orca_demo.py`
+- `scripts/generate_sample_isaac_client_jsonl.py`
+- `scripts/analyze_orca_demo_quality.py`
+- `scripts/inject_orca_jitter.py`
+- `scripts/purify_orca_demo.py`
+- `scripts/compare_raw_purified_demo.py`
+- `scripts/replay_orca_demo_isaac.py`
+- `research/orca_research/metrics.py`
+- `research/orca_research/filters.py`
+- `research/orca_research/noise.py`
+- `research/orca_research/io.py`
+- `research/orca_research/reporting.py`
+
+Smoke test:
+
+```bash
+python scripts/generate_synthetic_orca_demo.py \
+  --output data/examples/synthetic_orca_demo.npz
+
+python scripts/analyze_orca_demo_quality.py \
+  --input data/examples/synthetic_orca_demo.npz \
+  --output-dir results/examples/quality
+
+python scripts/inject_orca_jitter.py \
+  --input data/examples/synthetic_orca_demo.npz \
+  --output data/examples/synthetic_orca_demo_noisy.npz
+
+python scripts/purify_orca_demo.py \
+  --input data/examples/synthetic_orca_demo_noisy.npz \
+  --output data/processed/synthetic_orca_demo_purified.npz \
+  --method butterworth \
+  --cutoff-hz 6.0 \
+  --figure results/examples/purified_preview.png
+
+python scripts/compare_raw_purified_demo.py \
+  --raw data/examples/synthetic_orca_demo_noisy.npz \
+  --purified data/processed/synthetic_orca_demo_purified.npz \
+  --output-dir results/examples/raw_vs_purified
+```
+
+後續應擴充：
+
+- tracking dropout injection
+- landmark outlier injection
+- latency / packet jitter injection
+- depth invalid ratio
+- confidence-weighted synthetic data
+- task phase labels such as approach / grasp / hold / release
+
+### Gate 2 — ORCA Isaac UDP Validation and Joint-Response Characterization
+
+目標：在 Isaac Lab 中確認 ORCA Hand v2 可被 UDP client 穩定接收與控制，並建立
+joint-level response baseline。
+
+目前相關程式：
+
+- `isaaclab/orca_hand_cfg.py`
+- `isaaclab/orca_anyteleop_client.py`
+- `teleop/send_orca_static_test.py`
+- `teleop/send_orca_named_joint_sweep.py`
+- `scripts/record_orca_udp_packets.py`
+
+已完成部分：
+
+- Isaac ORCA articulation import。
+- 17-joint name mapping。
+- UDP packet receive path。
+- joint-limit clamp。
+- command slew-rate limiting。
+- `q_desired` / `q_command` / `q_actual` recording。
+
+仍需完成：
+
+- 每個 joint 的 named sweep validation。
+- q_command to q_actual tracking error。
+- step response。
+- rise time / settling time。
+- command-to-actual delay。
+- velocity limit 對 response 的影響。
+- open-hand neutral pose calibration。
+
+### Gate 3 — AnyTeleop Baseline Reproduction
+
+目標：明確復現 AnyTeleop 的 hand-only baseline，並將其移植到 ORCA Hand v2。
+
+#### Gate 3A — AnyTeleop Hand-Only Reproduction in Isaac
+
+Pipeline:
+
+```text
+D435i RGB camera
+  -> MediaPipe / SingleHandDetector
+  -> dex-retargeting VectorOptimizer
+  -> ORCA joint names + qpos
+  -> UDP
+  -> Isaac Lab ORCA client
+  -> ORCA Hand v2 Right in Isaac
+```
+
+目前相關程式：
+
+- `teleop/orca_anyteleop_server.py`
+- `config/retargeting/orca_v2_right_vector.yml`
+- `config/retargeting/orca_v2_right_vector_virtual_tip.yml`
+- `config/retargeting/orca_v2_vector_alignment_virtual_tip.yaml`
+- `config/orca_v2_retarget_frames.yaml`
+- `config/orca_v2_joint_semantics.yaml`
+- `tools/test_continuous_hand_tracking.py`
+- `tools/test_orca_dex_config.py`
+- `tools/test_orca_dex_retarget_once.py`
+- `tools/inspect_orca_robot_vectors.py`
+- `tools/inspect_orca_fingertip_meshes.py`
+- `tools/calibrate_orca_vector_alignment.py`
+
+目前已達成第一筆 valid packet 到 Isaac，但 continuous control 尚未驗證。
+
+#### Gate 3B — AnyTeleop Reproduction Debugging
+
+需要優先解決：
+
+- MediaPipe tracking valid / invalid 統計。
+- UDP send / receive rate 統計。
+- retargeted qpos consecutive logging。
+- D435i RGB video node verification。
+- `SeqRetargeting` initial qpos 與 ORCA open-hand pose mismatch。
+- VectorOptimizer scale / frame alignment。
+- retargeting filter / low-pass behavior。
+- first-frame contraction problem。
+
+#### Gate 3C — Physical ORCA Hand Safety Bridge
+
+在連接實體 ORCA Hand 前必須完成：
+
+- `orca_core` integration。
+- semantic joint names to motor IDs mapping。
+- joint limits。
+- velocity limits。
+- command timeout。
+- tracking-loss watchdog。
+- NaN / invalid-command rejection。
+- safe neutral or open-hand behavior。
+- emergency stop。
+- motor current / temperature monitoring if available。
+- tendon calibration / tension check procedure。
+
+#### Gate 3D — AnyTeleop-Style Control of Physical ORCA Hand v2
+
+目標：使用與 Isaac baseline 相同的 retargeting server，改由 physical ORCA client
+接收 command。
+
+需要記錄：
+
+- q_desired from retargeting。
+- q_command after safety layer。
+- motor / joint feedback if available。
+- packet timestamp。
+- command-to-feedback latency。
+- tracking validity。
+- failure / watchdog events。
+
+這一關完成後，才算真正完成「AnyTeleop 操作實體 ORCA Hand v2」的 baseline reproduction。
+
+### Gate 4 — Formal Static, Dynamic, and Industrial Teaching Data Collection
+
+目標：在 baseline 可穩定運作後，建立 formal dataset，而不是只保留臨時 debug log。
+
+資料類型：
+
+- Static gestures:
+  - open hand
+  - closed fist
+  - thumb-index pinch
+  - three-finger pinch
+  - object holding pose
+- Dynamic gestures:
+  - open-to-fist
+  - open-to-pinch
+  - slow finger flexion
+  - fast finger flexion
+  - repeated grasp-release
+- Industrial teaching tasks:
+  - washer / nut pick-and-place
+  - small connector pinch
+  - object placement into fixture
+  - button press
+  - knob rotation if the hand is stable enough
+
+每筆資料建議記錄：
+
+- task name
+- operator ID
+- lighting condition
+- background condition
+- object type
+- success / failure
+- failure reason
+- method name
+- raw / filtered / proposed output source
+
+### Gate 5 — Perception / Retargeting / Robot-Response Error Decomposition
+
+目標：將 AnyTeleop baseline 在 ORCA Hand v2 上的問題拆成可量化來源。
+
+Perception-side:
+
+- landmark jitter。
+- tracking loss。
+- handedness confidence。
+- depth invalid ratio。
+- 2D / 3D landmark discontinuity。
+
+Retargeting-side:
+
+- optimizer residual。
+- bad initialization。
+- human-to-robot scale mismatch。
+- vector-frame alignment error。
+- q_desired jump。
+- per-finger vector contribution。
+
+Robot / control-side:
+
+- q_command to q_actual delay。
+- tracking RMSE / MAE。
+- velocity clamp events。
+- saturation / joint-limit events。
+- tendon-driven response mismatch。
+- physical motor feedback delay if available。
+
+這一關的核心問題是：
+
+> ORCA teleoperation 不穩主要來自 perception、retargeting，還是 robot response？
+
+### Gate 6 — Robust Retargeting and Demonstration Purification Benchmark
+
+目標：在 AnyTeleop-style baseline 之上加入 proposed method，並與 baseline filters 比較。
+
+Baseline methods:
+
+- raw AnyTeleop-style VectorOptimizer output。
+- moving average。
+- median。
+- Savitzky-Golay。
+- Butterworth。
+- outlier + Butterworth。
+- velocity clamp。
+
+Proposed method 可包含：
+
+- landmark validity weighting。
+- depth validity weighting。
+- per-finger confidence。
+- Huber loss for outlier vectors。
+- adaptive temporal regularization。
+- tracking-loss hold / decay-to-neutral。
+- task-phase-aware smoothing。
+- ORCA response-aware compensation after Gate 5 analysis。
+
+評估指標：
+
+- velocity RMS。
+- acceleration RMS。
+- jerk RMS。
+- total variation。
+- high-frequency energy ratio。
+- spectral entropy。
+- q_command to q_actual tracking RMSE。
+- phase delay。
+- task success rate。
+- object slip / contact instability if measurable。
+
+### Gate 7 — Task-Level Replay and Industrial Application Evaluation
+
+目標：用任務層級結果收尾，而不是只證明 trajectory 比較平滑。
+
+Simulation evaluation:
+
+- raw vs filtered vs proposed replay。
+- grasp success rate。
+- contact stability。
+- final object pose error。
+- trajectory smoothness。
+- q_command to q_actual tracking error。
+
+Physical ORCA evaluation:
+
+- small-object pinch。
+- washer / nut pick-and-place。
+- button press。
+- fixture placement。
+
+比較項目：
+
+- baseline AnyTeleop-style retargeting。
+- baseline + purification。
+- proposed uncertainty-aware retargeting / purification。
+
+最終論文應能回答：
+
+> Proposed method 是否提升 ORCA Hand v2 在工業示教任務中的穩定性、可重播性與任務成功率？
+
+---
+
+## 4. Target System
 
 ### Hardware
 
@@ -65,197 +442,153 @@
 - NumPy
 - OpenCV
 - PyYAML
+- Docker
 - Git
 
-Future integration may additionally use:
+Additional integration targets:
 
-- `orca_core`
 - `dex-retargeting`
 - Pinocchio
 - SciPy optimization tools
+- `orca_core` for physical ORCA Hand control
 
 ---
 
-## 3. Planned Teleoperation Pipeline
+## 5. Teleoperation Pipeline
 
 ```text
 Intel RealSense D435i
-        │
-        ▼
-RGB / Aligned Depth Images
-        │
-        ▼
-MediaPipe Hand Detection
-        │
-        ├── 21×2 image landmarks
-        ├── 21×3 hand landmarks
-        └── hand tracking status
-        │
-        ▼
-Coordinate and Hand-Frame Processing
-        │
-        ├── wrist-centered coordinates
-        ├── scale normalization
-        ├── depth-based 3D reconstruction
-        └── temporal validity checking
-        │
-        ▼
-Human Hand Representation
-        │
-        ├── human joint angles
-        └── task-space key vectors
-        │
-        ▼
-Human-to-ORCA Retargeting
-        │
-        ├── Direct joint-angle mapping
-        ├── AnyTeleop-style optimization
-        └── Proposed robust retargeting
-        │
-        ▼
-Command Safety and Filtering
-        │
-        ├── joint limits
-        ├── velocity limits
-        ├── command timeout
-        ├── tracking-loss handling
-        └── optional jitter suppression
-        │
-        ├──────────────────────────┐
-        ▼                          ▼
-Isaac Lab ORCA Hand       Physical ORCA Hand v2
-        │                          │
-        ▼                          ▼
-Applied / Actual State    Motor / Joint Feedback
-        └────────── Logging ───────┘
+        |
+        v
+RGB / aligned depth images
+        |
+        v
+MediaPipe hand detection
+        |
+        | 21 image / world landmarks
+        | tracking validity
+        v
+Human hand representation
+        |
+        | human joint angles
+        | task-space vectors
+        v
+Human-to-ORCA retargeting
+        |
+        | direct mapping baseline
+        | AnyTeleop-style VectorOptimizer baseline
+        | proposed robust retargeting
+        v
+Command safety and filtering
+        |
+        | joint limits
+        | velocity limits
+        | command timeout
+        | tracking-loss handling
+        | jitter suppression
+        |
+        +-----------------------------+
+        |                             |
+        v                             v
+Isaac Lab ORCA Hand          Physical ORCA Hand v2
+        |                             |
+        v                             v
+q_desired / q_command /      motor / joint feedback
+q_actual logging             and safety events
 ```
 
 ---
 
-## 4. Current Progress
+## 6. Repository Structure
 
-### Completed
-
-* [x] RealSense D435i RGB-D image acquisition
-* [x] MediaPipe 21-landmark hand tracking
-* [x] Human finger joint-angle calculation
-* [x] Direct joint-angle mapping for Shadow Hand
-* [x] Real-time UDP communication with Isaac Lab
-* [x] Shadow Hand real-time control in Isaac Lab
-* [x] Robot raw target and filtered target logging
-* [x] Isaac applied target logging
-* [x] Isaac actual joint position logging
-* [x] Timestamp and communication-delay logging
-* [x] Daubechies db4 wavelet jitter analysis
-* [x] Preliminary filtering experiments
-
-### In Progress
-
-* [ ] Clone and inspect the official ORCA Hand description repository
-* [ ] Audit the ORCA Hand v2 Right URDF
-* [ ] Resolve URDF mesh paths
-* [ ] Convert ORCA Hand v2 URDF to USD
-* [ ] Import ORCA Hand v2 into Isaac Sim
-* [ ] Verify the 17 ORCA joints in Isaac Lab
-* [ ] Build an ORCA semantic joint mapping table
-* [ ] Implement individual joint sweep tests
-
-### Future Work
-
-* [ ] Implement MediaPipe-to-ORCA direct joint mapping
-* [ ] Integrate AnyTeleop-style optimization-based retargeting
-* [ ] Compare joint mapping and task-space retargeting
-* [ ] Integrate the physical ORCA Hand through `orca_core`
-* [ ] Compare simulated and physical ORCA joint responses
-* [ ] Design uncertainty-aware and jitter-aware retargeting
-* [ ] Perform basic grasping and pinching experiments
-
----
-
-## 5. Repository Structure
+Implemented or currently present files:
 
 ```text
-orca_isaaclab_import/
+repo_inspect/
 ├── README.md
 ├── THIRD_PARTY_VERSIONS.md
-├── .gitignore
-│
-├── external/
-│   └── orcahand_description/
-│       └── Official ORCA Hand description repository
+├── requirements-research.txt
 │
 ├── assets/
-│   ├── urdf_work/
-│   │   └── Modified URDF copies for Isaac Sim
-│   └── usd/
-│       └── Generated Isaac Sim USD assets
+│   └── urdf_work/
+│       └── retarget/
+│           └── orcahand_right_retarget.urdf
 │
 ├── config/
-│   ├── orca_v2_joint_bridge.yaml
-│   ├── orca_v2_actuators.yaml
-│   ├── orca_direct_mapping.yaml
-│   └── orca_anyteleop_retargeting.yaml
+│   ├── orca_v2_joint_semantics.yaml
+│   ├── orca_v2_retarget_frames.yaml
+│   ├── research_orca_quality.yaml
+│   └── retargeting/
+│       ├── orca_v2_right_vector.yml
+│       ├── orca_v2_right_vector_virtual_tip.yml
+│       └── orca_v2_vector_alignment_virtual_tip.yaml
 │
-├── tools/
-│   ├── audit_orca_v2_urdf.py
-│   ├── convert_orca_urdf.py
-│   ├── inspect_orca_usd.py
-│   ├── sweep_isaac_orca_joints.py
-│   └── compare_orca_joint_names.py
+├── docker/
+│   └── retarget/
+│       └── Dockerfile
+│
+├── docs/
+│   ├── ANYTELEOP_ORCA_PROGRESS_20260812.md
+│   ├── ORCA_RESEARCH_FRAMEWORK.md
+│   └── ORCA_V2_URDF_IMPORT_STATUS.md
 │
 ├── isaaclab/
-│   ├── orca_hand_cfg.py
-│   ├── run_orca_hand.py
-│   └── orca_udp_receiver.py
+│   ├── orca_anyteleop_client.py
+│   └── orca_hand_cfg.py
 │
-├── hpe/
-│   ├── mediapipe_source.py
-│   ├── depth3d.py
-│   └── hand_frame.py
+├── research/
+│   └── orca_research/
+│       ├── filters.py
+│       ├── io.py
+│       ├── metrics.py
+│       ├── noise.py
+│       └── reporting.py
 │
-├── retargeting/
-│   ├── direct_mapping.py
-│   ├── anyteleop_optimizer.py
-│   └── robust_optimizer.py
+├── scripts/
+│   ├── analyze_orca_demo_quality.py
+│   ├── compare_raw_purified_demo.py
+│   ├── generate_sample_isaac_client_jsonl.py
+│   ├── generate_synthetic_orca_demo.py
+│   ├── inject_orca_jitter.py
+│   ├── purify_orca_demo.py
+│   ├── record_orca_udp_packets.py
+│   └── replay_orca_demo_isaac.py
 │
-├── safety/
-│   ├── command_limiter.py
-│   └── watchdog.py
+├── teleop/
+│   ├── orca_anyteleop_server.py
+│   ├── send_orca_named_joint_sweep.py
+│   └── send_orca_static_test.py
 │
-├── recording/
-│   └── full_recorder.py
-│
-├── analysis/
-│   ├── joint_response_analysis.py
-│   ├── jitter_analysis.py
-│   ├── latency_analysis.py
-│   └── sim_real_comparison.py
-│
-└── logs/
-    └── Generated experiment logs
+└── tools/
+    ├── build_orca_retarget_urdf.py
+    ├── calibrate_orca_vector_alignment.py
+    ├── inspect_orca_fingertip_meshes.py
+    ├── inspect_orca_robot_vectors.py
+    ├── inspect_orca_usd.py
+    ├── sanitize_orca_urdf_assets.py
+    ├── test_continuous_hand_tracking.py
+    ├── test_orca_dex_config.py
+    └── test_orca_dex_retarget_once.py
 ```
 
-Not all directories and files have been implemented yet. The structure above represents the planned modular architecture.
+Generated files and large experimental outputs should remain untracked:
+
+- `data/`
+- `results/`
+- `logs/`
+- `outputs/`
+- `assets/usd/`
+- `assets/urdf_work/isaac_package/`
+- external repositories under `external/`
 
 ---
 
-## 6. Third-Party ORCA Hand Description
+## 7. ORCA Model and Joint Audit
 
 The official ORCA Hand model is obtained from:
 
 ```text
 https://github.com/orcahand/orcahand_description
-```
-
-Clone the repository into the `external/` directory:
-
-```bash
-mkdir -p ~/Projects/orca_isaaclab_import/external
-
-cd ~/Projects/orca_isaaclab_import/external
-
-git clone \
-  https://github.com/orcahand/orcahand_description.git
 ```
 
 The target model is:
@@ -264,482 +597,275 @@ The target model is:
 ORCA Hand v2 Right
 ```
 
-The expected URDF is located under the `v2` directory. Confirm its actual path with:
+The ORCA URDF describes links, kinematic joints, joint axes, joint limits,
+visual meshes, mass and inertia. It does not fully define every control-side
+semantic required for teleoperation:
 
-```bash
-find \
-  ~/Projects/orca_isaaclab_import/external/orcahand_description/v2 \
-  -type f \
-  \( -iname "*.urdf" -o -iname "*.xacro" \) \
-  | sort
-```
+- ORCA semantic joint names
+- FeeTech motor IDs
+- HL2915 / HL3930 assignments
+- motor inversion
+- hardware neutral positions
+- tendon calibration
+- physical joint range of motion
+- Isaac joint ordering
+- sim-to-real direction consistency
 
-The entire repository should be retained because the URDF references external mesh assets. Downloading only the `.urdf` file may result in missing visual meshes.
-
----
-
-## 7. Environment Variables
-
-The following environment variables can be used for convenience:
-
-```bash
-export ORCA_PROJECT=~/Projects/orca_isaaclab_import
-
-export ORCA_DESC=\
-$ORCA_PROJECT/external/orcahand_description
-
-export ORCA_URDF=\
-$ORCA_DESC/v2/models/urdf/orcahand_right.urdf
-```
-
-Check whether the URDF exists:
-
-```bash
-test -f "$ORCA_URDF" \
-  && echo "[OK] ORCA URDF found: $ORCA_URDF" \
-  || echo "[ERROR] ORCA URDF not found"
-```
-
-Check whether the URDF contains ROS package paths:
-
-```bash
-grep -n "package://" "$ORCA_URDF" | head -20
-```
-
-Check available mesh assets:
-
-```bash
-find "$ORCA_DESC/v2" \
-  -type f \
-  \( -iname "*.stl" \
-     -o -iname "*.obj" \
-     -o -iname "*.dae" \) \
-  | head -30
-```
-
----
-
-## 8. Isaac Lab URDF Conversion
-
-The exact URDF conversion script path depends on the installed Isaac Lab version.
-
-Locate the conversion script:
-
-```bash
-cd ~/IsaacLab
-
-find . -type f -name "convert_urdf.py"
-```
-
-Inspect the available arguments:
-
-```bash
-./isaaclab.sh -p \
-  <PATH_TO_CONVERT_URDF_PY> \
-  --help
-```
-
-The first ORCA conversion should use the following principles:
-
-* Use the ORCA Hand v2 Right URDF
-* Fix the base of the hand
-* Do not connect MediaPipe during the first import
-* Do not immediately trust the imported actuator parameters
-* Do not initially merge all fixed joints
-* Verify mesh paths before conversion
-* Preserve the original URDF and modify only a copied version
-
-If a working URDF copy is required:
-
-```bash
-cp "$ORCA_URDF" \
-  "$ORCA_PROJECT/assets/urdf_work/orcahand_right_isaac.urdf"
-```
-
-All Isaac-specific changes should be made to this copied file rather than the official file inside `external/orcahand_description`.
-
----
-
-## 9. ORCA Joint Audit
-
-Finding the official URDF does not eliminate the need for joint auditing.
-
-The ORCA URDF describes:
-
-* Links
-* Kinematic joints
-* Joint axes
-* Joint limits
-* Visual meshes
-* Mass and inertia information
-
-However, it does not fully define:
-
-* ORCA semantic joint names
-* FeeTech motor IDs
-* HL2915 / HL3930 assignments
-* Motor inversion
-* Hardware neutral positions
-* Tendon calibration
-* Physical joint ROM
-* Isaac joint ordering
-* Sim-to-real direction consistency
-
-The project therefore requires alignment among four representations:
+The project therefore needs alignment among:
 
 ```text
 MediaPipe human-hand representation
-        ↕
+        |
+        v
 ORCA URDF kinematic joints
-        ↕
+        |
+        v
 Isaac Lab articulation joints
-        ↕
+        |
+        v
 orca_core semantic joints and FeeTech motors
 ```
 
-The final joint bridge is expected to be stored in:
+Current supporting files:
+
+- `config/orca_v2_joint_semantics.yaml`
+- `config/orca_v2_retarget_frames.yaml`
+- `tools/inspect_orca_usd.py`
+- `tools/build_orca_retarget_urdf.py`
+- `tools/sanitize_orca_urdf_assets.py`
+
+---
+
+## 8. AnyTeleop-Style Retargeting Baseline
+
+The current baseline uses `dex-retargeting` and its VectorOptimizer-style
+task-space retargeting. Instead of directly mapping human joint angles to robot
+joint angles, the optimizer compares task-space vectors between the human hand
+and the robot hand.
+
+Conceptually:
 
 ```text
-config/orca_v2_joint_bridge.yaml
+human reference vectors
+        |
+        v
+scale / frame alignment
+        |
+        v
+VectorOptimizer
+        |
+        v
+ORCA qpos
 ```
 
-Example structure:
+Example robot vectors:
 
-```yaml
-joints:
-  - semantic_name: wrist
-    urdf_name: null
-    isaac_name: null
-    isaac_index: null
-    motor_id: null
-    motor_type: HL3930
-    hardware_inverted: false
-    lower_rad: null
-    upper_rad: null
-    neutral_rad: null
+- palm to thumb tip
+- palm to index tip
+- palm to middle tip
+- palm to ring tip
+- palm to pinky tip
+- intermediate finger segment vectors
+- thumb-index pinch vector
 
-  - semantic_name: thumb_cmc
-    urdf_name: null
-    isaac_name: null
-    isaac_index: null
-    motor_id: null
-    motor_type: null
-    hardware_inverted: null
-    lower_rad: null
-    upper_rad: null
-    neutral_rad: null
-```
+Current retargeting configs:
 
-The values should be filled only after inspecting the URDF, Isaac articulation and physical hardware.
+- `config/retargeting/orca_v2_right_vector.yml`
+- `config/retargeting/orca_v2_right_vector_virtual_tip.yml`
+- `config/retargeting/orca_v2_vector_alignment_virtual_tip.yaml`
 
----
-
-## 10. First Validation Milestone
-
-### Completed
-
-- [x] Import ORCA Hand v2 Right URDF into Isaac Sim
-- [x] Resolve invalid USD mesh-name import issue
-- [x] Verify ORCA Hand v2 17-DoF articulation
-- [x] Build containerized dex-retargeting environment
-- [x] Pin AnyTeleop-derived dex-retargeting implementation
-- [x] Resolve PyTorch dependency
-- [x] Resolve MediaPipe compatibility
-- [x] Access RealSense camera from the Docker container
-- [x] Create ORCA-specific VectorOptimizer configuration
-- [x] Create AnyTeleop-style UDP retargeting server
-- [x] Create Isaac Lab ORCA teleoperation client
-- [x] Complete 17-joint dex-retargeting-to-Isaac name mapping
-- [x] Deliver the first retargeted ORCA command to Isaac Sim
-- [x] Resolve Isaac viewport navigation issue
-
-### In Progress
-
-- [ ] Verify continuous MediaPipe hand tracking
-- [ ] Verify continuous UDP command transmission
-- [ ] Debug initial ORCA hand contraction
-- [ ] Define ORCA open-hand optimizer initialization
-- [ ] Calibrate VectorOptimizer scaling
-- [ ] Verify all retargeted finger motions
-- [ ] Add full pipeline logging
-- [ ] Evaluate retargeting latency and jitter
-
-### Future
-
-- [ ] Integrate sim-web-visualizer
-- [ ] Integrate the physical ORCA Hand v2
-- [ ] Compare simulation and physical joint responses
-- [ ] Add robustness and jitter-suppression methods
-
----
-
-## 11. Planned Retargeting Methods
-
-Three retargeting methods are planned.
-
-### Method A: Direct Joint-Angle Mapping
+Current known issue:
 
 ```text
-Human joint angles
-        ↓
-Scale and offset
-        ↓
-ORCA joint targets
+First valid retargeting command
+        |
+        v
+ORCA Hand quickly flexes / contracts
+        |
+        v
+The hand then appears to stop following human motion
 ```
 
-This method will serve as the baseline.
+Likely causes:
 
-### Method B: AnyTeleop-Style Optimization
-
-The robot joint state will be optimized according to human and robot task-space vectors:
-
-```math
-q_t^*
-=
-\arg\min_q
-\left[
-\sum_i
-w_i
-\left\|
-\alpha v_i^{human}
--
-v_i^{robot}(q)
-\right\|^2
-+
-\beta
-\left\|
-q-q_{t-1}
-\right\|^2
-\right]
-```
-
-subject to:
-
-```math
-q_{\min}\le q\le q_{\max}
-```
-
-The vectors may include:
-
-* Palm-to-fingertip vectors
-* Finger-base-to-fingertip vectors
-* Thumb-to-index pinch vector
-* Thumb-to-middle pinch vector
-* Finger direction vectors
-* Finger-abduction relationships
-
-### Method C: Proposed Robust Retargeting
-
-The proposed method may additionally use:
-
-* Landmark validity
-* Depth validity
-* Temporal consistency
-* Huber loss
-* Adaptive temporal regularization
-* Per-joint confidence weights
-* Jitter-aware filtering
-* Tendon-driven response compensation
+- `SeqRetargeting` initial qpos is not calibrated to ORCA open-hand pose。
+- vector scale mismatch。
+- frame alignment mismatch。
+- MediaPipe tracking validity after first frame。
+- camera stream selection。
+- command update frequency。
+- retargeting low-pass behavior。
 
 ---
 
-## 12. Planned Evaluation
+## 9. Recording and Analysis
 
-### Pose Tracking
-
-* Open hand
-* Closed fist
-* Individual finger flexion
-* Finger abduction
-* Thumb opposition
-* Thumb-index pinch
-* Three-finger pinch
-
-### Static Jitter
-
-The user maintains a fixed gesture for 20–30 seconds.
-
-Analysis will include:
-
-* Landmark standard deviation
-* Human-angle jitter
-* Retargeting-target jitter
-* Isaac actual-joint jitter
-* RMS
-* Power spectral density
-* Daubechies db4 wavelet coefficients
-
-### Dynamic Response
-
-* Open hand to fist
-* Open hand to pinch
-* Slow and fast finger flexion
-
-Metrics:
-
-* End-to-end latency
-* Rise time
-* Settling time
-* Overshoot
-* Trajectory RMSE
-* Phase delay
-
-### Basic Manipulation
-
-Future task examples:
-
-* Cylindrical power grasp
-* Cube grasp
-* Small-object pinch
-* Cup grasp
-* Object pick-and-place
-
----
-
-## 13. Git and Dependency Policy
-
-The official ORCA repository is treated as an external dependency:
+The Isaac Lab client can record one row per simulation step:
 
 ```text
-external/orcahand_description/
+t_sim
+timestamp
+seq
+packet_timestamp
+tracking_valid
+joint_names
+q_desired
+q_command
+q_actual
 ```
 
-It is not directly included in this repository's Git history.
+Definitions:
 
-The exact third-party version is recorded in:
+- `q_desired`: latest retargeting command after joint-limit clamping。
+- `q_command`: command sent to Isaac after slew-rate limiting。
+- `q_actual`: PhysX articulation joint position。
 
-```text
-THIRD_PARTY_VERSIONS.md
-```
+The retargeting server can record:
 
-Files expected to be committed:
+- MediaPipe validity。
+- raw human reference vectors。
+- aligned ORCA-frame reference vectors。
+- retargeted ORCA qpos。
 
-* Source code
-* Configuration files
-* Audit tools
-* Modified URDF copies
-* Isaac Lab asset configuration
-* Documentation
-* Analysis scripts
-* Small reproducible examples
+Implemented quality metrics:
 
-Files normally excluded:
+- position RMS。
+- velocity RMS。
+- acceleration RMS。
+- jerk RMS。
+- total variation。
+- high-frequency energy ratio。
+- spectral entropy。
+- tracking RMSE / MAE / max absolute error when `q_actual` is available。
 
-* External repositories
-* Generated USD files
-* Isaac and Omniverse caches
-* Virtual environments
-* Large CSV logs
-* Videos
-* ROS bags
-* Temporary outputs
+Implemented purification methods:
 
----
-
-## 14. Safety Notice
-
-The current development stage focuses on simulation.
-
-Before connecting the physical ORCA Hand, the following must be implemented and verified:
-
-* Joint-limit enforcement
-* Velocity limits
-* Command timeout
-* Tracking-loss watchdog
-* NaN and invalid-command rejection
-* Motor-current monitoring
-* Motor-temperature monitoring
-* Emergency stop
-* Safe neutral or open-hand behavior
-* Tendon calibration and tension verification
-
-MediaPipe or optimizer output must not be sent directly to the physical ORCA Hand without a safety layer.
-
----
-
-## 15. Research Direction
-
-The current proposed thesis direction is:
-
-> Robust vision-based teleoperation of the ORCA Hand v2 using uncertainty-aware retargeting and joint-jitter suppression.
-
-A possible Chinese title is:
-
-> 結合不確定性感知重定向與關節抖動抑制之 ORCA Hand v2 裸手視覺即時遙操作系統
-
-A possible English title is:
-
-> An AnyTeleop-Inspired Robust Vision-Based Teleoperation Pipeline for the ORCA Hand v2
-
-## 15.1 Demonstration Quality Research Framework
-
-A first-version research framework has been added for focused ORCA Hand v2
-Right teleoperation demonstration quality analysis and purification.
-
-It currently focuses on:
-
-```text
-AnyTeleop-style ORCA retargeting
-  -> IsaacLab ORCA v2 right recording
-  -> offline signal-quality analysis
-  -> jitter injection benchmark
-  -> baseline purification methods
-  -> raw vs purified comparison
-  -> UDP trajectory replay
-```
-
-This first version intentionally excludes MuJoCo comparison and across-hand
-transfer so that the initial experiments remain executable and measurable.
+- `none`
+- `moving_average`
+- `median`
+- `savgol`
+- `butterworth`
+- `outlier_then_butterworth`
+- `velocity_clamp`
 
 See:
 
-```text
-docs/ORCA_RESEARCH_FRAMEWORK.md
+- `docs/ORCA_RESEARCH_FRAMEWORK.md`
+- `config/research_orca_quality.yaml`
+
+---
+
+## 10. Common Commands
+
+Run the Isaac Lab ORCA teleoperation client:
+
+```bash
+cd /home/lab606/Projects/orca_isaaclab_import
+
+/home/lab606/IsaacLab/isaaclab.sh -p isaaclab/orca_anyteleop_client.py \
+  --udp-host 0.0.0.0 \
+  --udp-port 5006 \
+  --record-path data/raw/isaac_client_session.jsonl
+```
+
+Run the retargeting server inside the dex-retargeting Docker environment:
+
+```bash
+python teleop/orca_anyteleop_server.py \
+  --config config/retargeting/orca_v2_right_vector.yml \
+  --alignment-config config/retargeting/orca_v2_vector_alignment_virtual_tip.yaml \
+  --host 127.0.0.1 \
+  --port 5006 \
+  --camera /dev/video4 \
+  --hand-type Right \
+  --record-path data/raw/teleop_server_session.jsonl
+```
+
+Send a static test command:
+
+```bash
+python teleop/send_orca_static_test.py \
+  --host 127.0.0.1 \
+  --port 5006
+```
+
+Send named joint sweep commands:
+
+```bash
+python teleop/send_orca_named_joint_sweep.py \
+  --host 127.0.0.1 \
+  --port 5006
+```
+
+Analyze a recorded Isaac session:
+
+```bash
+python scripts/analyze_orca_demo_quality.py \
+  --input data/raw/isaac_client_session.jsonl \
+  --trajectory-key q_command \
+  --output-dir results/isaac_client_quality
+```
+
+Purify a recorded trajectory:
+
+```bash
+python scripts/purify_orca_demo.py \
+  --input data/raw/isaac_client_session.jsonl \
+  --output data/processed/isaac_client_session_purified.npz \
+  --trajectory-key q_command \
+  --method outlier_then_butterworth \
+  --cutoff-hz 6.0 \
+  --figure results/isaac_client_purified_preview.png
+```
+
+Compare raw and purified trajectories:
+
+```bash
+python scripts/compare_raw_purified_demo.py \
+  --raw data/raw/isaac_client_session.jsonl \
+  --purified data/processed/isaac_client_session_purified.npz \
+  --trajectory-key q_command \
+  --output-dir results/isaac_client_raw_vs_purified
+```
+
+Replay a saved trajectory into Isaac through UDP:
+
+```bash
+python scripts/replay_orca_demo_isaac.py \
+  --input data/processed/isaac_client_session_purified.npz \
+  --trajectory-key q_command \
+  --host 127.0.0.1 \
+  --port 5006
 ```
 
 ---
 
-## 16. References
+## 11. Safety Notice
 
-The project is conceptually inspired by:
+The current development stage focuses on simulation and baseline reproduction.
 
-* DexPilot: Vision-Based Teleoperation of Dexterous Robotic Hand-Arm System
-* AnyTeleop: A General Vision-Based Dexterous Robot Arm-Hand Teleoperation System
+Before sending MediaPipe or optimizer outputs to the physical ORCA Hand, the
+following must be implemented and verified:
 
-Official ORCA resources:
+- joint-limit enforcement。
+- velocity limits。
+- command timeout。
+- tracking-loss watchdog。
+- NaN and invalid-command rejection。
+- motor-current monitoring if available。
+- motor-temperature monitoring if available。
+- emergency stop。
+- safe neutral or open-hand behavior。
+- tendon calibration and tension verification。
 
-* ORCA Hand description:
-  `https://github.com/orcahand/orcahand_description`
-* ORCA Hand core:
-  `https://github.com/orcahand/orca_core`
-
-Additional references and exact dependency versions are recorded in:
-
-```text
-THIRD_PARTY_VERSIONS.md
-```
+MediaPipe or optimizer output must not be sent directly to the physical ORCA Hand
+without a safety layer.
 
 ---
 
-## 17. Project Status
+## 12. Development Environment
 
-The project is currently at the **ORCA Hand v2 URDF import and model-audit stage**.
-
-The next immediate tasks are:
-
-1. Clone the official ORCA Hand description repository
-2. Locate and inspect the ORCA Hand v2 Right URDF
-3. Resolve all mesh paths
-4. Audit URDF joints, limits and geometry
-5. Convert the URDF into USD
-6. Import the model into Isaac Sim
-7. Verify every controllable joint through individual joint sweeps
-
-
-
-另外，你可以在 README 最前面或最後面加入一段目前實際使用版本，等你確認後再填入：
-
-## Development Environment
+Current known environment:
 
 - Operating system: Ubuntu 22.04.5 LTS
 - GPU: NVIDIA GeForce RTX 3060
@@ -749,10 +875,56 @@ The next immediate tasks are:
 - Isaac Lab version: 2.3.2
 - Isaac Lab branch: main
 - Isaac Lab commit: training-checkpoints-develop-16-gb4c3210247
-- URDF importer 2.4.31
+- URDF importer: 2.4.31
 - Host Python: 3.10.12
-- Isaac runtime Python 3.11
+- Isaac runtime Python: 3.11
 - ORCA description commit: b9b349a21ee0238c62b6cf92ae7597027867adf8
 
+Keep this section consistent with `THIRD_PARTY_VERSIONS.md`.
 
-這些內容之後應與 `THIRD_PARTY_VERSIONS.md` 保持一致。
+---
+
+## 13. References
+
+Conceptual references:
+
+- DexPilot: Vision-Based Teleoperation of Dexterous Robotic Hand-Arm System
+- AnyTeleop: A General Vision-Based Dexterous Robot Arm-Hand Teleoperation System
+
+Official ORCA resources:
+
+- ORCA Hand description: `https://github.com/orcahand/orcahand_description`
+- ORCA Hand core: `https://github.com/orcahand/orca_core`
+
+Dependency versions are recorded in:
+
+```text
+THIRD_PARTY_VERSIONS.md
+```
+
+---
+
+## 14. Git Policy
+
+Commit:
+
+- source code
+- configuration files
+- audit tools
+- modified URDF working copies
+- Isaac Lab asset configuration
+- documentation
+- analysis scripts
+- small reproducible examples
+
+Do not commit:
+
+- external repositories
+- generated datasets
+- generated figures
+- videos
+- Isaac / Omniverse caches
+- ROS bags
+- large logs
+- virtual environments
+
