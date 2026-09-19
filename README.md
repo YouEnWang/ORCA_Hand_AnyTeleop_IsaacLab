@@ -202,6 +202,26 @@ joint-level response baseline。
 
 目標：明確復現 AnyTeleop 的 hand-only baseline，並將其移植到 ORCA Hand v2。
 
+```bash
+## 建立 Gate 3 container
+docker run -it \
+  --name orca-anyteleop-gate3 \
+  --network host \
+  --ipc host \
+  --privileged \
+  -e DISPLAY="$DISPLAY" \
+  -e QT_X11_NO_MITSHM=1 \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  -v "$PWD":/workspace/project \
+  -v "$PWD/external/orcahand_description":/workspace/orcahand_description:ro \
+  --workdir /workspace/project \
+  --entrypoint /bin/bash \
+  orca-anyteleop-retarget:0.3
+
+## 之後若要重新進入 Gate 3 container
+docker start -ai orca-anyteleop-gate3
+```
+
 #### Gate 3A — AnyTeleop Hand-Only Reproduction in Isaac
 
 Pipeline:

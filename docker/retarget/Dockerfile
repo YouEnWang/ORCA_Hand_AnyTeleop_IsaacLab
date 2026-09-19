@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglib2.0-0 \
     libzmq3-dev \
+    libusb-1.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
@@ -88,6 +89,20 @@ RUN python -m pip install --upgrade \
 
 
 # ============================================================
+# Intel RealSense
+#
+# pyrealsense2 is required for the D435i perception pipeline
+# used starting from Gate 3.
+#
+# libusb-1.0-0 is installed above as its runtime dependency.
+# Pin the version for experiment reproducibility.
+# ============================================================
+
+RUN python -m pip install --no-cache-dir \
+    "pyrealsense2==2.58.4.10922"
+
+
+# ============================================================
 # Additional packages for our AnyTeleop-style server
 # ============================================================
 
@@ -108,6 +123,7 @@ import cv2
 import mediapipe as mp
 import mediapipe.framework
 import dex_retargeting
+import pyrealsense2 as rs
 
 print("=" * 70)
 print("AnyTeleop Retargeting Container")
@@ -119,11 +135,13 @@ print("Torch:", torch.__version__)
 print("OpenCV:", cv2.__version__)
 print("MediaPipe:", mp.__version__)
 print("dex_retargeting:", dex_retargeting.__file__)
+print("pyrealsense2:", rs)
 
 assert mp.__version__ == "0.10.21"
 
 print("[PASS] mediapipe.framework import succeeded")
 print("[PASS] dex-retargeting import succeeded")
+print("[PASS] pyrealsense2 import succeeded")
 PY
 
 

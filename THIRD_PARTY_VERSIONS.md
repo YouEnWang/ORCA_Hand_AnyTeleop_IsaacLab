@@ -47,5 +47,14 @@
 - dex-retargeting:
   `3f56141bc8bd2760d5e452e382937269554ebb21`
 
+## Gate 3 Vision Environment
+
+- Docker image: `orca-anyteleop-retarget:0.3`
+- Python: 3.10
+- MediaPipe: 0.10.21
+- NumPy: 2.2.6
+- pyrealsense2: 2.58.4.10922
+- dex-retargeting: `3f56141bc8bd2760d5e452e382937269554ebb21`
+
 The retargeting environment is intentionally isolated from the
 Isaac Lab Python environment.
