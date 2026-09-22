@@ -1,3 +1,16 @@
+# LEGACY CONFIG
+#
+# This configuration is retained for historical reproducibility.
+# Gate 3 and later experiments use:
+#
+#   orca_v2_right_vector_virtual_tip.yml
+#
+# together with:
+#
+#   orca_v2_vector_alignment_virtual_tip.yaml
+#
+# Do not use this file for new Gate 3 experiments.
+
 retargeting:
   type: vector
 

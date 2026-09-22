@@ -25,12 +25,12 @@ retargeting:
     - I-PP_bacbd481_to_I-AP-R_d95d02d1
     - I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481
 
-    # Middle
+    # Ring (CAD 6ec / 866 / 424 chain)
     - M-AP_6ec59111_to_R-Carpals_8d1f1041
     - M-PP_8660a1eb_to_M-AP_6ec59111
     - M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb
 
-    # Ring
+    # Middle (CAD e04 / 08 / 34 chain)
     - M-AP_e04a96f2_to_R-Carpals_8d1f1041
     - M-PP_08efa608_to_M-AP_e04a96f2
     - M-FingerTipAssembly_34afb748_to_M-PP_08efa608
