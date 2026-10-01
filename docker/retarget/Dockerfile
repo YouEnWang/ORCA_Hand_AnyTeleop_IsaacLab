@@ -5,6 +5,14 @@ ENV PYTHONUNBUFFERED=1
 
 # ============================================================
 # System dependencies
+#
+# libusb-1.0-0:
+#   Required by pyrealsense2 / Intel RealSense.
+#
+# libx11-xcb1, libxcb-*, libxkbcommon-x11-0,
+# libsm6, libice6:
+#   Required by OpenCV Qt/xcb GUI backend so that cv2.imshow()
+#   can display the MediaPipe hand skeleton from inside Docker.
 # ============================================================
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -14,6 +22,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     libzmq3-dev \
     libusb-1.0-0 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcb-render0 \
+    libxcb-render-util0 \
+    libxcb-shape0 \
+    libxcb-shm0 \
+    libxcb-xfixes0 \
+    libxcb-sync1 \
+    libxcb-randr0 \
+    libxcb-image0 \
+    libxcb-keysyms1 \
+    libxcb-icccm4 \
+    libxcb-xinerama0 \
+    libxcb-cursor0 \
+    libxkbcommon-x11-0 \
+    libsm6 \
+    libice6 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
